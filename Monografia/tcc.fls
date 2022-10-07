@@ -880,227 +880,216 @@ INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryplothandlers.c
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\modules\pgfmodulematrix.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\pgf\frontendlayer\tikz.sty
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryangles.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryangles.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryarrows.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryarrows.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarybackgrounds.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarybackgrounds.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\modules\pgfmoduledecorations.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.markings.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.markings.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.markings.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.markings.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.pathreplacing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.pathreplacing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.pathreplacing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.pathreplacing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.shapes.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.shapes.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.shapes.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.shapes.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.text.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.text.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.text.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.text.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.pathmorphing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarydecorations.pathmorphing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.pathmorphing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\decorations\pgflibrarydecorations.pathmorphing.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryintersections.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryintersections.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryintersections.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryintersections.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryfpu.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryfpu.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarymath.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarymath.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryfpu.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryfpu.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryplotmarks.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryplotmarks.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryplotmarks.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\pgflibraryplotmarks.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarypositioning.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarypositioning.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryquotes.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryquotes.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.misc.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.misc.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\shapes\pgflibraryshapes.misc.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\libraries\shapes\pgflibraryshapes.misc.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarythrough.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarythrough.code.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xfp\xfp.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\xpatch\xpatch.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\translations.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\etoolbox\etoolbox.sty
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.cfg
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.cfg
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.cfg
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-euclide.cfg
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-base.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-base.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-base.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-base.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-utilities.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-utilities.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-utilities.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-utilities.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-BB.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-BB.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-BB.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-BB.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-grids.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-grids.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-grids.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-grids.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-marks.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-marks.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-marks.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-marks.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-text.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-text.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-text.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-text.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-shape.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-shape.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-shape.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-lib-eu-shape.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-axesmin.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-axesmin.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-axesmin.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-axesmin.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-colors.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-colors.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-colors.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-colors.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-points.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-intersections.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-intersections.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-intersections.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-intersections.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-intersections.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-intersections.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-intersections.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-math.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-math.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-math.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-tools-eu-math.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-compass.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-compass.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-compass.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-compass.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles-by.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles-by.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles-by.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-circles-by.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-angles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-circles.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-lines.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-lines.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-lines.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-lines.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-polygons.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-polygons.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-polygons.tex
-INPUT C:\Program Files\MiKTeX\tex\latex\tkz-euclide\tkz-obj-eu-draw-polygons.tex
+INPUT C:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\tools\array.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT .\tcc.aux
+INPUT tcc.aux
+INPUT tcc.aux
+INPUT .\capitulos\capitulo1.aux
+INPUT capitulos\capitulo1.aux
+INPUT capitulos\capitulo1.aux
+INPUT .\capitulos\capitulo2.aux
+INPUT capitulos\capitulo2.aux
+INPUT capitulos\capitulo2.aux
+INPUT .\capitulos\capitulo3.aux
+INPUT capitulos\capitulo3.aux
+INPUT capitulos\capitulo3.aux
+INPUT .\capitulos\capitulo4.aux
+INPUT capitulos\capitulo4.aux
+INPUT capitulos\capitulo4.aux
+INPUT .\capitulos\capitulo5.aux
+INPUT capitulos\capitulo5.aux
+INPUT capitulos\capitulo5.aux
+OUTPUT tcc.aux
+OUTPUT tcc.pdf
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\color.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-brazil.trsl
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-brazil.trsl
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-brazil.trsl
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-brazil.trsl
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
+INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT .\capitulos\capitulo1.tex
+INPUT .\capitulos\capitulo1.tex
+INPUT .\capitulos\capitulo1.tex
+INPUT C:\Users\alexa\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+OUTPUT capitulos\capitulo1.aux
+INPUT .\capitulos\capitulo1.tex
+INPUT .\capitulos\capitulo1.tex
+INPUT .\capitulos\capitulo1.tex
+INPUT capitulos\capitulo1.tex
+INPUT .\capitulos\capitulo1.tex
+INPUT capitulos\capitulo1.tex
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss17.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT .\figuras\tanques_comunicantes.tikz
+INPUT figuras\tanques_comunicantes.tikz
+INPUT .\figuras\tanques_comunicantes.tikz
+INPUT figuras\tanques_comunicantes.tikz
+INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
+INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+OUTPUT capitulos\capitulo2.aux
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT capitulos\capitulo2.tex
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT .\capitulos\capitulo3.tex
+INPUT .\capitulos\capitulo3.tex
+INPUT .\capitulos\capitulo3.tex
+OUTPUT capitulos\capitulo3.aux
+INPUT .\capitulos\capitulo3.tex
+INPUT .\capitulos\capitulo3.tex
+INPUT .\capitulos\capitulo3.tex
+INPUT capitulos\capitulo3.tex
+INPUT .\capitulos\capitulo3.tex
+INPUT capitulos\capitulo3.tex
+INPUT .\capitulos\capitulo4.tex
+INPUT .\capitulos\capitulo4.tex
+INPUT .\capitulos\capitulo4.tex
+OUTPUT capitulos\capitulo4.aux
+INPUT .\capitulos\capitulo4.tex
+INPUT .\capitulos\capitulo4.tex
+INPUT .\capitulos\capitulo4.tex
+INPUT capitulos\capitulo4.tex
+INPUT .\capitulos\capitulo4.tex
+INPUT capitulos\capitulo4.tex
+INPUT .\capitulos\capitulo5.tex
+INPUT .\capitulos\capitulo5.tex
+INPUT .\capitulos\capitulo5.tex
+OUTPUT capitulos\capitulo5.aux
+INPUT .\capitulos\capitulo5.tex
+INPUT .\capitulos\capitulo5.tex
+INPUT .\capitulos\capitulo5.tex
+INPUT capitulos\capitulo5.tex
+INPUT .\capitulos\capitulo5.tex
+INPUT capitulos\capitulo5.tex
+INPUT tcc.aux
+INPUT .\capitulos\capitulo1.aux
+INPUT capitulos\capitulo1.aux
+INPUT capitulos\capitulo1.aux
+INPUT .\capitulos\capitulo2.aux
+INPUT capitulos\capitulo2.aux
+INPUT capitulos\capitulo2.aux
+INPUT .\capitulos\capitulo3.aux
+INPUT capitulos\capitulo3.aux
+INPUT capitulos\capitulo3.aux
+INPUT .\capitulos\capitulo4.aux
+INPUT capitulos\capitulo4.aux
+INPUT capitulos\capitulo4.aux
+INPUT .\capitulos\capitulo5.aux
+INPUT capitulos\capitulo5.aux
+INPUT capitulos\capitulo5.aux
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmss17.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmss17.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb

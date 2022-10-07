@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.1)  1 OCT 2022 21:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.1)  6 OCT 2022 20:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -825,156 +825,156 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@expandcount=\count371
  (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-euclide.sty
-2022/09/21 4.24c tkz-euclide.sty
-Package: tkz-euclide  2022/09/21 4.24c for pure Euclidean Geometry 
-(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryangles.code.tex
-File: tikzlibraryangles.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen308
-)) (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowinset=\dimen309
-\pgfarrowlength=\dimen310
-\pgfarrowwidth=\dimen311
-\pgfarrowlinewidth=\dimen312
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarybackgrounds.code.tex
-File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@layerbox@background=\box70
-\pgf@layerboxsaved@background=\box71
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen313
-\pgfdecoratedremainingdistance=\dimen314
-\pgfdecoratedinputsegmentcompleteddistance=\dimen315
-\pgfdecoratedinputsegmentremainingdistance=\dimen316
-\pgf@decorate@distancetomove=\dimen317
-\pgf@decorate@repeatstate=\count372
-\pgfdecorationsegmentamplitude=\dimen318
-\pgfdecorationsegmentlength=\dimen319
+))) (C:\Program Files\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2022-09-07 v3.1.7 A comprehensive (SI) units package
+\l__siunitx_angle_tmp_dim=\dimen308
+\l__siunitx_angle_marker_box=\box70
+\l__siunitx_angle_unit_box=\box71
+\l__siunitx_compound_count_int=\count372
+ (C:\Program Files\MiKTeX\tex/latex/translations\translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
 )
-\tikz@lib@dec@box=\box72
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.markings.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.markings.code.tex)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathreplacing.code.tex)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.shapes.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.shapes.code.tex)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.text.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.text.code.tex
-\pgf@lib@dec@text@box=\box73
-)
-\tikz@lib@dec@te@box=\box74
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathmorphing.code.tex)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryintersections.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryintersections.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
-\pgf@intersect@solutions=\count373
-)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarymath.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfpu.code.tex)
-\tikz@math@for@depth=\count374
-\tikz@math@dimen=\dimen320
-\tikz@math@toks=\toks45
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryplotmarks.code.tex
-File: tikzlibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryplotmarks.code.tex
-File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryquotes.code.tex
-File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.misc.code.tex
-File: tikzlibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.misc.code.tex
-File: pgflibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarythrough.code.tex
-File: tikzlibrarythrough.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (C:\Program Files\MiKTeX\tex/latex/l3packages/xfp\xfp.sty (C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2022-08-30 L3 programming layer (loader) 
- (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+\l__siunitx_number_exponent_fixed_int=\count373
+\l__siunitx_number_min_decimal_int=\count374
+\l__siunitx_number_min_integer_int=\count375
+\l__siunitx_number_round_precision_int=\count376
+\l__siunitx_number_group_first_int=\count377
+\l__siunitx_number_group_size_int=\count378
+\l__siunitx_number_group_minimum_int=\count379
+\l__siunitx_table_tmp_box=\box72
+\l__siunitx_table_tmp_dim=\dimen309
+\l__siunitx_table_column_width_dim=\dimen310
+\l__siunitx_table_integer_box=\box73
+\l__siunitx_table_decimal_box=\box74
+\l__siunitx_table_before_box=\box75
+\l__siunitx_table_after_box=\box76
+\l__siunitx_table_before_dim=\dimen311
+\l__siunitx_table_carry_dim=\dimen312
+\l__siunitx_unit_tmp_int=\count380
+\l__siunitx_unit_position_int=\count381
+\l__siunitx_unit_total_int=\count382
+) (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count375
-\l__pdf_internal_box=\box75
-))
-Package: xfp 2022-06-22 L3 Floating point unit
-) (C:\Program Files\MiKTeX\tex/latex/xpatch\xpatch.sty
-Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
- (C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
-Package: xparse 2022-06-22 L3 Experimental document command parser
-))
-\tkzRadius=\dimen321
-\tkzLength=\dimen322
-\tkz@radi=\dimen323
-\tkz@ax=\dimen324
-\tkz@ay=\dimen325
-\tkz@bx=\dimen326
-\tkz@by=\dimen327
-\tkz@cx=\dimen328
-\tkz@cy=\dimen329
-\tkz@dx=\dimen330
-\tkz@dy=\dimen331
-\tkz@cntmk=\count376
+\l__color_backend_stack_int=\count383
+\l__pdf_internal_box=\box77
+) (tcc.aux (capitulos/capitulo1.aux) (capitulos/capitulo2.aux) (capitulos/capitulo3.aux) (capitulos/capitulo4.aux) (capitulos/capitulo5.aux))
+\openout1 = `tcc.aux'.
 
-Local configuration file tkz-euclide.cfg found and used
-(C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-euclide.cfg
-2022/09/21 4.24c tkz-euclide.cfg
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-base.tex
-2022/09/21 4.24c tkz-tools-eu-base.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-utilities.tex
-2022/09/21 4.24c tkz-tools-eu-utilities.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-BB.tex
-2022/09/21 4.24c tkz-obj-eu-BB.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-grids.tex
-2022/09/21 4.24c tkz-obj-eu-grids.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-lib-eu-marks.tex
-2022/09/21 4.24c tkz-lib-eu-marks.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-text.tex
-2022/09/21 4.24c tkz-tools-eu-text.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-lib-eu-shape.tex
-2022/09/21 4.24c tkz-lib-eu-shape.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-axesmin.tex
-2022/09/21 4.24c tkz-obj-eu-axesmin
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-colors.tex
-2022/09/21 4.24c tkz-tools-eu-colors
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-points.tex
-2022/09/21 4.24c tkz-obj-eu-points.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-draw-points.tex
-2022/09/21 4.24c tkz-obj-eu-points.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-angles.tex
-2022/09/21 4.24c tkz-tools-eu-angles.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-intersections.tex
-2022/09/21 4.24c tkz-tools-eu-intersections.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-tools-eu-math.tex
-2022/09/21 4.24c tkz-tools-eu-math.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-compass.tex
-2022/09/21 4.24c tkz-obj-eu-compass.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-circles.tex
-2022/09/21 4.24c tkz-obj-eu-circles.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-circles-by.tex
-2022/09/21 4.24c tkz-obj-eu-circles.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-draw-angles.tex
-2022/09/21 4.24c tkz-tool-eu-angles.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-draw-circles.tex
-2022/09/21 4.24c tkz-obj-eu-draw-circles.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-draw-lines.tex
-2022/09/21 4.24c tkz-obj-eu-draw-lines.tex
-) (C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-obj-eu-draw-polygons.tex
-2022/09/21 4.24c tkz-obj-eu-polygons.tex
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+Package hyperref Info: Link coloring OFF on input line 21.
+\myptabbox=\box78
+\myptabboxwidth=\skip261
+ (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count384
+\scratchdimen=\dimen313
+\scratchbox=\box79
+\nofMPsegments=\count385
+\nofMParguments=\count386
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count387
+\MPscratchDim=\dimen314
+\MPnumerator=\count388
+\makeMPintoPDFobject=\count389
+\everyMPtoPDFconversion=\toks46
+) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)) (C:\Program Files\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-brazil.trsl
+File: translations-basic-dictionary-brazil.trsl (brazil translation file `translations-basic-dictionary')
 )
+Package translations Info: loading dictionary `translations-basic-dictionary' for `brazil'. on input line 21.
+ (C:\Program Files\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 21.
+ [1
 
-! LaTeX Error: File `tkz-obj-eu-draw-triangles.tex' not found.
+{C:/Users/alexa/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+\openout2 = `capitulos/capitulo1.aux'.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+ (capitulos/capitulo1.tex [2
 
-Enter file name: 
-C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-euclide.sty:181: Emergency stop.
-<read *> 
-         
-l.181 \input{tkz-obj-eu-draw-triangles.tex}
-                                           ^^M
-*** (cannot \read from terminal in nonstop modes)
 
- 
+] (figuras/tanques_comunicantes.tikz (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) [3]
+\openout2 = `capitulos/capitulo2.aux'.
+
+ (capitulos/capitulo2.tex [4
+
+
+
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Omega' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+) [5]
+\openout2 = `capitulos/capitulo3.aux'.
+
+ (capitulos/capitulo3.tex [6
+
+
+
+
+]) [7]
+\openout2 = `capitulos/capitulo4.aux'.
+
+ (capitulos/capitulo4.tex [8
+
+
+
+
+]) [9]
+\openout2 = `capitulos/capitulo5.aux'.
+
+ (capitulos/capitulo5.tex [10
+
+
+
+
+]) [11] (tcc.aux (capitulos/capitulo1.aux) (capitulos/capitulo2.aux) (capitulos/capitulo3.aux) (capitulos/capitulo4.aux) (capitulos/capitulo5.aux)) ) 
 Here is how much of TeX's memory you used:
- 29653 strings out of 475389
- 577409 string characters out of 2786815
- 936220 words of memory out of 3594171
- 50499 multiletter control sequences out of 15000+600000
- 469857 words of font info for 30 fonts, out of 8000000 for 9000
+ 29733 strings out of 475389
+ 595298 string characters out of 2786815
+ 937101 words of memory out of 3587052
+ 50641 multiletter control sequences out of 15000+600000
+ 479501 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,1n,104p,1204b,97s stack positions out of 10000i,1000n,20000p,200000b,80000s
-C:\Program Files\MiKTeX\tex/latex/tkz-euclide\tkz-euclide.sty:181:  ==> Fatal error occurred, no output PDF file produced!
+ 100i,11n,104p,438b,898s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on tcc.pdf (11 pages, 115168 bytes).
+PDF statistics:
+ 133 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+
