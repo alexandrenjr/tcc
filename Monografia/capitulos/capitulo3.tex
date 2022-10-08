@@ -1,1 +1,20 @@
-\chapter{Algoritmo Proposto}
+\chapter{Algoritmo}
+
+\begin{algorithm}[hbt!]
+  \caption{Aproximação cônica da taxa de amortecimento}\label{alg:cap}
+  \begin{algorithmic}[1]
+  \Require $\zeta$, $Ts$
+  \State $Vo \gets $ ponto onde
+  \State $X \gets x$
+  \State $N \gets n$
+  \While{$N \neq 0$}
+  \If{$N$ is even}
+    \State $X \gets X \times X$
+    \State $N \gets \frac{N}{2} $  \Comment{This is a comment}
+  \ElsIf{$N$ is odd}
+    \State $y \gets y \times X$
+    \State $N \gets N - 1$
+  \EndIf
+  \EndWhile
+  \end{algorithmic}
+  \end{algorithm}

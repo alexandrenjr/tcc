@@ -45,8 +45,6 @@ INPUT C:\Program Files\MiKTeX\tex\latex\memoir\memoir.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\memoir\memoir.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\memoir\memoir.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\memoir\memoir.cls
-INPUT C:\Program Files\MiKTeX\tex\latex\memoir\memoir.cls
-INPUT C:\Program Files\MiKTeX\tex\latex\memoir\memoir.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\etoolbox\etoolbox.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\etoolbox\etoolbox.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\etoolbox\etoolbox.sty
@@ -488,21 +486,10 @@ INPUT C:\Program Files\MiKTeX\tex\latex\arabi\bblopts.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\arabi\bblopts.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\arabi\bblopts.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\arabi\bblopts.cfg
-INPUT C:\Program Files\MiKTeX\tex\latex\babel-english\english.ldf
-INPUT C:\Program Files\MiKTeX\tex\latex\babel-english\english.ldf
-INPUT C:\Program Files\MiKTeX\tex\latex\babel-english\english.ldf
-INPUT C:\Program Files\MiKTeX\tex\latex\babel-english\english.ldf
-INPUT C:\Program Files\MiKTeX\tex\latex\babel-english\english.ldf
-INPUT C:\Program Files\MiKTeX\tex\latex\babel-english\english.ldf
 INPUT C:\Program Files\MiKTeX\tex\latex\babel-portuges\brazil.ldf
 INPUT C:\Program Files\MiKTeX\tex\latex\babel-portuges\brazil.ldf
 INPUT C:\Program Files\MiKTeX\tex\latex\babel-portuges\brazil.ldf
 INPUT C:\Program Files\MiKTeX\tex\latex\babel-portuges\brazil.ldf
-INPUT C:\Program Files\MiKTeX\tex\generic\babel\locale\en\babel-english.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\babel\locale\en\babel-english.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\babel\locale\en\babel-english.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\babel\locale\en\babel-english.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\babel\locale\en\babel-en.ini
 INPUT C:\Program Files\MiKTeX\tex\latex\enumitem\enumitem.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\enumitem\enumitem.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\enumitem\enumitem.sty
@@ -907,6 +894,53 @@ INPUT C:\Program Files\MiKTeX\tex\latex\etoolbox\etoolbox.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\pdftexcmds\pdftexcmds.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\array.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\algorithms\algorithm.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
@@ -962,10 +996,6 @@ INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-di
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-brazil.trsl
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-brazil.trsl
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-brazil.trsl
-INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
-INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
-INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
-INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
@@ -1016,17 +1046,6 @@ INPUT .\capitulos\capitulo2.tex
 INPUT capitulos\capitulo2.tex
 INPUT .\capitulos\capitulo2.tex
 INPUT capitulos\capitulo2.tex
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT .\capitulos\capitulo3.tex
 INPUT .\capitulos\capitulo3.tex
 INPUT .\capitulos\capitulo3.tex
@@ -1037,6 +1056,7 @@ INPUT .\capitulos\capitulo3.tex
 INPUT capitulos\capitulo3.tex
 INPUT .\capitulos\capitulo3.tex
 INPUT capitulos\capitulo3.tex
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT .\capitulos\capitulo4.tex
 INPUT .\capitulos\capitulo4.tex
 INPUT .\capitulos\capitulo4.tex
@@ -1073,6 +1093,8 @@ INPUT capitulos\capitulo4.aux
 INPUT .\capitulos\capitulo5.aux
 INPUT capitulos\capitulo5.aux
 INPUT capitulos\capitulo5.aux
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
@@ -1083,10 +1105,10 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmss17.pfb
