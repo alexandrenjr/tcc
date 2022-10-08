@@ -1,20 +1,16 @@
 \chapter{Algoritmo}
 
 \begin{algorithm}[hbt!]
-  \caption{Aproximação cônica da taxa de amortecimento}\label{alg:cap}
+  \caption{Aproximação cônica da taxa de amortecimento}\label{alg:AproximacaoConicaZeta}
   \begin{algorithmic}[1]
-  \Require $\zeta$, $Ts$
-  \State $Vo \gets $ ponto onde
-  \State $X \gets x$
-  \State $N \gets n$
-  \While{$N \neq 0$}
-  \If{$N$ is even}
-    \State $X \gets X \times X$
-    \State $N \gets \frac{N}{2} $  \Comment{This is a comment}
-  \ElsIf{$N$ is odd}
-    \State $y \gets y \times X$
-    \State $N \gets N - 1$
-  \EndIf
-  \EndWhile
+    \Require $\zeta$, $Ts$
+    \Ensure $K$
+    \State $V_o \gets $ $z(\zeta,0)$
+    \State $V_i \gets $ $z\left(\zeta,\dfrac{\pi}{T_s\sqrt(1-\zeta^2)}\right)$
+    \State $V \gets z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
+    \State $F \gets P \succ 0$
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = V_o$
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $a = V_i$
+    \State Verificar se o problema é factível
   \end{algorithmic}
-  \end{algorithm}
+\end{algorithm}

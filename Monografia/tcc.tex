@@ -9,10 +9,18 @@ brazil
 \usepackage{indentfirst}
 \usepackage[dvipsnames,x11names]{xcolor}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{tikz}
 \usepackage{siunitx}
 \usepackage{algpseudocode}
 \usepackage{algorithm}
+
+\makeatletter
+  \renewcommand{\ALG@name}{Algoritmo}
+  \renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+  \renewcommand{\algorithmicensure}{\textbf{Saída:}}
+  \renewcommand{\listalgorithmname}{List of \ALG@name s}
+\makeatother
 
 \title{\textsc{Alocação de Polos Em Regiões do Plano Complexo via LMIs}}
 \author{Alexandre Nascimento, Jr.}

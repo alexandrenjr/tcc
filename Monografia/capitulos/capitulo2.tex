@@ -1,5 +1,45 @@
 \chapter{Região de Desempenho Garantido}
 
 \begin{equation}
-  z = \exp{\left(-\zeta\omega_nT_s\pm\jmath\omega_n\sqrt{1-\zeta^2}T_s\right)}
+  s = -\zeta\omega_n \pm \jmath\omega_n \sqrt {1-\zeta^2} \label{eq:PontoPlanoS}
+\end{equation}
+
+\begin{equation}
+  z = \exp{\left(-\zeta\omega_nT_s \pm \jmath\omega_n\sqrt{1-\zeta^2}T_s\right)}\label{eq:PontoPlanoZ}
+\end{equation}
+
+\begin{equation}
+  z(\zeta,\omega_n) = \exp{\left(-\zeta\omega_nT_s \pm \jmath\omega_nT_s\sqrt{1-\zeta^2}\right)}\label{eq:FuncaoPontoZ}
+\end{equation}
+
+\begin{equation}
+  r = \exp{\left(|\sigma|Ts\right)}\label{eq:RaioEstabilidadeRelativa}
+\end{equation}
+
+\begin{equation}
+  \begin{bmatrix*}[c]
+    -rP       & * \\
+    PA + Z'B  & -rP
+  \end{bmatrix*}
+  \prec 0\label{eq:LMIEstabilidadeRelativa}
+\end{equation}
+
+\begin{equation}
+  \begin{bmatrix*}[c]
+    \sin{(\varphi)(2aP - AP - BZ - PA' - Z'B')} & * \\
+    \cos{(\varphi)(PA' + Z'B' - AP - BZ)}       & \sin{(\varphi)(2aP - AP - BZ - PA' - Z'B')}
+  \end{bmatrix*}
+  \prec 0\label{eq:LMIESetorConicoDireito}
+\end{equation}
+
+\begin{equation}
+  \begin{bmatrix*}[c]
+    \sin{(\varphi)(AP + BZ + PA' + Z'B -2aP)} & * \\
+    \cos{(\varphi)(PA' + Z'B'- AP - BZ)}      &  \sin{(\varphi)(AP + BZ + PA' + Z'B -2aP)}
+  \end{bmatrix*}
+  \prec 0\label{eq:LMIESetorConicoEsquerdo}
+\end{equation}
+
+\begin{equation}
+  AP + BZ + Z'B' + PA' -2aP\label{eq:LMIRightBounded} \succ 0
 \end{equation}
