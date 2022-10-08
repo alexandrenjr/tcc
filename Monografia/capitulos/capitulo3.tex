@@ -3,14 +3,31 @@
 \begin{algorithm}[hbt!]
   \caption{Aproximação cônica da taxa de amortecimento}\label{alg:AproximacaoConicaZeta}
   \begin{algorithmic}[1]
-    \Require $\zeta$, $Ts$
+    \Require $\zeta$, $T_s$
     \Ensure $K$
-    \State $V_o \gets $ $z(\zeta,0)$
-    \State $V_i \gets $ $z\left(\zeta,\dfrac{\pi}{T_s\sqrt(1-\zeta^2)}\right)$
-    \State $V \gets z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
+    \State $Z_o \gets $ $z(\zeta,0)$
+    \State $Z_i \gets $ $z\left(\zeta,\dfrac{\pi}{T_s\sqrt(1-\zeta^2)}\right)$
+    \State $Z \gets z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
     \State $F \gets P \succ 0$
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = V_o$
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $a = V_i$
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $a = Z_o$ e $\varphi = ang(Z,Z_i)$ \Comment{Setor cônico esquerdo}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = Z_i$ e $\varphi = ang(Z,Z_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $a = Z_i$  \Comment{Retar vertical}
     \State Verificar se o problema é factível
+    \State $K \gets ZP^{-1}$
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[hbt!]
+  \caption{Aproximação cônica da curva $N_y$}\label{alg:AproximacaoConicaNy}
+  \begin{algorithmic}[1]
+    \Require $\omega_n$
+    \Ensure $K$
+    \State $N_o \gets $ $z(0,\omega_n)$
+    \State $N_i \gets $ $z(1,\omega_n)$
+    \State $F \gets P \succ 0$
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = N_i$ e $\varphi = ang(N_i,N_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $a = N_i$ \Comment{Retar vertical}
+    \State Verificar se o problema é factível
+    \State $K \gets ZP^{-1}$
   \end{algorithmic}
 \end{algorithm}
