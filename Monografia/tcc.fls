@@ -1016,6 +1016,16 @@ INPUT .\capitulos\capitulo1.tex
 INPUT capitulos\capitulo1.tex
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmss17.tfm
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+OUTPUT capitulos\capitulo2.aux
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT capitulos\capitulo2.tex
+INPUT .\capitulos\capitulo2.tex
+INPUT capitulos\capitulo2.tex
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
@@ -1027,25 +1037,6 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT .\figuras\tanques_comunicantes.tikz
-INPUT figuras\tanques_comunicantes.tikz
-INPUT .\figuras\tanques_comunicantes.tikz
-INPUT figuras\tanques_comunicantes.tikz
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
-INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
-INPUT .\capitulos\capitulo2.tex
-INPUT .\capitulos\capitulo2.tex
-INPUT .\capitulos\capitulo2.tex
-OUTPUT capitulos\capitulo2.aux
-INPUT .\capitulos\capitulo2.tex
-INPUT .\capitulos\capitulo2.tex
-INPUT .\capitulos\capitulo2.tex
-INPUT capitulos\capitulo2.tex
-INPUT .\capitulos\capitulo2.tex
-INPUT capitulos\capitulo2.tex
 INPUT .\capitulos\capitulo3.tex
 INPUT .\capitulos\capitulo3.tex
 INPUT .\capitulos\capitulo3.tex
@@ -1067,6 +1058,15 @@ INPUT .\capitulos\capitulo4.tex
 INPUT capitulos\capitulo4.tex
 INPUT .\capitulos\capitulo4.tex
 INPUT capitulos\capitulo4.tex
+INPUT .\figuras\tanques_comunicantes.tikz
+INPUT figuras\tanques_comunicantes.tikz
+INPUT .\figuras\tanques_comunicantes.tikz
+INPUT figuras\tanques_comunicantes.tikz
+INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
+INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT .\capitulos\capitulo5.tex
 INPUT .\capitulos\capitulo5.tex
 INPUT .\capitulos\capitulo5.tex
