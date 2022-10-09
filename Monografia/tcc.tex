@@ -11,9 +11,16 @@ brazil
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage{siunitx}
 \usepackage{algpseudocode}
 \usepackage{algorithm}
+
+\pgfplotsset{
+	compat=newest,
+	every axis/.append style={
+		line width=1pt,}
+}
 
 \makeatletter
   \renewcommand{\ALG@name}{Algoritmo}
