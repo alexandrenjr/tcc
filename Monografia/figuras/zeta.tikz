@@ -7,6 +7,7 @@
 \begin{tikzpicture}
 
 \begin{axis}[%
+  axis lines=center,
   width=3.5in,
   height=3.5in,
   scale only axis,
@@ -14,12 +15,13 @@
   xmax=1.2,
   ymin=-1.2,
   ymax=1.2,
-  axis lines=center,
-  ticks=none,
+  xtick={1},
+  ytick=\empty,
+  %xticklabels={},
+  xticklabel style={anchor=south west},
   x label style={anchor=north},
-  y label style={anchor=west},
   xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$},
+  ylabel={$\pmb{jY}$}
 ]
 \addplot [color=black, forget plot]
   table[row sep=crcr]{%
@@ -1997,4 +1999,8 @@
 -0.00152375582051941	-1.86606268828124e-19\\
 };
 \end{axis}
+
+\draw (1.8,6) node[anchor=south] {\small $\zeta_1$};
+\draw (5,4.4) node[anchor=south] {\small $\zeta_2$};
+
 \end{tikzpicture}%
