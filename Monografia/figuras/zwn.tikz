@@ -2416,7 +2416,7 @@
   };
 \end{axis}
 
-\draw (0.5,5.4) node[anchor=south] {\small $\omega_{n1}$};
-\draw (8.4,5.3) node[anchor=south] {\small $\omega_{n2}$};
+\draw (8.4,5.3) node[anchor=south] {\small $\omega_{n1}$};
+\draw (0.5,5.4) node[anchor=south] {\small $\omega_{n2}$};
 
 \end{tikzpicture}%

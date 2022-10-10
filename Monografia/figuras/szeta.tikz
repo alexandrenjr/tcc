@@ -1,0 +1,156 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+  axis lines=center,
+  width=3.5in,
+  height=3.5in,
+  scale only axis,
+  xmin=-0.7,
+  xmax=0.07,
+  ymin=-0.5,
+  ymax=0.5,
+  xtick=\empty,
+  ytick=\empty,
+  xticklabel style={anchor=south west},
+  x label style={anchor=north},
+  xlabel={$\pmb{X}$},
+  ylabel={$\pmb{jY}$}
+]
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	0\\
+-0.0204124145231931	0.1\\
+-0.0408248290463863	0.2\\
+-0.0612372435695794	0.3\\
+-0.0816496580927726	0.4\\
+-0.102062072615966	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	-0\\
+-0.0204124145231931	-0.1\\
+-0.0408248290463863	-0.2\\
+-0.0612372435695794	-0.3\\
+-0.0816496580927726	-0.4\\
+-0.102062072615966	-0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	0\\
+-0.0314485451016576	0.1\\
+-0.0628970902033151	0.2\\
+-0.0943456353049727	0.3\\
+-0.12579418040663	0.4\\
+-0.157242725508288	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	-0\\
+-0.0314485451016576	-0.1\\
+-0.0628970902033151	-0.2\\
+-0.0943456353049727	-0.3\\
+-0.12579418040663	-0.4\\
+-0.157242725508288	-0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	0\\
+-0.0436435780471985	0.1\\
+-0.087287156094397	0.2\\
+-0.130930734141595	0.3\\
+-0.174574312188794	0.4\\
+-0.218217890235992	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	-0\\
+-0.0436435780471985	-0.1\\
+-0.087287156094397	-0.2\\
+-0.130930734141595	-0.3\\
+-0.174574312188794	-0.4\\
+-0.218217890235992	-0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	0\\
+-0.0577350269189626	0.1\\
+-0.115470053837925	0.2\\
+-0.173205080756888	0.3\\
+-0.23094010767585	0.4\\
+-0.288675134594813	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	-0\\
+-0.0577350269189626	-0.1\\
+-0.115470053837925	-0.2\\
+-0.173205080756888	-0.3\\
+-0.23094010767585	-0.4\\
+-0.288675134594813	-0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	0\\
+-0.075	0.1\\
+-0.15	0.2\\
+-0.225	0.3\\
+-0.3	0.4\\
+-0.375	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	-0\\
+-0.075	-0.1\\
+-0.15	-0.2\\
+-0.225	-0.3\\
+-0.3	-0.4\\
+-0.375	-0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	0\\
+-0.0980196058819607	0.1\\
+-0.196039211763921	0.2\\
+-0.294058817645882	0.3\\
+-0.392078423527843	0.4\\
+-0.490098029409803	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	-0\\
+-0.0980196058819607	-0.1\\
+-0.196039211763921	-0.2\\
+-0.294058817645882	-0.3\\
+-0.392078423527843	-0.4\\
+-0.490098029409803	-0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	0\\
+-0.133333333333333	0.1\\
+-0.266666666666667	0.2\\
+-0.4	0.3\\
+-0.533333333333334	0.4\\
+-0.666666666666667	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0	-0\\
+-0.133333333333333	-0.1\\
+-0.266666666666667	-0.2\\
+-0.4	-0.3\\
+-0.533333333333334	-0.4\\
+-0.666666666666667	-0.5\\
+};
+\end{axis}
+
+\draw (7.3,8.4) node[anchor=south] {\small $\zeta_1$};
+\draw (1.2,8.4) node[anchor=south] {\small $\zeta_2$};
+
+\end{tikzpicture}%
