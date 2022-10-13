@@ -15,11 +15,30 @@ brazil
 \usepackage{siunitx}
 \usepackage{algpseudocode}
 \usepackage{algorithm}
+\usepackage{attachfile}
+\usepackage{listings}
+\usepackage{listingsutf8}
 
 \pgfplotsset{
 	compat=newest,
 	every axis/.append style={
 		line width=1pt,}
+}
+
+\lstset{
+  inputencoding = utf8/latin1,
+	backgroundcolor = \color{black!10!white},
+	columns = flexible,
+	%basicstyle = {\scriptsize\ttfamily\color{Black}},
+  basicstyle = {\scriptsize\ttfamily},                   
+	breaklines = true,
+	breakatwhitespace = true,
+	postbreak = \space,
+	columns = flexible,
+	keepspaces = true,
+	upquote = true,
+  showstringspaces = false,
+	escapeinside = {<@}{@>},
 }
 
 \makeatletter
@@ -43,5 +62,9 @@ brazil
 \include{capitulos/capitulo3}
 \include{capitulos/capitulo4}
 \include{capitulos/capitulo5}
+
+\appendix
+
+%\include{capitulos/apendice1.tex}
 
 \end{document}
