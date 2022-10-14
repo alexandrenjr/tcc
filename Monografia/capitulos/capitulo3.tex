@@ -1,6 +1,26 @@
 \chapter{Algoritmo}
 
-\attachfile{G:/Meu Drive/TCC/tcc/MATLAB/factibilidade.m}
+O algoritmo desenvolvido neste trabalho é um compilado de algoritmos desenvolvidos em \cite{WISNIEWSKI2017}, \cite{WISNIEWSKI2019} e \cite{CHIQUETO2021}, onde mapeiam regiões de interesse da Teoria de Controle que em alguns casos são não-convexas, em regiões aproximadamente convexas.
+
+Em \cite{WISNIEWSKI2017} e \cite{CHIQUETO2021} foram desenvolvidos aproximações cônicas das regiões $\zeta$-constante e $\omega_n$-constante, respectivamente, via LMIS. Ainda, adaptando-se as ideias apresentadas em \cite{ROSINOVA2014} e \cite{ROSINOVA2019} para a aproximação elíptica das curvas $\zeta$-constante, em \cite{CHIQUETO2021} foi desenvolvido um algoritmo para aproximar a curva $\omega_n$-constante utlizando a maior elipse dentro da curva. Finalmente, Em \cite{WISNIEWSKI2019} e \cite{CHIQUETO2021} foram desenvolvidos aproximações poligonares para as curvas $\zeta$-constante e $\omega_n$-constante, onde aproveitam melhor tais regiões.
+
+Referente a este trabalho, foi desenvolvido um algoritmo que baseia-se de tais ideias para sintetizar um controlador a partir de valores de $\sigma$, $\zeta$, $\omega_n$ e $T_s$ fornecidos e determinar a factibilidade da solução encontrada.
+
+\section{Aproximação cônica}
+
+Para o mapeamento cônico das curvas $\zeta$-constante e $\omega_n$-constante, são utilizados setores cônicos determinados via \eqref{eq:LMIESetorConicoDireito} e \eqref{eq:LMIESetorConicoEsquerdo}, e retas verticais como apresentado em \cite{WISNIEWSKI2017} e \cite{CHIQUETO2021}.
+
+Para a primeira curva, a ideia consiste em calcular os pontos em que a espiral logarítmica cruza o eixo real, determinar o sobre o ramo o ponto entre os calculados anteriormente e partir destes, determinar as LMIs correspondentes. A figura
+
+\begin{figure}
+  \centering
+  \input{figuras/aproximacao_conica_zeta.tikz}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \input{figuras/aproximacao_conica_wn.tikz}
+\end{figure}
 
 \begin{algorithm}[hbt!]
   \caption{Aproximação cônica da taxa de amortecimento}\label{alg:AproximacaoConicaZeta}
@@ -11,8 +31,8 @@
     \State $Z_i \gets $ $z\left(\zeta,\dfrac{\pi}{T_s\sqrt(1-\zeta^2)}\right)$
     \State $Z \gets z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
     \State $F \gets P \succ 0$
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $a = Z_o$ e $\varphi = ang(Z,Z_i)$ \Comment{Setor cônico esquerdo}
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = Z_i$ e $\varphi = ang(Z,Z_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $a = Z_o$ e $\theta = ang(Z,Z_i)$ \Comment{Setor cônico esquerdo}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = Z_i$ e $\theta = ang(Z,Z_o)$ \Comment{Setor cônico direito}
     \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $a = Z_i$  \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \State $K \gets ZP^{-1}$
@@ -27,7 +47,7 @@
     \State $N_o \gets $ $z(0,\omega_n)$
     \State $N_i \gets $ $z(1,\omega_n)$
     \State $F \gets P \succ 0$
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = N_i$ e $\varphi = ang(N_i,N_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = N_i$ e $\theta = ang(N_i,N_o)$ \Comment{Setor cônico direito}
     \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $a = N_i$ \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \State $K \gets ZP^{-1}$

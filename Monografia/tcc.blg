@@ -1,0 +1,80 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: tcc.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: capitulos/capitulo1.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: capitulos/capitulo2.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: capitulos/capitulo3.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: capitulos/capitulo4.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: capitulos/capitulo5.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: capitulos/referencias.aux
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+The style file: abntex2-num.bst
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Database file #1: abntex2-options.bib
+Database file #2: referencias/ref.bib
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
++---------------------------------------------------------+
+| Estilo bibliográfico abntex2-num.bst versão v-1.9.7           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://www.abntex.net.br/                               |
++---------------------------------------------------------+
+You've used 6 entries,
+            6714 wiz_defined-function locations,
+            1241 strings with 10670 characters,
+and the built_in function-call counts, 6970 in all, are:
+= -- 824
+> -- 141
+< -- 116
++ -- 208
+- -- 42
+* -- 433
+:= -- 905
+add.period$ -- 23
+call.type$ -- 6
+change.case$ -- 61
+chr.to.int$ -- 12
+cite$ -- 5
+duplicate$ -- 533
+empty$ -- 341
+format.name$ -- 218
+if$ -- 1505
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 98
+newline$ -- 35
+num.names$ -- 20
+pop$ -- 151
+preamble$ -- 1
+purify$ -- 24
+quote$ -- 0
+skip$ -- 618
+stack$ -- 1
+substring$ -- 314
+swap$ -- 213
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 2
+warning$ -- 0
+while$ -- 34
+width$ -- 0
+write$ -- 78
