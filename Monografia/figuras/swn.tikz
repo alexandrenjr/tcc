@@ -4,11 +4,11 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[scale = 0.505]
 
 \begin{axis}[%
   axis lines=center,
-  width=2.45in,
+  width=2.35in,
   height=3.5in,
   scale only axis,
   xmin=-0.41,
@@ -1930,7 +1930,7 @@
 };
 \end{axis}
 
-\draw (4.5,4.4) node[anchor=south] {\small $\omega_{n1}$};
-\draw (1,4.4) node[anchor=south] {\small $\omega_{n2}$};
+\draw (4.5,4.4) node[scale = 0.505, anchor=south] {\small $\omega_{n1}$};
+\draw (1,4.4) node[scale = 0.505, anchor=south] {\small $\omega_{n2}$};
 
 \end{tikzpicture}%

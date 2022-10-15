@@ -5,11 +5,24 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem{ROSINOVA2014}
+\abntrefinfo{Rosinová e Holič}{ROSINOVá; HOLIč}{2014}
+{ROSINOVá, D.; HOLIč, I. Lmi approximation of pole-region for discrete-time
+  linear dynamic systems. In:  \emph{Proceedings of the 2014 15th International
+  Carpathian Control Conference (ICCC)}. [S.l.: s.n.], 2014. p. 497--502.}
+
 \bibitem{WISNIEWSKI2017}
 \abntrefinfo{Wisniewski et al.}{WISNIEWSKI et al.}{2017}
 {WISNIEWSKI, V.~L. et al. Regional pole placement for discrete-time systems
   using convex approximations. In:  \emph{2017 25th Mediterranean Conference on
   Control and Automation (MED)}. [S.l.: s.n.], 2017. p. 655--659.}
+
+\bibitem{NISE2011}
+\abntrefinfo{Nise}{NISE}{2011}
+{NISE, N. \emph{Control Systems Engineering, Sixth}. John Wiley \& Sons,
+  Incorporated, 2011.
+ISBN 9781118138168. Dispon{\'\i}vel em:
+  \url{https://books.google.com.br/books?id=34zmCQAAQBAJ}.}
 
 \bibitem{WISNIEWSKI2019}
 \abntrefinfo{Wisniewski, Maddalena e Godoy}{WISNIEWSKI; MADDALENA; GODOY}{2019}
@@ -25,12 +38,6 @@ Dispon{\'\i}vel em:
 {CHIQUETO, G. da S. Aproximações convexas via desigualdades matriciais
   lineares para o problema da largura de banda em ssistemas em tempo discreto.
 2021.}
-
-\bibitem{ROSINOVA2014}
-\abntrefinfo{Rosinová e Holič}{ROSINOVá; HOLIč}{2014}
-{ROSINOVá, D.; HOLIč, I. Lmi approximation of pole-region for discrete-time
-  linear dynamic systems. In:  \emph{Proceedings of the 2014 15th International
-  Carpathian Control Conference (ICCC)}. [S.l.: s.n.], 2014. p. 497--502.}
 
 \bibitem{ROSINOVA2019}
 \abntrefinfo{Rosinová e Hypiusová}{ROSINOVá; HYPIUSOVá}{2019}

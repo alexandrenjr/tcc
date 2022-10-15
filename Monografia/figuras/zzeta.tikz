@@ -4,7 +4,7 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[scale = 0.5]
 
 \begin{axis}[%
   axis lines=center,
@@ -2000,7 +2000,7 @@
 };
 \end{axis}
 
-\draw (1.8,6) node[anchor=south] {\small $\zeta_1$};
-\draw (5,4.4) node[anchor=south] {\small $\zeta_2$};
+\draw (1.8,6) node[scale = 0.5, anchor=south] {\small $\zeta_1$};
+\draw (5,4.4) node[scale = 0.5, anchor=south] {\small $\zeta_2$};
 
 \end{tikzpicture}%

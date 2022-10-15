@@ -1,7 +1,23 @@
 \chapter{Região de Desempenho Garantido}
 
+A alocação de polos é uma das principais ferramentas da teoria de controle, pois a partir desta, é possível projetar um sistema que seja estável e que tenha um bom desempenho \cite{ROSINOVA2014}. A operação de alocar polos de um sistema linear dentro de uma região específica é chamada $\mathscr{D}$-estabilidade \cite{WISNIEWSKI2017}.
+
+Entende-se por estável o sistema que, em termos de resposta a estímulos, possui uma convergência ao zero da resposta natural, restando apenas a reposta forçada \cite{NISE2011}. Assim, para um intervalo de tempo determinado, espera-se que o sistema apenas tenha dinâmica referente à entrada aplicada. Neste contexto, a estabilidade é o ponto de partida para projetos de compensadores.
+
+Na alocação de polos, a região referente à estabilidade em sistema contínuos e invariantes no tempo é o semi-plano esquerdo do plano complexo. Dado um ponto genérico no plano-s, representado por:
 \begin{equation}
-  s = -\zeta\omega_n \pm \jmath\omega_n \sqrt {1-\zeta^2} \label{eq:PontoPlanoS}
+  s = x + jy\label{PontoPlanoS}
+\end{equation}
+estará na região estável somente se a parte real de tal ponto estiver à esquerda do eixo imaginário, ou em números:
+
+\begin{equation}
+  \Re{(s)} < 0 \implies x < 0
+\end{equation}
+
+Assim, um sistema com $n$ polos é dito estável se todos os seus polos estão localizados à esquerda do eixo imaginário. A partir desde conceito, é possível definir estabilidade relativa. Se um sistema é estável para um valor $\sigma < 0$, então é dito estável relativo (ao valor de $\sigma$). 
+
+\begin{equation}
+  s = -\zeta\omega_n \pm \jmath\omega_n \sqrt {1-\zeta^2} \label{eq:PontoPlanoS2}
 \end{equation}
 
 \begin{equation}
@@ -20,34 +36,38 @@
   r = \exp{\left(-|\sigma|T_s\right)}\label{eq:RaioEstabilidadeRelativa}
 \end{equation}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
-  %\input{figuras/ssigma.tikz}
+  \begin{subfigure}[t]{0.3\columnwidth}
+      \input{figuras/ssigma.tikz}
+      \caption{}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.3\columnwidth}
+      \input{figuras/szeta.tikz}
+      \caption{}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.3\columnwidth}
+    \input{figuras/swn.tikz}
+    \caption{}
+  \end{subfigure}
+  \caption{}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
-  %\input{figuras/szeta.tikz}
-\end{figure}
-
-\begin{figure}
-  \centering
-  %\input{figuras/swn.tikz}
-\end{figure}
-
-\begin{figure}
-  \centering
-  %\input{figuras/zsigma.tikz}
-\end{figure}
-
-\begin{figure}
-  \centering
-  %\input{figuras/zzeta.tikz}
-\end{figure}
-
-\begin{figure}
-  \centering
-  %\input{figuras/zwn.tikz}
+  \begin{subfigure}[t]{0.3\columnwidth}
+      \input{figuras/zsigma.tikz}
+      \caption{}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.3\columnwidth}
+      \input{figuras/zzeta.tikz}
+      \caption{}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.3\columnwidth}
+    \input{figuras/zwn.tikz}
+    \caption{}
+  \end{subfigure}
+  \caption{}
 \end{figure}
 
 \begin{equation}
