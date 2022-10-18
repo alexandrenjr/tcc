@@ -9,8 +9,8 @@
 \begin{axis}[%
   axis lines=center,
   scale only axis,
-  width=3.97in,
-  height=2in,
+  width=2.98in,
+  height=1.5in,
   xmin=-0.2,
   xmax=1.1,
   ymin=-0.1,
