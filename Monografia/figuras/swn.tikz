@@ -17,8 +17,11 @@
   ymax=0.42,
   xtick=\empty,
   ytick=\empty,
+  xtick style={draw=none},
+  ytick style={draw=none},
   xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$}
+  ylabel={$\pmb{jY}$},
+  x label style={anchor=north}
 ]
 \addplot [color=black, dashed, forget plot]
   table[row sep=crcr]{%
