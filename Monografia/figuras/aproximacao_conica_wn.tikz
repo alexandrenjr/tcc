@@ -5,7 +5,7 @@
 %where you can also make suggestions and rate matlab2tikz.
 %
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.65]
 
 \begin{axis}[%
   axis lines=center,
@@ -18,10 +18,10 @@
   ymax=1.2,
   xtick={1},
   ytick=\empty,
-  x label style={anchor=north},
-  xticklabel style={anchor=south west},
+  xticklabel style={anchor=north west},
   xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$}
+  ylabel={$\pmb{jY}$},
+  x label style={anchor=north}
 ]
 \addplot [color=black, forget plot]
   table[row sep=crcr]{%
@@ -126,7 +126,7 @@
 -0.0634239196565654	0.997986676471884\\
 -2.44929359829471e-16	1\\
 };
-\addplot [color=white!15!black, dashed, forget plot]
+\addplot [color=black, dashed, forget plot]
   table[row sep=crcr]{%
 0.54030230586814	0.841470984807897\\
 0.523839075837643	0.814928316186227\\
@@ -231,7 +231,7 @@
 nan	0\\
 };
 
-\addplot [color=blue, forget plot]
+\addplot [color=black, forget plot]
   table[row sep=crcr]{%
 0.54030230586814	0.841470984807897\\
 0.367879441171442	0\\

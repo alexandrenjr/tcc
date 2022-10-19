@@ -4,6 +4,8 @@ A alocação de polos é uma das principais ferramentas da teoria de controle, p
 
 Entende-se por estável o sistema que, em termos de resposta a estímulos, possui uma convergência ao zero da resposta natural, restando apenas a reposta forçada \cite{NISE2011}. Assim, para um intervalo de tempo determinado, espera-se que o sistema apenas tenha dinâmica referente à entrada aplicada. Neste contexto, a estabilidade é o ponto de partida para projetos de compensadores.
 
+\section{Regiões de polos para sistemas contínuos}
+
 Na $\mathscr{D}$-estabilidade, a região referente à estabilidade em sistema contínuos e invariantes no tempo é o semi-plano esquerdo do plano complexo. Dado um ponto genérico no plano $s$, representado por:
 \begin{equation}
   s = x + jy\label{eq:PontoGenericoPlanoS}
@@ -49,6 +51,8 @@ A partir disso, as regiões $\zeta$-constante são obtidas fixando-se $\zeta$ e 
 
 Já as regiões $\omega_n$-constante possuem as características esboçadas na figura \ref{subfig:OscilacaoNaoAmortecidaS}. Os raios das semicircunferências formadas possuem valores iguais à $\omega_n$ e aumentam ou diminuem à medida que varia tal parâmetro. Conforme abordado em \cite{CHILALI1996}, a intersecção de tais regiões formam a Região $\Omega$ de Desempenho garantido. Todos os polos dentro de tal região possuem um mínimo valor de $\sigma$, $\zeta$ e $\omega_n$.
 
+\section{Regiões de polos para sistemas discretos}\label{sec:SistemasDiscretos}
+
 As regiões de $\mathscr{D}$-estabilidade para sistemas discretos seguem os mesmos métodos abordados nos contínuos, com a diferença de serem descritos no plano $z$. A transformada de um ponto do plano $s$ para $z$ é dado por:
 \begin{equation}
   z = \exp(sT_s)\label{eq:TransformacaoSZ}
@@ -89,8 +93,7 @@ Como realizado nos sistemas contínuos, \eqref{eq:PontoPlanoZ} pode ser enxergad
   \label{fig:RegioesPlanoZ}
 \end{figure}
 
-A respectiva região $\zeta$-constante possui o formato aprensentado na figura \ref{subfig:EstabilidadeRelativaZ}. Devido ao exponencial, as curvas geradas são chamadas de espirais logarítmicas. Ambos os ramos começam a ser desenhadas a partir de $(1,0)$, quando $\omega_n = 0$, e se deslocam da direita para a esquerda até cruzarem o eixo real primeira vez. À medida que o valor de $\omega_n$ aumenta, mais voltas o contorno dá. E a cada $n\pi$ voltas, o contorno cruza o eixo real pela $n$-ésima vez, conforme esboçado na figura \ref{fig:EspiralLogaritmica}. Como a espiral tende para dentro da região limitada pela primeira volta, somente a primeira volta é considerada no plano $z$.
-
+A respectiva região $\zeta$-constante possui o formato aprensentado na figura \ref{subfig:EstabilidadeRelativaZ}. Devido ao exponencial, as curvas geradas assemelham-se a cardioides, mas não o são, pois denominam-se espirais logarítmicas. Ambos os ramos começam a ser desenhadas a partir de $(1,0)$ (quando $\omega_n = 0$), e se deslocam da direita para a esquerda até cruzarem o eixo real primeira vez. À medida que o valor de $\omega_n$ aumenta, mais voltas o contorno dá. E a cada $n\pi$ voltas, o contorno cruza o eixo real pela $n$-ésima vez, conforme esboçado na figura \ref{fig:EspiralLogaritmica}. Como a espiral tende para dentro da região limitada pela primeira volta, somente a primeira volta é considerada no plano $z$.
 
 O valor de $\omega_n$ no qual os ramos cruzam o eixo imaginário a cada $n\pi$ voltas é encontrado quando o argumento de \eqref{eq:FuncaoPontoZ} é igual à $\pi$, isto é:
 \begin{align}
@@ -114,7 +117,17 @@ Em relação às regiões $\omega_n$-constante, como o estudo de alocação de p
 
 A área de tal região aumenta com o valor de $\omega_n$.
 
-\section{Regiões LMI}
+\section{LMI}
+Em \cite{CHILALI1996}, foram abordadas técnicas utilizando Inequações Matriciais Lineares (LMI, em inglês) para mapear as regiões de $\mathscr{D}$-estabilidade no plano $s$. Tal feito foi realizado devido à convexidade de tais regiões. Conforme visto, as regiões $\zeta$-constante e $\omega_n$-constante no plano $z$ podem possuir características não-convexas, o que impossibilita o mapeamento via LMIs.
+
+Estudos foram desenvolvidos para contornar a não-convexidade de algumas regiões do plano $z$, aproximando-os em regiões convexas. Em 2014, no artigo \cite{ROSINOVA2014}, a autora mapeou a região $\zeta$-constante utilizando a maior elipse ou circunferência inscrita possível. Mas foi em \cite{ROSINOVA2019} que foi desenvolvido um algoritmo que traz várias aproximações utilizando elipses, para aproveitar da melhor forma a área daquela região.
+
+Já em \cite{WISNIEWSKI2017} foi abordada uma aproximação cônica, utilzando-se apenas de quatro pontos e, consequentemente, dois setores cônicos. Apesar de simples, a ideia poderia facilmente ser estendida para $n$ pontos, o que foi feito em \cite{WISNIEWSKI2019}. Ao aumentar a área a cada iteração, o algoritmo verifica a solução proposta.
+
+E finalmente, utilizando-se das ideias anteriores, \cite{CHIQUETO2021} trouxe aproximações cônica, elíptica e poligonal da região $\omega_n$-constante.
+
+\subsubsection{Regiões LMI}
+As regiões básicas descritas em \cite{CHILALI1996} são três: uma limitação do plano aprensentada via uma reta, uma limitação por uma circunferência e um setor cônico. A primeira
 
 \begin{equation}
   \begin{bmatrix*}[c]

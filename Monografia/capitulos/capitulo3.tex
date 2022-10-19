@@ -1,25 +1,29 @@
 \chapter{Algoritmo}
 
-O algoritmo desenvolvido neste trabalho é um compilado de algoritmos desenvolvidos em \cite{WISNIEWSKI2017}, \cite{WISNIEWSKI2019} e \cite{CHIQUETO2021}, onde mapeiam regiões de interesse da Teoria de Controle que em alguns casos são não-convexas, em regiões aproximadamente convexas.
+O algoritmo desenvolvido neste trabalho é um compilado de algoritmos desenvolvidos comentadas anteriormente, utilizando-se das aproximações cônica, elíptica e poligonal das regiões do plano $z$. O objetivo deste trabalho é desenvolver em \emph{software} tais algoritmos e, ao informar parâmetros de projeto, determinar se é possível implementar um compensador que respeite os requisitos.
 
-Em \cite{WISNIEWSKI2017} e \cite{CHIQUETO2021} foram desenvolvidos aproximações cônicas das regiões $\zeta$-constante e $\omega_n$-constante, respectivamente, via LMIS. Ainda, adaptando-se as ideias apresentadas em \cite{ROSINOVA2014} e \cite{ROSINOVA2019} para a aproximação elíptica das curvas $\zeta$-constante, em \cite{CHIQUETO2021} foi desenvolvido um algoritmo para aproximar a curva $\omega_n$-constante utlizando a maior elipse dentro da curva. Finalmente, Em \cite{WISNIEWSKI2019} e \cite{CHIQUETO2021} foram desenvolvidos aproximações poligonares para as curvas $\zeta$-constante e $\omega_n$-constante, onde aproveitam melhor tais regiões.
-
-Referente a este trabalho, foi desenvolvido um algoritmo que baseia-se de tais ideias para sintetizar um controlador a partir de valores de $\sigma$, $\zeta$, $\omega_n$ e $T_s$ fornecidos e determinar a factibilidade da solução encontrada.
+Para tal, o algoritmo pode ser divido em três partes, uma para cada aproximação, sendo a aproximação escolhida via a chamada do função.
 
 \section{Aproximação cônica}
 
 Para o mapeamento cônico das curvas $\zeta$-constante e $\omega_n$-constante, são utilizados setores cônicos determinados via \eqref{eq:LMIESetorConicoDireito} e \eqref{eq:LMIESetorConicoEsquerdo}, e retas verticais como apresentado em \cite{WISNIEWSKI2017} e \cite{CHIQUETO2021}.
 
-Para a primeira curva, a ideia consiste em calcular os pontos em que a espiral logarítmica cruza o eixo real, determinar o sobre o ramo o ponto entre os calculados anteriormente e partir destes, determinar as LMIs correspondentes. A figura
+Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculados na seção \ref{sec:SistemasDiscretos}, onde serão os pontos dos setores cônicos. Os ângulos, medidos no sentido anti-horário, são determinados a partir de um terceiro ponto, conforme a
 
-\begin{figure}
+\begin{figure}[!ht]
   \centering
-  \input{figuras/aproximacao_conica_zeta.tikz}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \input{figuras/aproximacao_conica_wn.tikz}
+  \begin{subfigure}[t]{0.4\columnwidth}
+      \input{figuras/aproximacao_conica_zeta.tikz}
+      \caption{}
+      \label{subfig:AproximacaoConicaZeta}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.4\columnwidth}
+      \input{figuras/aproximacao_conica_wn.tikz}
+      \caption{}
+      \label{subfig:AproximacaoConicaWn}
+  \end{subfigure}
+  \caption{}
+  \label{fig:AproximacoesConica}
 \end{figure}
 
 \begin{algorithm}[hbt!]

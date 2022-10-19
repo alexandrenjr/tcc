@@ -43,6 +43,14 @@ ISBN 9788576058106. Dispon{\'\i}vel em:
 ISBN 9780030575686. Dispon{\'\i}vel em:
   \url{https://books.google.com.br/books?id=oNpSAAAAMAAJ}.}
 
+\bibitem{ROSINOVA2019}
+\abntrefinfo{Rosinová e Hypiusová}{ROSINOVá; HYPIUSOVá}{2019}
+{ROSINOVá, D.; HYPIUSOVá, M. Lmi pole regions for a robust discrete-time pole
+  placement controller design.
+\emph{Algorithms}, v.~12, n.~8, 2019.
+ISSN 1999-4893.
+Dispon{\'\i}vel em: \url{https://www.mdpi.com/1999-4893/12/8/167}.}
+
 \bibitem{WISNIEWSKI2019}
 \abntrefinfo{Wisniewski, Maddalena e Godoy}{WISNIEWSKI; MADDALENA; GODOY}{2019}
 {WISNIEWSKI, V.; MADDALENA, E.; GODOY, R. Discrete-time regional pole-placement
@@ -57,13 +65,5 @@ Dispon{\'\i}vel em:
 {CHIQUETO, G. da S. Aproximações convexas via desigualdades matriciais
   lineares para o problema da largura de banda em ssistemas em tempo discreto.
 2021.}
-
-\bibitem{ROSINOVA2019}
-\abntrefinfo{Rosinová e Hypiusová}{ROSINOVá; HYPIUSOVá}{2019}
-{ROSINOVá, D.; HYPIUSOVá, M. Lmi pole regions for a robust discrete-time pole
-  placement controller design.
-\emph{Algorithms}, v.~12, n.~8, 2019.
-ISSN 1999-4893.
-Dispon{\'\i}vel em: \url{https://www.mdpi.com/1999-4893/12/8/167}.}
 
 \end{thebibliography}
