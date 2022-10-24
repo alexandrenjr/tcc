@@ -1,16 +1,17 @@
 \chapter{Algoritmo}
 
-O algoritmo desenvolvido neste trabalho é um compilado de algoritmos desenvolvidos comentadas anteriormente, utilizando-se das aproximações cônica, elíptica e poligonal das regiões do plano $z$. O objetivo deste trabalho é desenvolver em \emph{software} tais algoritmos e, ao informar parâmetros de projeto, determinar se é possível implementar um compensador que respeite os requisitos.
+O algoritmo apresentado neste trabalho é um compilado de algoritmos desenvolvidos anteriormente, utilizando-se das aproximações cônica, elíptica e poligonal das regiões de $\mathscr{D}$-estabilidade do plano $z$. O objetivo deste trabalho é desenvolver em \emph{software} tais algoritmos e, ao informar parâmetros de projeto, determinar se é possível implementar um compensador que respeite os requisitos.
 
-Para tal, o algoritmo pode ser divido em três partes, uma para cada aproximação, sendo a aproximação escolhida via a chamada do função.
+Para tal, o algoritmo pode ser divido em três partes, uma para cada aproximação, sendo a aproximação desejada escolhida via chamada da função. O \emph{software} utilizado foi o MATLAB, juntamente com o interpretador de LMIs YALMIP em conjunto com o solucionador númerico MOSEK.
+
+Notação: $loc(v_1, v_2)$ determina o ponto que a reta que passa por $v_1$ e $v_2$. $ang(v_1, v_2)$ cruza o eixo real. $ang(v_1, v_2)$ refere-se ao ângulo entre aquela reta e o eixo real. 
 
 \section{Aproximação cônica}
+Para o mapeamento cônico das curvas $\zeta$-constante e $\omega_n$-constante, são utilizados os setores cônicos determinados via \eqref{eq:LMIESetorConicoDireito} e \eqref{eq:LMIESetorConicoEsquerdo}, e retas verticais como apresentado em \ref{eq:LMIRightBounded}.
 
-Para o mapeamento cônico das curvas $\zeta$-constante e $\omega_n$-constante, são utilizados setores cônicos determinados via \eqref{eq:LMIESetorConicoDireito} e \eqref{eq:LMIESetorConicoEsquerdo}, e retas verticais como apresentado em \cite{WISNIEWSKI2017} e \cite{CHIQUETO2021}.
+Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculados na seção \ref{sec:DEstabilidadeZ}, onde serão os centros dos setores cônicos. Os ângulos, medidos no sentido anti-horário, são determinados a partir de um terceiro ponto, conforme a figura \ref{subfig:AproximacaoConicaZeta}. A escolha do ponto $Z$ é feita de maneira que a área do triângulo $\widehat{Z_oZZ_i}$ seja a maior possível. Um algoritmo linear foi usado para encontrar este ponto.
 
-Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculados na seção \ref{sec:SistemasDiscretos}, onde serão os pontos dos setores cônicos. Os ângulos, medidos no sentido anti-horário, são determinados a partir de um terceiro ponto, conforme a
-
-\begin{figure}[!ht]
+\begin{figure}[!hb]
   \centering
   \begin{subfigure}[t]{0.4\columnwidth}
       \input{figuras/aproximacao_conica_zeta.tikz}
@@ -26,34 +27,170 @@ Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculado
   \label{fig:AproximacoesConica}
 \end{figure}
 
-\begin{algorithm}[hbt!]
+\begin{algorithm}[ht!]
   \caption{Aproximação cônica da taxa de amortecimento}\label{alg:AproximacaoConicaZeta}
   \begin{algorithmic}[1]
-    \Require $\zeta$, $T_s$
+    \Require $\sigma$, $\zeta$, $T_s$
     \Ensure $K$
-    \State $Z_o \gets $ $z(\zeta,0)$
-    \State $Z_i \gets $ $z\left(\zeta,\dfrac{\pi}{T_s\sqrt(1-\zeta^2)}\right)$
+    \State $Z_o \gets $ $z(\zeta,\omega_{nmin})$
+    \State $Z_i \gets $ $z\left(\zeta,\omega_{nmax}\right)$
     \State $Z \gets z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
     \State $F \gets P \succ 0$
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $a = Z_o$ e $\theta = ang(Z,Z_i)$ \Comment{Setor cônico esquerdo}
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = Z_i$ e $\theta = ang(Z,Z_o)$ \Comment{Setor cônico direito}
-    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $a = Z_i$  \Comment{Reta vertical}
+    \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$ com $\alpha = Z_o$ e $\theta = ang(Z,Z_i)$ \Comment{Setor cônico esquerdo}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = Z_i$ e $\theta = ang(Z,Z_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$ com $\alpha = Z_i$  \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \State $K \gets ZP^{-1}$
   \end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}[hbt!]
+Com tais informações determinadas, é possível aplicar o algoritmo \ref{alg:AproximacaoConicaZeta}. Um setor cônico voltado para a direita, com centro em $Z_i$ e ângulo $\theta_1$, e outro voltado para a esquerda, com centro em $Z_o$ e ângulo $\theta_2$, são aplicados. Além disso, para limitar a simetria do setor cônico com centro em $Z_i$, uma reta que passa por este ponto é aplicada.
+
+A região de $\mathscr{D}$-estabilidade resultante é a intersecção de tais regiões. Ao ser unida com a restrição da taxa de decaimento, o setor cônico com centro em $Z_o$ é limitado por esta região. Após resolvido o problema, o algoritmo determina a factibilidade da solução encontrada e retorna a matrix $K$ de estabiliza o sistema com os parâmetros de projeto informados.
+
+Em relação à largura de banda, a mesma ideia é aplicada \cite{CHIQUETO2021}. Contudo, neste caso, somente um setor cônico com centro em $N_i$ limitado pela direita por uma reta que passa neste ponto são usados. Os pontos $N_o$ e $N_i$ são determinados via \eqref{eq:PontoMinimoExtremoWnZ} e \eqref{eq:PontoMaximoExtremoWnZ}, respectivamente. Além disso, o ângulo $\theta$ é determinado através de $ang(N_o,N_i)$.  
+
+\begin{algorithm}[hb!]
   \caption{Aproximação cônica da curva $N_y$}\label{alg:AproximacaoConicaNy}
   \begin{algorithmic}[1]
-    \Require $\omega_n$
+    \Require $\sigma$, $\omega_n$
     \Ensure $K$
-    \State $N_o \gets $ $z(0,\omega_n)$
-    \State $N_i \gets $ $z(1,\omega_n)$
+    \State $N_o \gets $ $z(\zeta_{min},\omega_n)$
+    \State $N_i \gets $ $z(\zeta_{max},\omega_n)$
     \State $F \gets P \succ 0$
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $a = N_i$ e $\theta = ang(N_i,N_o)$ \Comment{Setor cônico direito}
-    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $a = N_i$ \Comment{Reta vertical}
+    \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = N_i$ e $\theta = ang(N_i,N_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$ com $\alpha = N_i$ \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \State $K \gets ZP^{-1}$
   \end{algorithmic}
 \end{algorithm}
+
+Com tais informações determinadas, é possível utilizar o algoritmo \ref{alg:AproximacaoConicaNy}. Um detalhe que é facilmente observado é a rápida perda de convexidade da curva $N_y$. Logo, caso a constante $N_y$ seja menor que $4.86$ \cite{CHIQUETO2021}, o algoritmo retorna um alerta devido a falta de convexidade. Assim, para fins práticos, a pouca e a falta convexidade de tais curvas não foram tratadas.
+
+\section{Aproximação elíptica}
+Para a aproximação elíptica, apenas a região $\omega_n$-constante foi aproximada. A ideia consiste em encontrar a maior elipse inscrita, a fim de aproveitar melhor área. Para tal, é preciso verificar se o valor escolhido para $\omega_n$ e $T_s$ resultem em uma área convexa \cite{CHIQUETO2021}. Caso os parâmetros informados atendam à restricções, o algoritmo
+
+\begin{figure}[!ht]
+  \centering
+  \input{figuras/aproximacao_eliptica_wn.tikz}
+  \caption{}
+  \label{fig:AproximacaoEliptica}
+\end{figure}
+
+\begin{algorithm}[hb!]
+  \caption{Aproximação elíptica da curva $N_y$}\label{alg:AproximacaoElipticaNy}
+  \begin{algorithmic}[1]
+    \Require $\sigma$, $T_s$, $N_y$
+    \Ensure $K$
+    \State $F \gets P \succ 0$
+    \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$, com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+    \State $F \gets \eqref{eq:LMIElipse}$, com $a = \eqref{eq:PontoAElipse}$ e $b = \eqref{eq:PontoBElipse}$
+    \State Verificar se o problema é factível
+    \State $K \gets ZP^{-1}$
+  \end{algorithmic}
+\end{algorithm}
+
+\section{Aproximação poligonal}
+A aproximação poligonal consiste na ideia de aproximar as regiões de interesse em um polígono com o maior número de lados possíveis. Para isto, o algoritmo irá partir de uma aproximação cônica simples. A partir daí, entre os dois pontos usados para definir o setor, um ponto intermediário é calculado e dois novos setores cônicos são definidos.
+Sob a ótica do número de lados, a cada iteração, um novo lado é acrescentado e, consequentemente, a área é incrementada. Em um número grande de iterações, a região aproximada tende a área total.
+
+Em relação à região $\zeta$-constante, um setor cônico voltado para esquerda e centro em $Z_o$ é usado como aproximação inicial. Contudo, devido à cúspide daquela, uma reta em $Z_i$ é usada para eliminar tal convexidade. Dito isso, surge a necessidade de calcular o ponto entre os pontos extremos, onde possui a mesma parte real que $Z_i$, conforme a figura:
+
+\begin{algorithm}[ht!]
+  \caption{Aproximação poligonal da região $\zeta$-constante}\label{alg:AproximacaoPoligonalZeta}
+  \begin{algorithmic}[1]
+    \Require $\sigma$, $\zeta$, $T_s$
+    \Ensure $K$
+    \State $l \gets 0$
+    \State $V_o \gets z(\zeta,\omega_{nmin},T_s)$
+    \State $V_i \gets z(\zeta,\omega_{nmax},T_s)$
+    \State $V \gets z(\zeta,\omega_n,T_s)$, tal que $\Re{(V)} = V_i$
+    \State $pontos1 \gets$ [$0$ $\omega_{ne}$]
+    \State $pontos2 \gets pontos1$
+    \State $vec1 \gets$ [$V_o$ $V$]
+    \State $vec2 \gets vec1$
+    \State $F \gets P \succ 0$
+    \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = V_o$ e $\theta = ang(V_o,V)$ \Comment{Voltado para a esquerda}
+    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = V_i$ \Comment{Reta vertical}
+    \State Verificar se o problema é factível
+    \While{Problema for infactível}
+      \If{$l < $ número de elementos em $vec1 - 1$}
+        \State $l \gets l + 1$
+      \Else
+        \State $l \gets 1$
+        \State $vec1 \gets vec2$
+        \State $pontos1 \gets pontos2$
+      \EndIf
+        \State $F \gets$ \O \Comment{Descarta as restrições anteriores}
+        \State $F \gets P \succ 0$
+        \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+        \State $ponto_{new1} \gets (pontos1(l)+pontos1(l+1))/2$
+        \State $V_{new1} \gets z(\zeta, ponto_{new1}, T_s)$
+        \State $pontos2 \gets$ [$pontos2$ $ponto_{new1}$]
+        \State Orderna de forma decrescente $pontos2$
+        \State $vec2 \gets$ [$vec2$ $V_{new1}$]
+        \State Orderna de forma decrescente $vec2$
+        \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = V_i$ \Comment{Reta vertical}
+        \For{$m = 1$ até número de elementos de $vec1-1$}
+          \State $u \gets loc(vec2(m),vec2(m+1))$
+          \If{$u < 0$}
+            \State $F\gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = u$ e $\theta = ang(vec2(m+1),u)$ \Comment{Voltado para a direita}
+          \Else
+            \State $F\gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = u$ e $\theta = ang(vec2(m+1),u)$ \Comment{Voltado para a esquerda}
+          \EndIf
+        \EndFor
+        \State Verificar se o problema é factível 
+    \EndWhile
+    \State $K \gets ZP^{-1}$
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[ht!]
+  \caption{Aproximação poligonal da região $\omega_n$-constante}\label{alg:AproximacaoPoligonalWn}
+  \begin{algorithmic}[1]
+    \Require $\sigma$, $\omega_n$, $T_s$
+    \Ensure $K$
+    \State $l \gets 0$
+    \State $N_o \gets z(\zeta_{min},\omega_n,T_s)$
+    \State $N_i \gets z(\zeta_{max},\omega_n,T_s)$
+    \State $pontos3 \gets$ [$0$ $1$]
+    \State $pontos4 \gets pontos3$
+    \State $vec3 \gets$ [$N_i$ $N_o$]
+    \State $vec4 \gets vec3$
+    \State $F \gets P \succ 0$
+    \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = N_i$ e $\theta = ang(N_o,N_i)$ \Comment{Voltado para a direita}
+    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = N_i$ \Comment{Reta vertical}
+    \State Verificar se o problema é factível
+    \While{Problema for infactível}
+      \If{$l < $ número de elementos em $vec3 - 1$}
+        \State $l \gets l + 1$
+      \Else
+        \State $l \gets 1$
+        \State $vec3 \gets vec4$
+        \State $pontos1 \gets pontos2$
+      \EndIf
+        \State $F \gets$ \O \Comment{Descarta as restrições anteriores}
+        \State $F \gets P \succ 0$
+        \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+        \State $ponto_{new} \gets (pontos3(l)+pontos3(l+1))/2$
+        \State $V_{new2} \gets z(ponto_{new2}, \omega_n, T_s)$
+        \State $pontos4 \gets$ [$pontos4$ $ponto_{new2}$]
+        \State Orderna de forma decrescente $pontos4$
+        \State $vec4 \gets$ [$vec4$ $V_{new2}$]
+        \State Orderna de forma decrescente $vec4$
+        \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = V_i$ \Comment{Reta vertical}
+        \For{$m = 1$ até número de elementos de $vec3-1$}
+          \State $u_2 \gets loc(vec4(m),vec4(m+1))$
+          \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = u_2$ e $\theta = ang(vec4(m),u_2)$
+        \EndFor
+        \State Verificar se o problema é factível
+    \EndWhile
+    \State $K \gets ZP^{-1}$
+  \end{algorithmic}
+\end{algorithm}
+
+Para a região $\omega_n$-constante, a ideia é similar.

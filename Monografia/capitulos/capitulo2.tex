@@ -1,23 +1,29 @@
 \chapter{Região de Desempenho Garantido}
 
-A alocação de polos é uma das principais ferramentas da teoria de controle, pois a partir desta, é possível projetar um sistema que seja estável e que tenha um bom desempenho \cite{ROSINOVA2014}. A operação de alocar polos de um sistema linear dentro de uma região específica é chamada $\mathscr{D}$-estabilidade \cite{WISNIEWSKI2017}.
+A alocação de polos é uma das principais ferramentas da teoria de controle, pois a partir desta, é possível projetar um sistema que seja estável e que tenha um bom desempenho \citeonline{ROSINOVA2014}. A operação de alocar polos de um sistema linear dentro de uma região específica é chamada $\mathscr{D}$-estabilidade \citeonline{WISNIEWSKI2017}.
 
 Entende-se por estável o sistema que, em termos de resposta a estímulos, possui uma convergência ao zero da resposta natural, restando apenas a reposta forçada \cite{NISE2011}. Assim, para um intervalo de tempo determinado, espera-se que o sistema apenas tenha dinâmica referente à entrada aplicada. Neste contexto, a estabilidade é o ponto de partida para projetos de compensadores.
 
-\section{Regiões de polos para sistemas contínuos}
+\section{Regiões de polos para sistemas contínuos}\label{sec:DEstabilidadeS}
 
 Na $\mathscr{D}$-estabilidade, a região referente à estabilidade em sistema contínuos e invariantes no tempo é o semi-plano esquerdo do plano complexo. Dado um ponto genérico no plano $s$, representado por:
 \begin{equation}
   s = x + jy\label{eq:PontoGenericoPlanoS}
 \end{equation}
-estará na região estável somente se a parte real de tal ponto estiver à esquerda do eixo imaginário, ou em números:
+este estará na região estável somente se a parte real de tal ponto estiver à esquerda do eixo imaginário, ou em números:
 \begin{equation}
-  \Re{(s)} < 0 \implies x < 0
+  \Re{(s)} < 0 \implies x < 0 \label{eq:Estabilidade}
 \end{equation}
 
-Assim, um sistema com $n$ polos é dito estável se todos os seus polos estão localizados à esquerda do eixo imaginário. A partir deste conceito, é possível definir estabilidade relativa. Se um sistema é estável para um valor $\sigma < 0$, então aquele é dito estável relativo (ao valor de $\sigma$). A figura \ref{subfig:EstabilidadeRelativaS} mostra um esboço da região comentada. À medida que o valor de $\sigma$ aumenta em valor absoluto, mais a esquerda a reta limitante se encontra e menor o plano estável relativo se torna.
+Assim, um sistema com $n$ polos é dito estável se todos os seus polos estão localizados à esquerda do eixo imaginário. A partir deste conceito, é possível definir estabilidade relativa. Se um sistema é estável para um valor $\sigma < 0$, então aquele é dito estável relativo (ao valor de $\sigma$).
 
-Outros parâmetros de desempenho importantes para projetos de compensadores são o fator de amortecimento $\zeta$ e a frequência natural não-amortecida $\omega_n$. São caracterizados pela resposta de sistemas de segunda ordem à função impulso \cite{NISE2011}\cite{OGATA2011} e representam as oscilações não-amortecidas do modelo físico. Dado um polo representado como em \eqref{eq:PontoGenericoPlanoS}, é possível reescrever tal equação em termos de tais parâmetros:
+A figura \ref{subfig:EstabilidadeRelativaS} mostra um esboço da região comentada. À medida que o valor de $\sigma$ aumenta em valor absoluto, mais a esquerda a reta limitante se encontra e menor o plano estável relativo se torna. Além disso, as equações de tais retas podem ser generalizadas via:
+
+\begin{equation}
+  x = -|\sigma|\label{eq:Sigma}
+\end{equation}
+
+Outros parâmetros de desempenho importantes para projetos de compensadores são o fator de amortecimento $\zeta$ e a frequência natural não-amortecida $\omega_n$. São caracterizados pela resposta de sistemas de segunda ordem à função degrau \cite{NISE2011}\cite{OGATA2011} e representam as oscilações não-amortecidas do modelo físico. Dado um par de polos conjugados via \eqref{eq:PontoGenericoPlanoS}, é possível reescrevê-los em termos daqueles parâmetros:
 \begin{equation}
   s = -\zeta\omega_n \pm \jmath\omega_n \sqrt {1-\zeta^2} \label{eq:PontoPlanoS}
 \end{equation}
@@ -47,31 +53,32 @@ com $\sigma = -\zeta\omega_n$. As regiões de $\mathscr{D}$-estabilidade referen
   \label{fig:RegioesPlanoS}
 \end{figure}
 
-A partir disso, as regiões $\zeta$-constante são obtidas fixando-se $\zeta$ e variando-se o valor de $\omega_n$, e possuem as características observadas na figura \ref{subfig:TaxaDeAmortecimentoS}. Os ângulos formados entre as retas e o eixo imaginário têm valores absolutos iguais à $\beta = -cot{\left(\arccos{\left(\zeta\right)}\right)}$ e diminuem a medida que o valor de $\zeta$ aumenta, tornando a região estreita.
+Com isso, é possível analisar as regiões geradas a partir de tais parâmentros. A região $\zeta$-constante é obtida fixando-se um valor para $\zeta$ e variando-se o valor de $\omega_n$. As características obtidas são representadas na figura \ref{subfig:TaxaDeAmortecimentoS}. Os ângulos formados entre as retas e o eixo imaginário têm valores absolutos $\beta = -cot{\left(\arccos{\left(\zeta\right)}\right)}$ e diminuem à medida que o valor de $\zeta$ aumenta, tornando a região estreita.
 
-Já as regiões $\omega_n$-constante possuem as características esboçadas na figura \ref{subfig:OscilacaoNaoAmortecidaS}. Os raios das semicircunferências formadas possuem valores iguais à $\omega_n$ e aumentam ou diminuem à medida que varia tal parâmetro. Conforme abordado em \cite{CHILALI1996}, a intersecção de tais regiões formam a Região $\Omega$ de Desempenho garantido. Todos os polos dentro de tal região possuem um mínimo valor de $\sigma$, $\zeta$ e $\omega_n$.
+Já as regiões $\omega_n$-constante possuem as características esboçadas na figura \ref{subfig:OscilacaoNaoAmortecidaS}. Os raios das semicircunferências formadas possuem valores iguais à $\omega_n$ e aumentam ou diminuem à medida que se varia tal parâmetro. Conforme abordado em \cite{CHILALI1996}, a intersecção das regiões comentadas formam a Região $\Omega$ de Desempenho garantido. Todos os polos dentro de tal região possuem um mínimo valor de $\sigma$, $\zeta$ e $\omega_n$.
 
-\section{Regiões de polos para sistemas discretos}\label{sec:SistemasDiscretos}
+\section{Regiões de polos para sistemas discretos}\label{sec:DEstabilidadeZ}
 
-As regiões de $\mathscr{D}$-estabilidade para sistemas discretos seguem os mesmos métodos abordados nos contínuos, com a diferença de serem descritos no plano $z$. A transformada de um ponto do plano $s$ para $z$ é dado por:
+As regiões de $\mathscr{D}$-estabilidade para sistemas discretos são obtidas seguindo os mesmos métodos abordados nos contínuos, com a diferença de serem descritos no plano $z$. A transformada de um ponto do plano $s$ para $z$ é dada por:
 \begin{equation}
   z = \exp(sT_s)\label{eq:TransformacaoSZ}
 \end{equation}
-onde $T_s$ é o período de amostragem, parâmetro importante para sistemas discretos (ver detalhes em \cite{KUO1980}). Substituindo \eqref{eq:PontoPlanoS} em \eqref{eq:TransformacaoSZ}, chega-se a seguinte relação:
+onde $T_s$ é o período de amostragem, parâmetro importante para sistemas discretos \cite{KUO1980}. Substituindo \eqref{eq:PontoPlanoS} em \eqref{eq:TransformacaoSZ}, chega-se a seguinte relação:
 \begin{equation}
   z = \exp{\left(-\zeta\omega_nT_s \pm j\omega_nT_s\sqrt{1-\zeta^2}\right)}\label{eq:PontoPlanoZ}
 \end{equation}
 
-A $\sigma$-estabilidade nos contínuos foi encontrada verificando a parte real dos polos. Utilizando-se da mesma ideia, ao analisar apenas a parte real de \eqref{eq:PontoPlanoZ}, chega-se na seguinte relação:
+A $\sigma$-estabilidade nos contínuos foi encontrada verificando a parte real dos polos. Utilizando-se da mesma ideia, ao analisar apenas a parte real de \eqref{eq:PontoPlanoZ} (igualando a parte imaginária igual a zero), chega-se na seguinte relação:
 \begin{equation}
-  r = \exp{\left(-|\sigma|T_s\right)}\label{eq:EstabilidadeRelativaZ}
+  z = \exp{\left(-|\sigma|T_s\right)}\label{eq:EstabilidadeRelativaZ}
 \end{equation}
-onde $\sigma = -\zeta\omega_n$. Tal função descreve uma circunferência com raio $r = |\sigma|$. Recordando \eqref{eq:LMIRightBounded}, quando $\sigma = 0$ em \eqref{eq:EstabilidadeRelativaZ}, a circunferência gerada possui raio unitário. Dessa maneira, o região estável nos sistemas contínuos é o interior de uma circunferência unitária. A figura \ref{subfig:EstabilidadeRelativaZ} mostra esboços para vários valores de $\sigma$.
+onde $\sigma = -\zeta\omega_n$. Tal função descreve uma circunferência com raio $r = |\sigma|$ no plano complexo. Recordando \eqref{eq:Estabilidade} e \eqref{eq:Sigma}, quando $\sigma = 0$ em \eqref{eq:EstabilidadeRelativaZ}, a circunferência gerada possui raio unitário. Dessa maneira, o região estável nos sistemas discretos é o interior de uma circunferência unitária. A figura \ref{subfig:EstabilidadeRelativaZ} mostra esboços para vários valores de $\sigma$.
 
 Como realizado nos sistemas contínuos, \eqref{eq:PontoPlanoZ} pode ser enxergada em função de $\zeta$ e $\omega_n$:
 \begin{equation}
   z(\zeta,\omega_n) = \exp{\left(-\zeta\omega_nT_s \pm j\omega_nT_s\sqrt{1-\zeta^2}\right)}\label{eq:FuncaoPontoZ}
 \end{equation}
+e a partir desta, é possível descrever as regiões geradas a partir de tais parâmentros. A região $\zeta$-constante possui o formato aprensentado na figura \ref{subfig:EstabilidadeRelativaZ}. Devido ao exponencial, as curvas geradas assemelham-se a cardioides, mas não o são, pois denominam-se espirais logarítmicas.
 \begin{figure}[!ht]
   \centering
   \begin{subfigure}[t]{0.3\columnwidth}
@@ -89,19 +96,11 @@ Como realizado nos sistemas contínuos, \eqref{eq:PontoPlanoZ} pode ser enxergad
     \caption{}
     \label{subfig:OscilacaoNaoAmortecidaZ}
   \end{subfigure}
-  \caption{Regiões de $\mathscr{D}$-estabilidade do plano $z$. Em \subref{subfig:EstabilidadeRelativaZ} encontram-se circunferências com valores de raios crescentes, sendo $|\sigma_2 > |\sigma_1|$. Em \subref{subfig:TaxaDeAmortecimentoZ} encontram regiões $\zeta$-constantes com áreas decrescentes em relação à $\zeta$, sendo $\zeta_2 > \zeta_1$. Em \subref{subfig:OscilacaoNaoAmortecidaZ} encontram-se regiões semelhantes à cardioides que possuem áreas crescentes em relação à $\omega_n$, sendo $\omega_2 > \omega_1$.}
+  \caption{Regiões de $\mathscr{D}$-estabilidade do plano $z$. Em \subref{subfig:EstabilidadeRelativaZ} encontram-se circunferências com valores de raios crescentes, sendo $|\sigma_2| > |\sigma_1|$. Em \subref{subfig:TaxaDeAmortecimentoZ} encontram regiões $\zeta$-constantes com áreas decrescentes em relação à $\zeta$, sendo $\zeta_2 > \zeta_1$. Em \subref{subfig:OscilacaoNaoAmortecidaZ} encontram-se regiões semelhantes à cardioides que possuem áreas crescentes em relação à $\omega_n$, sendo $\omega_2 > \omega_1$.}
   \label{fig:RegioesPlanoZ}
 \end{figure}
 
-A respectiva região $\zeta$-constante possui o formato aprensentado na figura \ref{subfig:EstabilidadeRelativaZ}. Devido ao exponencial, as curvas geradas assemelham-se a cardioides, mas não o são, pois denominam-se espirais logarítmicas. Ambos os ramos começam a ser desenhadas a partir de $(1,0)$ (quando $\omega_n = 0$), e se deslocam da direita para a esquerda até cruzarem o eixo real primeira vez. À medida que o valor de $\omega_n$ aumenta, mais voltas o contorno dá. E a cada $n\pi$ voltas, o contorno cruza o eixo real pela $n$-ésima vez, conforme esboçado na figura \ref{fig:EspiralLogaritmica}. Como a espiral tende para dentro da região limitada pela primeira volta, somente a primeira volta é considerada no plano $z$.
-
-O valor de $\omega_n$ no qual os ramos cruzam o eixo imaginário a cada $n\pi$ voltas é encontrado quando o argumento de \eqref{eq:FuncaoPontoZ} é igual à $\pi$, isto é:
-\begin{align}
-  \arg{z(\zeta,\omega_{ne})} &= \pi \implies \pm \omega_{ne}T_s\sqrt{1-\zeta^2} = \pi\notag\\
-  \omega_{ne} &= \dfrac{\pi}{T_s\sqrt{1-\zeta^2}}\label{eq:PontoExtremoZetaZ}
-\end{align}
-
-Assim, ambos os ramos cruzam o eixo imaginário pela primeira vez quando $\omega_n = \omega_{ne}$, para o respectivo valor dixado de $\zeta$. Ainda, outra característica que pode ser citada é a influência do $\zeta$: quando maior seu valor, menor a região $\zeta$-constante equivalente, assim como ocorre com seu dual nos contínuos.
+Ambos os ramos começam a ser desenhadas a partir de $(1,0)$ (quando $\omega_n = 0 = \omega_{nmin}$), e se deslocam da direita para a esquerda até cruzarem o eixo real primeira vez. À medida que o valor de $\omega_n$ aumenta, mais voltas o contorno dá. E a cada $n\pi$ voltas, o contorno cruza o eixo real pela $n$-ésima vez, conforme esboçado na figura \ref{fig:EspiralLogaritmica}. Como a espiral tende para dentro da região limitada pela primeira volta, somente a primeira volta é considerada no plano $z$.
 
 \begin{figure}[!ht]
   \centering
@@ -110,15 +109,27 @@ Assim, ambos os ramos cruzam o eixo imaginário pela primeira vez quando $\omega
   \label{fig:EspiralLogaritmica}
 \end{figure}
 
-Em relação às regiões $\omega_n$-constante, como o estudo de alocação de polos se restringe a sistemas se segunda ordem subamortecidos (ver \cite{NISE2011} e \cite{OGATA2011}), os valores possíveis para a taxa de amortercimento está no intervalo $0 \leq \zeta \leq 1$. Dito isso, os ramos esboçados na figura \ref{subfig:OscilacaoNaoAmortecidaZ} começam a ser desenhadas a partir da circunferência unitária e vão em direção ao ponto $(z(1,\omega_n),0)$, calculado como:
-\begin{equation}
-  z(1,\omega_n) = \exp{\left(-\omega_nT_s \pm T_s\sqrt{1-\zeta^2}\right)}\label{eq:PontoExtremoWnZ}
-\end{equation}
+O valor de $\omega_n$ no qual os ramos cruzam o eixo imaginário a cada $n\pi$ voltas é encontrado quando o argumento de \eqref{eq:FuncaoPontoZ} é igual à $\pi$ (meia volta da espiral, em radianos), isto é:
+\begin{align}
+  \arg{z(\zeta,\omega_{nmax})} &= \pi \implies \omega_{nmax}T_s\sqrt{1-\zeta^2} = \pi \implies \notag\\
+  \omega_{nmax} &= \dfrac{\pi}{T_s\sqrt{1-\zeta^2}}\label{eq:PontoExtremoZetaZ}
+\end{align}
 
-A área de tal região aumenta com o valor de $\omega_n$.
+Assim, ambos os ramos cruzam o eixo imaginário pela primeira vez quando $\omega_n = \omega_{nmax}$, para o respectivo valor fixado de $\zeta$. Ainda, outra característica que pode ser citada é a influência do $\zeta$ na região: quanto maior seu valor, menor a área da região $\zeta$-constante equivalente, assim como ocorre com seu dual nos contínuos.
 
-\section{LMI}
-Em \cite{CHILALI1996}, foram abordadas técnicas utilizando Inequações Matriciais Lineares (LMI, em inglês) para mapear as regiões de $\mathscr{D}$-estabilidade no plano $s$. Tal feito foi realizado devido à convexidade de tais regiões. Conforme visto, as regiões $\zeta$-constante e $\omega_n$-constante no plano $z$ podem possuir características não-convexas, o que impossibilita o mapeamento via LMIs.
+Em relação às regiões $\omega_n$-constante, como o estudo de alocação de polos se restringe a sistemas se segunda ordem subamortecidos \cite{NISE2011} \cite{OGATA2011}, os valores possíveis para a taxa de amortercimento está no intervalo $0 < \zeta < 1$. Dito isso, os ramos esboçados na figura \ref{subfig:OscilacaoNaoAmortecidaZ} começam a ser desenhadas a partir da circunferência unitária (quando $\zeta = 0$) e vão em direção ao ponto $(z(1,\omega_n),0)$.
+Tais pontos extremos possuem as seguintes relações:
+\begin{subequations}
+  \begin{align}
+    z(\zeta_{min} = 0,\omega_n) &= \exp{\left(\pm \omega_nT_s\right)}\label{eq:PontoMinimoExtremoWnZ}\\
+    z(\zeta_{max} = 1,\omega_n) &= \exp{\left(-\omega_nT_s \pm j\omega_n\right)}\label{eq:PontoMaximoExtremoWnZ}
+  \end{align}
+\end{subequations}
+
+Com tais pontos extremos, é possível aproximar as regiões do plano $z$ utilizando Desigualdes Matriciais Lineares (LMIs, em inglês). Esse estudo será abordado na subseção a seguir.
+
+\section{Aproximação das regiões do plano z via LMIs}
+Em estudos anteriores, foram abordadas técnicas utilizando LMIs para mapear as regiões de $\mathscr{D}$-estabilidade no plano $s$. Tal feito foi realizado devido à convexidade de tais regiões, requisito para o uso de LMIs. Conforme visto na subseção \ref{sec:DEstabilidadeZ}, as regiões $\zeta$-constante e $\omega_n$-constante no plano $z$ podem possuir características não-convexas, o que impossibilita o mapeamento exato via LMIs.
 
 Estudos foram desenvolvidos para contornar a não-convexidade de algumas regiões do plano $z$, aproximando-os em regiões convexas. Em 2014, no artigo \cite{ROSINOVA2014}, a autora mapeou a região $\zeta$-constante utilizando a maior elipse ou circunferência inscrita possível. Mas foi em \cite{ROSINOVA2019} que foi desenvolvido um algoritmo que traz várias aproximações utilizando elipses, para aproveitar da melhor forma a área daquela região.
 
@@ -126,8 +137,7 @@ Já em \cite{WISNIEWSKI2017} foi abordada uma aproximação cônica, utilzando-s
 
 E finalmente, utilizando-se das ideias anteriores, \cite{CHIQUETO2021} trouxe aproximações cônica, elíptica e poligonal da região $\omega_n$-constante.
 
-\subsubsection{Regiões LMI}
-As regiões básicas descritas em \cite{CHILALI1996} são três: uma limitação do plano aprensentada via uma reta, uma limitação por uma circunferência e um setor cônico. A primeira
+\section{Condição de Liapunov}
 
 \begin{equation}
   \begin{bmatrix*}[c]
@@ -136,25 +146,43 @@ As regiões básicas descritas em \cite{CHILALI1996} são três: uma limitação
   \end{bmatrix*}
   \prec 0\label{eq:LMIEstabilidadeRelativa}
 \end{equation}
-
+com $r = \exp{\left(-|\sigma|T_s\right)}$.
 \begin{equation}
   \begin{bmatrix*}[c]
-    \sin{(\theta)(AP + BZ + PA' + Z'B -2aP)} &  \dots \\
-    \cos{(\theta)(PA' + Z'B'- AP - BZ)}      &  \sin{(\theta)(AP + BZ + PA' + Z'B -2aP)}
+    \sin{(\theta)(AP + BZ + PA' + Z'B -2\alpha P)} &  * \\
+    \cos{(\theta)(PA' + Z'B'- AP - BZ)}      &  \sin{(\theta)(AP + BZ + PA' + Z'B -2\alpha P)}
   \end{bmatrix*}
   \prec 0\label{eq:LMIESetorConicoEsquerdo}
 \end{equation}
 
 \begin{equation}
   \begin{bmatrix*}[c]
-    \sin{(\theta)(2aP - AP - BZ - PA' - Z'B')} & * \\
-    \cos{(\theta)(PA' + Z'B' - AP - BZ)}       & \sin{(\theta)(2aP - AP - BZ - PA' - Z'B')}
+    \sin{(\theta)(2\alpha P - AP - BZ - PA' - Z'B')} & * \\
+    \cos{(\theta)(PA' + Z'B' - AP - BZ)}       & \sin{(\theta)(2\alpha P - AP - BZ - PA' - Z'B')}
   \end{bmatrix*}
   \prec 0\label{eq:LMIESetorConicoDireito}
 \end{equation}
 
 \begin{equation}
-  AP + BZ + Z'B' + PA' -2aP\label{eq:LMIRightBounded} \succ 0
+  AP + BZ + Z'B' + PA' -2\alpha P\label{eq:LMIRightBounded} \succ 0
 \end{equation}
 
-com $u = \omega_nT_s$
+\begin{equation}
+  N_y = \dfrac{\omega_s}{\omega_n} = \dfrac{2\pi}{\omega_nT_s}\label{eq:ConstanteNy}
+\end{equation}
+
+\begin{equation}
+  a = \left(1-exp{\left(\dfrac{-2\pi}{N_y}\right)}\right)\label{eq:PontoAElipse}
+\end{equation}
+
+\begin{equation}
+  b = a\sin{\left(\dfrac{2\pi}{Ny}\right)}\label{eq:PontoBElipse}
+\end{equation}
+
+\begin{equation}
+  \begin{bmatrix*}[c]
+    -P & *\\
+    -\dfrac{1}{a}P + \dfrac{1}{2}\left(\dfrac{1}{a}+\dfrac{1}{b}\right)AP + \dfrac{1}{2}\left(\dfrac{1}{a}-\dfrac{1}{b}\right)PA' & -P
+  \end{bmatrix*}
+  \prec 0\label{eq:LMIElipse}
+\end{equation}

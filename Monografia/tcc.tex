@@ -5,7 +5,7 @@ twoside,
 a4paper,
 brazil
 ]{abntex2}
-\usepackage[num]{abntex2cite}
+\usepackage[alf]{abntex2cite}
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
 \usepackage[dvipsnames,x11names]{xcolor}
@@ -16,8 +16,7 @@ brazil
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{siunitx}
-\usepackage{algpseudocode}
-\usepackage{algorithm}
+\usepackage{algorithm,algorithmicx,algpseudocode}
 \usepackage{attachfile}
 \usepackage{listings}
 \usepackage{listingsutf8}
@@ -26,6 +25,11 @@ brazil
 	compat=newest,
 	every axis/.append style={
 		line width=1pt,}
+}
+\usetikzlibrary{
+	angles,
+	calc,
+	quotes
 }
 
 \lstset{
@@ -45,13 +49,21 @@ brazil
 }
 
 \makeatletter
-  \renewcommand{\ALG@name}{Algoritmo}
+  \renewcommand{\ALG@name}{\footnotesize Algoritmo}
+	\renewcommand{\ALG@beginalgorithmic}{\footnotesize}
   \renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
   \renewcommand{\algorithmicensure}{\textbf{Saída:}}
+	\renewcommand{\algorithmicend}{\textbf{fim}}
+	\renewcommand{\algorithmicif}{\textbf{se}}
+	\renewcommand{\algorithmicthen}{\textbf{então}}
+	\renewcommand{\algorithmicelse}{\textbf{senão}}
+	\renewcommand{\algorithmicwhile}{\textbf{enquanto}}
+	\renewcommand{\algorithmicdo}{\textbf{faça}}
+	\renewcommand{\algorithmicfor}{\textbf{para}}
   \renewcommand{\listalgorithmname}{List of \ALG@name s}
 \makeatother
 
-\title{\textsc{Alocação de Polos Em Regiões do Plano Complexo via LMIs}}
+\title{\textsc{Alocação de Polos Em Regiões do Plano Complexo Para Sistemas Discretos via LMIs}}
 \author{Alexandre Nascimento, Jr.}
 \instituicao{Universidade Federal de Mato Grosso do Sul}
 \local{Campo Grande, MS}

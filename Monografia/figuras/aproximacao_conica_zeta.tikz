@@ -5,7 +5,6 @@
 %where you can also make suggestions and rate matlab2tikz.
 %
 %
-\usetikzlibrary {angles}
 \begin{tikzpicture}[scale=0.65]
 
 \begin{axis}[%
@@ -22,7 +21,7 @@
   xticklabel style={anchor=north west},
   xlabel={$\pmb{X}$},
   ylabel={$\pmb{jY}$},
-  x label style={anchor=north},
+  x label style={anchor=north}
 ]
 \addplot [color=black, forget plot]
   table[row sep=crcr]{%
@@ -344,12 +343,19 @@ nan	0\\
 1	0\\
 0.241172754840028	-0.552596202525959\\
 };
+
+\coordinate (A) at (0.241172754840028, 0.552596202525959);
+\coordinate (B) at (-0.253826721980109, 3.10848082611005e-17);
+\coordinate (C) at (1, 0);
+\pic [draw, angle radius = 3mm] {angle=C--B--A};
+\pic [draw, angle radius = 3mm] {angle=A--C--B};
+
 \end{axis}
 
-\draw (3.1,4.4) node[scale = 0.65, anchor=south] {\small $Z_i$};
-\draw (8.45,4.4) node[scale = 0.65, anchor=south] {\small $Z_o$};
-\draw (5.4,6.5) node[scale = 0.65, anchor=south] {\small $Z$};
-\draw (5.4,2.3) node[scale = 0.65, anchor=north] {\small $\bar{Z}$};
+\draw (3.1,4.4) node[scale = 0.65, anchor=south] {\small $V_i$};
+\draw (8.45,4.4) node[scale = 0.65, anchor=south] {\small $V_o$};
+\draw (5.4,6.5) node[scale = 0.65, anchor=south] {\small $V$};
+\draw (5.4,2.3) node[scale = 0.65, anchor=north] {\small $\bar{V}$};
 
 %\draw pic[draw] {angle = Zo--Zi--Z};
 \end{tikzpicture}%
