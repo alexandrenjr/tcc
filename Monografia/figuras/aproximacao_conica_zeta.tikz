@@ -349,7 +349,6 @@ nan	0\\
 \coordinate (C) at (1, 0);
 \pic [draw, angle radius = 3mm] {angle=C--B--A};
 \pic [draw, angle radius = 3mm] {angle=A--C--B};
-
 \end{axis}
 
 \draw (3.1,4.4) node[scale = 0.65, anchor=south] {\small $V_i$};
@@ -357,5 +356,4 @@ nan	0\\
 \draw (5.4,6.5) node[scale = 0.65, anchor=south] {\small $V$};
 \draw (5.4,2.3) node[scale = 0.65, anchor=north] {\small $\bar{V}$};
 
-%\draw pic[draw] {angle = Zo--Zi--Z};
 \end{tikzpicture}%

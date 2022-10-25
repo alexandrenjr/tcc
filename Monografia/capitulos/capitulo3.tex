@@ -96,7 +96,7 @@ Para a aproximação elíptica, apenas a região $\omega_n$-constante foi aproxi
 A aproximação poligonal consiste na ideia de aproximar as regiões de interesse em um polígono com o maior número de lados possíveis. Para isto, o algoritmo irá partir de uma aproximação cônica simples. A partir daí, entre os dois pontos usados para definir o setor, um ponto intermediário é calculado e dois novos setores cônicos são definidos.
 Sob a ótica do número de lados, a cada iteração, um novo lado é acrescentado e, consequentemente, a área é incrementada. Em um número grande de iterações, a região aproximada tende a área total.
 
-Em relação à região $\zeta$-constante, um setor cônico voltado para esquerda e centro em $Z_o$ é usado como aproximação inicial. Contudo, devido à cúspide daquela, uma reta em $Z_i$ é usada para eliminar tal convexidade. Dito isso, surge a necessidade de calcular o ponto entre os pontos extremos, onde possui a mesma parte real que $Z_i$, conforme a figura:
+Para a região $\zeta$-constante, um setor cônico voltado para esquerda e centro em $Z_o$ é usado como aproximação inicial \cite{WISNIEWSKI2019}. Contudo, devido à cúspide daquela, uma reta em $Z_i$ é usada para eliminar tal convexidade. Dito isso, surge a necessidade de calcular o ponto $\bar{z_i}$, localizado entre os pontos máximo e mínimo, onde possui a mesma parte real que $Z_i$, conforme a figura:
 
 \begin{algorithm}[ht!]
   \caption{Aproximação poligonal da região $\zeta$-constante}\label{alg:AproximacaoPoligonalZeta}
@@ -146,7 +146,7 @@ Em relação à região $\zeta$-constante, um setor cônico voltado para esquerd
     \EndWhile
     \State $K \gets ZP^{-1}$
   \end{algorithmic}
-\end{algorithm}
+\end{algorithm} 
 
 \begin{algorithm}[ht!]
   \caption{Aproximação poligonal da região $\omega_n$-constante}\label{alg:AproximacaoPoligonalWn}
@@ -193,4 +193,40 @@ Em relação à região $\zeta$-constante, um setor cônico voltado para esquerd
   \end{algorithmic}
 \end{algorithm}
 
-Para a região $\omega_n$-constante, a ideia é similar.
+Para tal, utiliza-se o cálculo númerico para encontrar uma solução aproximada. Com tal ponto calculado e a não convexidade da cúspide tratada, é possível utilizar o algoritmo \ref{alg:AproximacaoPoligonalZeta}. Os vértices iniciais $z_o$ e $z_i$ do ramo são guardados em um vetor. Em paralelo a isso, os valores de $\omega_n$ que geram tais valores em $\eqref{eq:FuncaoPontoZ}$ também são armazenados. A ideia do algoritmo é, a cada iteração, calcular o ponto médio entre dois pontos consecutivos.
+
+Contudo, antes do algoritmo voltar para o início dos vetores mencionados, é preciso que ele calcule o ponto médio entre todos os pontos do vetor atual. Para isso, cópias dos vetores de vértices e de pontos foram inicializados, a fim de controlarem tal fluxo. Assim, quando o algoritmo terminar de percorrer o "vetor anterior", tal conjunto é atualizado com os novos pontos e vértices calculados ao final deste processo.
+
+Em relação ao cálculos dos pontos intermediários, a inclinação destes juntamente com o ponto anterior podem ser positiva ou negativa. O uso da função $loc$ se torna enssencial, pois caso o ponto resultante for menor que zero, a reta que passa pelos pontos possui inclinação positiva e negativa, caso contrário \cite{WISNIEWSKI2019}. Assim, os setores cônicos gerados seguem a orientação de tal reta, com centro naquele ponto calculado.
+
+Para a região $\omega_n$-constante, a ideia é similar. A aproxmição inicial emprega-se de apenas um setor cônico voltado para a direita com centro em $n_i = z(\zeta_{max},\omega_n,T_s)$, com $\zeta_{max} = 1$. O ângulo $\theta$ em \eqref{eq:LMIESetorConicoDireito} é definido a partir do ângulo entre a reta $\overline{n_on_i}$ e o eixo real, onde $n_o = z(\zeta_{min},\omega_n,T_s)$, com $\zeta_{min} = 0$.
+
+Caso esta região não for factível, basta calcular o ponto intermediário entre $n_o$ e $n_i$ e definir dois novos setores cônicos, a fim de aumentar a área. Novamente, para o novo ponto calculado e o anteriormente, usa-se da função $loc$ para determinar ponto que a reta que passsa por aqueles pontos cruza e eixo real, onde será o centro do novo setor cônico. Já o ângulo seguirá o mesmo critério, sendo o valor entre aquela reta e o eixo real.
+
+Assim, a cada iteração, o algoritmo adiciona dois novos setores cônicos e os intersecta com as regiões previamente definidos. Ao final de uma iteração, o algoritmo descarta tais regiões e começa a aumentar a área de $\mathscr{D}$-estabilidade a partir de $n_i$ até $n_o$.
+
+\begin{figure}[!hb]
+  \centering
+  \begin{subfigure}[t]{0.2\columnwidth}
+      \input{figuras/aproximacao_poligonal_l1.tikz}
+      \caption{}
+      \label{subfig:AproximacaoPoligonalWn1}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.2\columnwidth}
+      \input{figuras/aproximacao_poligonal_l2.tikz}
+      \caption{}
+      \label{subfig:AproximacaoPoligonalWn2}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.2\columnwidth}
+    \input{figuras/aproximacao_poligonal_l3.tikz}
+    \caption{}
+    \label{subfig:AproximacaoPoligonalWn3}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.2\columnwidth}
+    \input{figuras/aproximacao_poligonal_l4.tikz}
+    \caption{}
+    \label{subfig:AproximacaoPoligonalWn4}
+  \end{subfigure}
+  \caption{}
+  \label{fig:AproximacoesPoligonalWn}
+\end{figure}
