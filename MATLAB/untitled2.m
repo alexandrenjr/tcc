@@ -12,13 +12,18 @@ Bc = [inv(R1*C1); 0];
 Cc = [R1 0];
 Dc = zeros;
 
-SIGMA = -4/1000;
-TS = 0.3;
-WN = 3;
-sysc = ss(Ac,Bc,Cc,Dc);
+SIGMA = -4/100;
+TS = 0.5;
+WN = 2;
+SYSC = ss(Ac,Bc,Cc,Dc);
 
-Ny = 2*pi/(WN*TS);
-SYS = c2d(sysc,TS,'tustin');
+NY = 2*pi/(WN*TS);
+
+if NY <= 4.86
+  error('Curva não convexa!');
+end
+
+SYS = c2d(SYSC,TS,'tustin');
 
 A = SYS.A;
 B = SYS.B;
@@ -47,21 +52,15 @@ theta = acos(abs(real(vec4(m+1))-Ni)/abs(vec4(m+1)-Ni));
 
 Satual = 0.5*abs(Ni-real(No))*abs(No-real(No));
 
-F = [F, (lmisetorconico(Ni,theta,SYS,P,Z,'D')<=0):'Setor cônico direito'];
 F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Ni)*P>=0):'Limitação à direita'];
+F = [F, (lmisetorconico(Ni,theta,SYS,P,Z,'D')<=0):'Setor cônico direito'];
 
 optimize(F,trace(P),options);
 
 [primalres,dualres] = check(F);
 primalres = sort(primalres,'ascend');
 dualres = sort(dualres,'ascend');
-%%
-hold on
-zetav = 0:10e-3:1;
-nfc = pontoplanoz(zetav,WN,TS);
-plot(real(nfc),imag(nfc),'--k')
-plot(polyshape(real([vec4 real(No)]),imag([vec4 real(No)])))
-%%
+
 while primalres(1) < 0 || dualres(1) < 0
   if k < length(vec3)-1
     k = k+1;
@@ -82,32 +81,29 @@ while primalres(1) < 0 || dualres(1) < 0
   zeta1 = pontos3(k+1);
   pontos4 = sort([pontos4 (zeta0+zeta1)/2],'ascend');
   Vnew2 = pontoplanoz((zeta0+zeta1)/2,WN,TS);
-  vec4 = sort([vec4 Vnew2],'descend');
+  vec4 = sort([vec4 Vnew2],'ascend');
 
   F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Ni)*P>=0):'Limitação à direita'];
 
   for m=1:length(vec3)-1
-    vLoc2 = loc(vec4(m),vec4(m+1));
-    theta = acos(abs(real(vec4(m))-vLoc2)/abs(vec4(m)-vLoc2));
-    F = [F, (lmisetorconico(vLoc2,theta,SYS,P,Z,'D')<=0):['Setor cônico direito ' num2str(m)]];
-    plot([real(vec4(m)),real(vec4(m+1)),real(vLoc2),real(vec4(m))], ...
-      [imag(vec4(m)),imag(vec4(m+1)),imag(vLoc2),-imag(vec4(m))],'m')
+    u2 = loc(vec4(m),vec4(m+1));
+    theta = acos(abs(real(vec4(m+1))-u2)/abs(vec4(m+1)-u2));
+    F = [F, (lmisetorconico(u2,theta,SYS,P,Z,'D')<=0):['Setor cônico direito ' num2str(m)]];
+%     plot([real(vec4(m+1)),real(vec4(m)),real(u2),real(vec4(m+1))], ...
+%       [imag(vec4(m+1)),imag(vec4(m)),imag(u2),-imag(vec4(m+1))],'m')
   end
-  nfc = pontoplanoz(zetav,WN,TS);
-  plot(real(nfc),imag(nfc),'--k')
-  sol = optimize(F,trace(P));
 
+  optimize(F,trace(P),options);
   [primalres,dualres] = check(F);
-%   check(F)
   primalres = sort(primalres,'ascend');
   dualres = sort(dualres,'ascend');
   
   Sant = Satual;
   Satual = polyshape(real(vec4),imag(vec4)).area;
   
-%   K = value(Z)/value(P);
-%   syscomp = ss(A+B*K,B,C+D*K,D,TS);
-%   pzmap(syscomp)
+  K = value(Z)/value(P);
+  syscomp = ss(A+B*K,B,C+D*K,D,TS);
+  pzmap(syscomp)
 
   if (Sant/Satual) < 1 && (Sant/Satual > 0.999999)
     efactivel = 0;
@@ -117,10 +113,8 @@ while primalres(1) < 0 || dualres(1) < 0
 end
 
 hold on
-axis equal
-xline(real(Ni),'m')
 plot(real(taxadedecaimento(SIGMA,TS)),imag(taxadedecaimento(SIGMA,TS)),'m')
-plot(real(vec4),imag(vec4))
+plot(real(vec4),imag(vec4),real(vec4),-imag(vec4))
 K = value(Z)/value(P);
 syscomp = ss(A+B*K,B,C+D*K,D,TS);
 pzmap(syscomp,'r')

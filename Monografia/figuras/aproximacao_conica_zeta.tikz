@@ -19,8 +19,8 @@
   xtick={1},
   ytick=\empty,
   xticklabel style={anchor=north west},
-  xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$},
+  xlabel={$X$},
+  ylabel={$jY$},
   x label style={anchor=north}
 ]
 \addplot [color=black, forget plot]
@@ -349,6 +349,8 @@ nan	0\\
 \coordinate (C) at (1, 0);
 \pic [draw, angle radius = 3mm] {angle=C--B--A};
 \pic [draw, angle radius = 3mm] {angle=A--C--B};
+\draw (-0.19, 3.10848082611005e-17) node [scale = 0.6, anchor=south west] {\small $\theta_1$};
+\draw (0.9,0) node [scale = 0.6, anchor=south east] {\small $\theta_2$};
 \end{axis}
 
 \draw (3.1,4.4) node[scale = 0.65, anchor=south] {\small $V_i$};

@@ -32,10 +32,10 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
   D = SYS.D;
   [n,m] = size(B);
   
-  Ny = 2*pi/(WN*TS);
+  NY = 2*pi/(WN*TS);
   
-  if Ny < 4.86
-    warning('Curva NY não convexa.');
+  if NY < 4.86
+    error('Curva NY não convexa.');
   end
 
   P = sdpvar(n,n);
@@ -80,8 +80,8 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
       F = [F, (lmisetorconico(real(Vi),theta2,SYS,P,Z,'D')<=0):['Setor cônico direito ZETA']];
       F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Vi)*P>=0):['Limitação à direita ZETA']];
 
-      a = 1-exp((-2*pi)/Ny);
-      b = (a^2*sin((-2*pi)/Ny))/(sqrt(a^2-(cos((-2*pi)/Ny)-1)^2));
+      a = 1-exp((-2*pi)/NY);
+      b = (a^2*sin((-2*pi)/NY))/(sqrt(a^2-(cos((-2*pi)/NY)-1)^2));
       
       e11 = -P;
       e21 = -1/a*P+1/2*(1/a+1/b)*(A*P+B*Z)+1/2*(1/a-1/b)*(P*A'+Z'*B');
@@ -167,7 +167,7 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
           F = [F, (lmisetorconico(vLoc2,theta,SYS,P,Z,'D')<=0):['Setor cônico direito NY ' METODO ' ' num2str(m)]];
         end
       
-        optimize(F,trace(P),options);
+        optimize(F,[],options);
         [primalres,dualres] = check(F);
         primalres = sort(primalres,'ascend');
         dualres = sort(dualres,'ascend');
@@ -183,7 +183,7 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
 
   %%
   
-  optimize(F,trace(P),options);
+  optimize(F,[],options);
   [primalres,dualres] = check(F);
   
   if any(primalres < 0) || any(dualres < 0)
@@ -223,7 +223,7 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
           'FaceAlpha',0, ...
           'EdgeColor','m')
 
-        plot([real(pontoplanoz(0,WN,TS)), exp(-2*pi/Ny), real(pontoplanoz(0,WN,TS))], ...
+        plot([real(pontoplanoz(0,WN,TS)), exp(-2*pi/NY), real(pontoplanoz(0,WN,TS))], ...
           [imag(pontoplanoz(0,WN,TS)), 0, -imag(pontoplanoz(0,WN,TS))], ...
           'LineStyle','--', ...
           'Color','m')
@@ -236,8 +236,8 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
           'EdgeColor','m')
 
         syms u v
-        fimplicit((u-1)^2/a^2+(a^2-(cos((-2*pi)/Ny)-1)^2)*v^2/(a^2*sin((2*pi)/Ny)^2)==1, ...
-          [exp(-2*pi/Ny) real(pontoplanoz(0,WN,TS)) -imag(pontoplanoz(0,WN,TS)) imag(pontoplanoz(0,WN,TS))], ...
+        fimplicit((u-1)^2/a^2+(a^2-(cos((-2*pi)/NY)-1)^2)*v^2/(a^2*sin((2*pi)/NY)^2)==1, ...
+          [exp(-2*pi/NY) real(pontoplanoz(0,WN,TS)) -imag(pontoplanoz(0,WN,TS)) imag(pontoplanoz(0,WN,TS))], ...
           'LineStyle','--', ...
           'Color','m')
 
@@ -250,7 +250,6 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
     
     xlabel('Re')
     ylabel('Im')
-    xline(SIGMA,'--m','LineWidth',1);
     syscomp = ss(A+B*K,B,C+D*K,D,TS);
     pzmap(syscomp,'r')
     zgrid(ZETA,WN,TS)

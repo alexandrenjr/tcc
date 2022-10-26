@@ -18,8 +18,8 @@
   xtick={1},
   ytick=\empty,
   xticklabel style={anchor=north west},
-  xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$},
+  xlabel={$X$},
+  ylabel={$jY$},
   x label style={anchor=north}
 ]
 \addplot [color=black, forget plot]
@@ -242,6 +242,7 @@ nan	0\\
 \coordinate (B) at (0.367879442142994, 0.00583725173430473);
 \coordinate (C) at (0.5, 0.00583725173430473);
 \pic [draw, angle radius = 3mm] {angle=C--B--A};
+\draw (0.43, 0.03) node [scale = 0.6, anchor=south west] {\small $\theta$};
 \end{axis}
 
 \draw (6.5,7.9) node[scale = 0.65] {\small $N_o$};

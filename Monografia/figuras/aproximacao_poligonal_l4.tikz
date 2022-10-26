@@ -130,13 +130,13 @@
 
 \draw [color=Black!80, fill=Black!30, very thick] (0.406569659740599, 0) -- (0.4216, 0.2855) -- (0.4536, 0.4482) -- (0.5140, 0.6111) -- (0.621609968270665, 0.783326909627483) -- (0.621609968270665, 0) -- (0.406569659740599, 0);
 
-\draw [color=Gray, fill=Gray!20, very thick] (0.406569659740599, 0) -- (0.4536, 0.4482) -- (0.5140, 0.6111) -- (0.621609968270665, 0.783326909627483) -- (0.621609968270665, 0) -- (0.406569659740599, 0);
+\draw [color=Black, fill=Gray!20, very thick] (0.406569659740599, 0) -- (0.4536, 0.4482) -- (0.5140, 0.6111) -- (0.621609968270665, 0.783326909627483) -- (0.621609968270665, 0) -- (0.406569659740599, 0);
 
-\node [circle, draw, black, fill=black, minimum size=1pt] at (0.406569659740599, 0) {};
-\node [circle, draw, black, fill=black, minimum size=1pt] at (0.4216, 0.2855) {};
-\node [circle, draw, black, fill=black, minimum size=1pt] at (0.4536, 0.4482) {};
-\node [circle, draw, black, fill=black, minimum size=1pt] at (0.5140, 0.6111) {};
-\node [circle, draw, black, fill=black, minimum size=1pt] at (0.621609968270665, 0.783326909627483) {};
+\node [circle, draw, Black!80, fill=Black!80, minimum size=1pt] at (0.406569659740599, 0) {};
+\node [circle, draw, Black!80, fill=Black!80, minimum size=1pt, label=left:$v_{new}$] at (0.4216, 0.2855) {};
+\node [circle, draw, Black!80, fill=Black!80, minimum size=1pt] at (0.4536, 0.4482) {};
+\node [circle, draw, Black!80, fill=Black!80, minimum size=1pt] at (0.5140, 0.6111) {};
+\node [circle, draw, Black!80, fill=Black!80, minimum size=1pt] at (0.621609968270665, 0.783326909627483) {};
 
 \end{axis}
 \end{tikzpicture}%

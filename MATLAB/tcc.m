@@ -7,29 +7,23 @@ R2 = 1;
 C2 = 5;
 Ceq = (C1*C2)/(C1+C2);
 
-A = [-inv(R1*Ceq) -inv(R1*C2); inv(R2*C2) -inv(R2*C2)];
-B = [inv(R1*C1); 0];
-C = [R1 0];
-D = zeros;
-Bd = [.1; 0];
-Dd = zeros;
+Ac = [-inv(R1*Ceq) -inv(R1*C2); inv(R2*C2) -inv(R2*C2)];
+Bc = [inv(R1*C1); 0];
+Cc = [R1 0];
+Dc = zeros;
 
-sigma = -4/1000;
-zeta = 0.5;
-Ts = 0.3;
-wn = 2;
-Ny = 2*pi/(wn*Ts);
+SIGMA = -4/80;
+ZETA = 0.6;
+TS = 1.9;
+WS = (2*pi)/TS;
+WN = 0.5;
+NY = WS/WN;
 
-sysc = ss(A,B,C,D);
-sysd = c2d(sysc,Ts,'tustin');
+SYSC = ss(Ac,Bc,Cc,Dc);
+SYS = c2d(SYSC,TS,'tustin');
 
-K = factibilidade(sysd,Ts,sigma,zeta,wn,'E',true);
+K = factibilidade(SYS,TS,SIGMA,ZETA,WN,'P',1);
 
-
-% syscomp = ss(sysd.A+sysd.B*K,sysd.B,sysd.C+sysd.D*K,sysd.D,Ts);
-% 
-% hold on
-% axis equal
-% pzmap(syscomp,'r')
-% 
-% figure
+SYSCOMP = ss(SYS.A+SYS.B*K,SYS.B,SYS.C+SYS.D*K,SYS.D,TS);
+figure
+step(SYSCOMP)
