@@ -13,8 +13,8 @@ Cc = [R1 0];
 Dc = zeros;
 
 TS = 1;
-SIGMA = -4/100;
-ZETA = 0.5;
+SIGMA = -4/5;
+ZETA = 0.6;
 wnv = 0:1e-2:pi/(TS*sqrt(1-ZETA^2));
 
 sysc = ss(Ac,Bc,Cc,Dc);
@@ -38,7 +38,7 @@ F = [F, (lmiestabilidade(SIGMA,sysd,TS,P,Z)<=0):'Estabilidade relativa'];
 k = 0;
 Vo = pontoplanoz(ZETA,0,TS);
 Vf = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
-Vfbarra = pontoplanoz(ZETA,double(xwn(ZETA,TS)),TS);
+Vfbarra = pontoplanoz(ZETA,double(realwn(ZETA,TS)),TS);
 
 pontos1 = [0 pi/(1.5*sqrt(1-ZETA^2)*TS)];
 pontos2 = pontos1;
@@ -56,6 +56,8 @@ sol = optimize(F,trace(P),options);
 [primalres,dualres] = check(F);
 primalres = sort(primalres,'ascend');
 dualres = sort(dualres,'ascend');
+
+plot(real(vec2),imag(vec2))
 
 while primalres(1) < 0 || dualres(1) < 0
   if k < length(pontos1)-1
@@ -99,8 +101,9 @@ while primalres(1) < 0 || dualres(1) < 0
     disp('Infactível!');
     break;
   end
-%   pgon = polyshape([real([real(Vf) vec2])],[imag([0 vec2])]);
-%   plot(pgon);
+  hold on
+  pgon = polyshape([real([real(Vf) vec2])],[imag([0 vec2])]);
+  plot(pgon);
 end
 
 hold on

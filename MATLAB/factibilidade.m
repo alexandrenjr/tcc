@@ -95,7 +95,7 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
       l = 0;
       Vo = pontoplanoz(ZETA,0,TS);
       Vi = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
-      V = double(pontoplanoz(ZETA,xwn(ZETA,TS),TS));
+      V = double(pontoplanoz(ZETA,realwn(ZETA,TS),TS));
       No = pontoplanoz(0,WN,TS);
       Ni = pontoplanoz(1,WN,TS);
       
@@ -195,25 +195,22 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
 
   K = value(Z)/value(P);
 
-  %% Contours
-  
   if PLOTAR == true
-    epsilon = 1e-6;
+    epsilon = 1e-3;
     wnv = 0:epsilon:pi/(TS*sqrt(1-ZETA^2));
     zetav = 0:epsilon:1;
     
     cdr = pontoplanoz(ZETA,wnv,TS);
     nfc = pontoplanoz(zetav,WN,TS);
     drc = taxadedecaimento(SIGMA,TS);
-    
+  
     hold on
     axis equal
-%     plot(real(cdr),imag(cdr),':k', ...
-%       real(cdr),-imag(cdr),':k', ...
-%       real(nfc),imag(nfc),':k', ...
-%       real(nfc),-imag(nfc),':k', ...
-%       real(drc),imag(drc),'--m')
-    plot(real(drc),imag(drc),'--m')
+    plot(real(cdr),imag(cdr),':k', ...
+      real(cdr),-imag(cdr),':k', ...
+      real(nfc),imag(nfc),':k', ...
+      real(nfc),-imag(nfc),':k', ...
+      real(drc),imag(drc),'--m')
   
     switch METODO
       case 'C'
@@ -222,36 +219,37 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
         plot(pgon,'LineStyle','--', ...
           'FaceAlpha',0, ...
           'EdgeColor','m')
-
+  
         plot([real(pontoplanoz(0,WN,TS)), exp(-2*pi/NY), real(pontoplanoz(0,WN,TS))], ...
           [imag(pontoplanoz(0,WN,TS)), 0, -imag(pontoplanoz(0,WN,TS))], ...
           'LineStyle','--', ...
           'Color','m')
-
+  
       case 'E'
         pgon = polyshape([real(Vo) real(V) real(Vi) real(V)], ...
           [imag(Vo) imag(V) imag(Vi) -imag(V)]);
         plot(pgon,'LineStyle','--', ...
           'FaceAlpha',0, ...
           'EdgeColor','m')
-
+  
         syms u v
         fimplicit((u-1)^2/a^2+(a^2-(cos((-2*pi)/NY)-1)^2)*v^2/(a^2*sin((2*pi)/NY)^2)==1, ...
           [exp(-2*pi/NY) real(pontoplanoz(0,WN,TS)) -imag(pontoplanoz(0,WN,TS)) imag(pontoplanoz(0,WN,TS))], ...
           'LineStyle','--', ...
           'Color','m')
-
+  
       case 'P'
-        plot(real(vec2),imag(vec2),'--m', ...
-          real(vec2),-imag(vec2),'--m')
+        plot(real([vec2 vec2(length(vec2))]),imag([vec2 0]),'--m', ...
+          real([vec2 vec2(length(vec2))]),-imag([vec2 0]),'--m')
         plot(real(vec4),imag(vec4),'--m', ...
           real(vec4),-imag(vec4),'--m')
     end
     
     xlabel('Re')
     ylabel('Im')
-    syscomp = ss(A+B*K,B,C+D*K,D,TS);
-    pzmap(syscomp,'r')
+    SYSCOMP = ss(A+B*K,B,C+D*K,D,TS);
+    pzmap(SYSCOMP,'r')
     zgrid(ZETA,WN,TS)
     hold off
   end
+end

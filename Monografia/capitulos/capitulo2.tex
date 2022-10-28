@@ -6,13 +6,13 @@ Entende-se por estável o sistema que, em termos de resposta a estímulos, possu
 
 \section{Regiões de polos para sistemas contínuos}\label{sec:DEstabilidadeS}
 
-Na $\mathscr{D}$-estabilidade, a região referente à estabilidade em sistema contínuos e invariantes no tempo é o semi-plano esquerdo do plano complexo. Dado um ponto genérico no plano $s$, representado por:
+Na $\mathscr{D}$-estabilidade, a região referente à estabilidade em sistema contínuos e invariantes no tempo é o semi-plano esquerdo do plano complexo. Dado um ponto genérico no plano $\s$, representado por:
 \begin{equation}
-  s = x + jy\label{eq:PontoGenericoPlanoS}
+  \s = x + jy\label{eq:PontoGenericoPlanoS}
 \end{equation}
 este estará na região estável somente se a parte real de tal ponto estiver à esquerda do eixo imaginário, ou em números:
 \begin{equation}
-  \Re{(s)} < 0 \implies x < 0 \label{eq:Estabilidade}
+  \real{(\s)} < 0 \implies x < 0 \label{eq:Estabilidade}
 \end{equation}
 
 Assim, um sistema com $n$ polos é dito estável se todos os seus polos estão localizados à esquerda do eixo imaginário. A partir deste conceito, é possível definir estabilidade relativa. Se um sistema é estável para um valor $\sigma < 0$, então aquele é dito estável relativo (ao valor de $\sigma$).
@@ -49,19 +49,19 @@ com $\sigma = -\zeta\omega_n$. As regiões de $\mathscr{D}$-estabilidade referen
     \caption{}
     \label{subfig:OscilacaoNaoAmortecidaS}
   \end{subfigure}
-  \caption{Regiões de $\mathscr{D}$-estabilidade do plano $s$. Em \subref{subfig:EstabilidadeRelativaS} encontram-se retas verticais em vários valores de $\sigma$, sendo $|\sigma_2| > |\sigma_1|$. Em \subref{subfig:TaxaDeAmortecimentoS} encontram-se retas para vários valores de $\zeta$, sendo $\zeta_2 > \zeta_1$. Em \subref{subfig:OscilacaoNaoAmortecidaZ} encontram-se circunferências de raios $r = \omega_n$, sendo $\omega_{n2} > \omega_{n1}$.}
+  \caption{Regiões de $\mathscr{D}$-estabilidade do plano $\s$. Em \subref{subfig:EstabilidadeRelativaS} encontram-se retas verticais em vários valores de $\sigma$, sendo $|\sigma_2| > |\sigma_1|$. Em \subref{subfig:TaxaDeAmortecimentoS} encontram-se retas para vários valores de $\zeta$, sendo $\zeta_2 > \zeta_1$. Em \subref{subfig:OscilacaoNaoAmortecidaZ} encontram-se circunferências de raios $r = \omega_n$, sendo $\omega_{n2} > \omega_{n1}$.}
   \label{fig:RegioesPlanoS}
 \end{figure}
 
-Com isso, é possível analisar as regiões geradas a partir de tais parâmentros. A região $\zeta$-constante é obtida fixando-se um valor para $\zeta$ e variando-se o valor de $\omega_n$. As características obtidas são representadas na figura \ref{subfig:TaxaDeAmortecimentoS}. Os ângulos formados entre as retas e o eixo imaginário têm valores absolutos $\beta = -cot{\left(\arccos{\left(\zeta\right)}\right)}$ e diminuem à medida que o valor de $\zeta$ aumenta, tornando a região estreita.
+Com isso, é possível analisar as regiões geradas a partir de tais parâmentros. A região $\zeta$-constante é obtida fixando-se um valor para $\zeta$ e variando-se o valor de $\omega_n$. As características obtidas são representadas na figura \ref{subfig:TaxaDeAmortecimentoS}. Os ângulos formados entre as retas e o eixo imaginário têm valores absolutos $\beta = -\cotg{\left(\arccos{\left(\zeta\right)}\right)}$ e diminuem à medida que o valor de $\zeta$ aumenta, tornando a região estreita.
 
 Já as regiões $\omega_n$-constante possuem as características esboçadas na figura \ref{subfig:OscilacaoNaoAmortecidaS}. Os raios das semicircunferências formadas possuem valores iguais à $\omega_n$ e aumentam ou diminuem à medida que se varia tal parâmetro. Conforme abordado em \cite{CHILALI1996}, a intersecção das regiões comentadas formam a Região $\Omega$ de Desempenho garantido. Todos os polos dentro de tal região possuem um mínimo valor de $\sigma$, $\zeta$ e $\omega_n$.
 
 \section{Regiões de polos para sistemas discretos}\label{sec:DEstabilidadeZ}
 
-As regiões de $\mathscr{D}$-estabilidade para sistemas discretos são obtidas seguindo os mesmos métodos abordados nos contínuos, com a diferença de serem descritos no plano $z$. A transformada de um ponto do plano $s$ para $z$ é dada por:
+As regiões de $\mathscr{D}$-estabilidade para sistemas discretos são obtidas seguindo os mesmos métodos abordados nos contínuos, com a diferença de serem descritos no plano $\z$. A transformada de um ponto do plano $\s$ para $\z$ é dada por:
 \begin{equation}
-  z = \exp(sT_s)\label{eq:TransformacaoSZ}
+  \z = \exp(\s T_s)\label{eq:TransformacaoSZ}
 \end{equation}
 onde $T_s$ é o período de amostragem, parâmetro importante para sistemas discretos \cite{KUO1980}. Substituindo \eqref{eq:PontoPlanoS} em \eqref{eq:TransformacaoSZ}, chega-se a seguinte relação:
 \begin{equation}
@@ -100,7 +100,7 @@ e a partir desta, é possível descrever as regiões geradas a partir de tais pa
   \label{fig:RegioesPlanoZ}
 \end{figure}
 
-Ambos os ramos começam a ser desenhadas a partir de $(1,0)$ (quando $\omega_n = 0 = \omega_{nmin}$), e se deslocam da direita para a esquerda até cruzarem o eixo real primeira vez. À medida que o valor de $\omega_n$ aumenta, mais voltas o contorno dá. E a cada $n\pi$ voltas, o contorno cruza o eixo real pela $n$-ésima vez, conforme esboçado na figura \ref{fig:EspiralLogaritmica}. Como a espiral tende para dentro da região limitada pela primeira volta, somente a primeira volta é considerada no plano $z$.
+Ambos os ramos começam a ser desenhadas a partir de $(1,0)$ (quando $\omega_n = 0 = \omega_{nmin}$), e se deslocam no sentido anti-horário, até cruzarem o eixo real primeira vez. À medida que o valor de $\omega_n$ aumenta, mais voltas o contorno dá. E a cada $n\pi$ voltas, o contorno cruza o eixo real pela $n$-ésima vez, conforme esboçado na figura \ref{fig:EspiralLogaritmica}. Como a espiral tende para dentro da região limitada pela primeira volta, somente a primeira volta é considerada no plano $z$.
 
 \begin{figure}[!ht]
   \centering
@@ -149,16 +149,16 @@ E finalmente, utilizando-se das ideias anteriores, \cite{CHIQUETO2021} trouxe ap
 com $r = \exp{\left(-|\sigma|T_s\right)}$.
 \begin{equation}
   \begin{bmatrix*}[c]
-    \sin{(\theta)(AP + BZ + PA' + Z'B -2\alpha P)} &  * \\
-    \cos{(\theta)(PA' + Z'B'- AP - BZ)}      &  \sin{(\theta)(AP + BZ + PA' + Z'B -2\alpha P)}
+    \sen{(\theta)(AP + BZ + PA' + Z'B -2\alpha P)} &  * \\
+    \cos{(\theta)(PA' + Z'B'- AP - BZ)}      &  \sen{(\theta)(AP + BZ + PA' + Z'B -2\alpha P)}
   \end{bmatrix*}
   \prec 0\label{eq:LMIESetorConicoEsquerdo}
 \end{equation}
 
 \begin{equation}
   \begin{bmatrix*}[c]
-    \sin{(\theta)(2\alpha P - AP - BZ - PA' - Z'B')} & * \\
-    \cos{(\theta)(PA' + Z'B' - AP - BZ)}       & \sin{(\theta)(2\alpha P - AP - BZ - PA' - Z'B')}
+    \sen{(\theta)(2\alpha P - AP - BZ - PA' - Z'B')} & * \\
+    \cos{(\theta)(PA' + Z'B' - AP - BZ)}       & \sen{(\theta)(2\alpha P - AP - BZ - PA' - Z'B')}
   \end{bmatrix*}
   \prec 0\label{eq:LMIESetorConicoDireito}
 \end{equation}
@@ -172,11 +172,11 @@ com $r = \exp{\left(-|\sigma|T_s\right)}$.
 \end{equation}
 
 \begin{equation}
-  a = \left(1-exp{\left(\dfrac{-2\pi}{N_y}\right)}\right)\label{eq:PontoAElipse}
+  a = \left(1-\exp{\left(\dfrac{-2\pi}{N_y}\right)}\right)\label{eq:PontoAElipse}
 \end{equation}
 
 \begin{equation}
-  b = a\sin{\left(\dfrac{2\pi}{Ny}\right)}\label{eq:PontoBElipse}
+  b = a\sen{\left(\dfrac{2\pi}{Ny}\right)}\label{eq:PontoBElipse}
 \end{equation}
 
 \begin{equation}
