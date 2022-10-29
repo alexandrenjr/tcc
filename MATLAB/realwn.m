@@ -1,5 +1,22 @@
-function resultado = realwn(zeta,Ts)
-  fun = @(h) cos(h) == -exp(zeta*(h-pi)/(sqrt(1-zeta^2)));
-  h0 = pi/(1.72742*Ts*sqrt(1-zeta^2));
-  resultado = fzero(fun,h0);
+function wn = realwn(zeta,Ts)
+  epsilon = 1e-6;
+  wnmax = pi/(sqrt(1-zeta^2)*Ts);
+  wn = wnmax/2;
+  
+  e = pontoplanoz(zeta,wnmax,Ts);
+  f = pontoplanoz(zeta,wn,Ts);
+  
+  while real(e) ~= real(f)
+    if real(e) < real(f)
+      wn = wn + epsilon;
+    else
+      wn = wn - epsilon;
+    end
+  
+    if abs(real(e) - real(f)) < epsilon
+      break;
+    end
+  
+    f = pontoplanoz(zeta,wn,Ts);
+  end
 end

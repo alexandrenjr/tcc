@@ -13,7 +13,7 @@ Bc = [inv(R1*C1); 0];
 Cc = [R1 0];
 Dc = zeros;
 
-ts = 30;
+ts = 50;
 SIGMA = -4/ts;
 ZETA = 0.5;
 TS = 10;

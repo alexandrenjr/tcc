@@ -18,9 +18,7 @@ brazil
 \usepackage{pgfplots}
 \usepackage{siunitx}
 \usepackage{algorithm,algorithmicx,algpseudocode}
-\usepackage{attachfile}
-\usepackage{listings}
-\usepackage{listingsutf8}
+\usepackage{listings,listingsutf8}
 
 \DeclareMathOperator{\real}{Re}
 \DeclareMathOperator{\imag}{Im}
@@ -37,7 +35,8 @@ brazil
 \pgfplotsset{
 	compat=newest,
 	every axis/.append style={
-		line width=1pt,}
+		line width=1pt},
+	filter discard warning=false
 }
 
 \usetikzlibrary{
@@ -48,22 +47,22 @@ brazil
 
 \renewcommand{\lstlistingname}{Código}
 \AtBeginDocument{
-    \renewcommand{\thelstlisting}{\Roman{lstlisting}}
+	\renewcommand{\thelstlisting}{\arabic{lstlisting}}
 }
 
 \lstset{
-  inputencoding = utf8/latin1,
-	backgroundcolor = \color{black!10!white},
+	inputencoding = utf8/latin1,
+	backgroundcolor = \color{Gray!10},
 	columns = flexible,
-  basicstyle = {\scriptsize\ttfamily},                   
+	basicstyle = {\scriptsize\ttfamily},                   
 	breaklines = true,
 	breakatwhitespace = true,
 	postbreak = \space,
 	columns = flexible,
 	keepspaces = true,
 	upquote = true,
-  showstringspaces = false,
-	escapeinside = {<@}{@>},
+	showstringspaces = false,
+	escapeinside = {<@}{@>}
 }
 
 \makeatletter
@@ -110,6 +109,7 @@ brazil
 \include{capitulos/referencias}
 
 \anexos
+
 \include{capitulos/anexo1.tex}
 
 \end{document}

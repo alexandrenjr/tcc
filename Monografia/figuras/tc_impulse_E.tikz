@@ -18,9 +18,9 @@
     scaled y ticks=manual:{}{\pgfmathparse{#1*1e3}},
     xtick distance=20,
     grid=major,
-    grid style={dashed, gray!50, line width=0.1pt}
+    grid style={dashed, gray!40, ultra thin}
     ]
-\addplot [color=blue, forget plot]
+\addplot [color=blue, ultra thick, forget plot]
   table[row sep=crcr]{%
 0	0.0285714285714286\\
 10	0.0285714285714286\\
@@ -49,7 +49,7 @@
 120	-6.89760373434176e-07\\
 };
 
-\addplot [color=red, forget plot]
+\addplot [color=red, ultra thick, forget plot]
   table[row sep=crcr]{%
 0	0.0285714285714286\\
 10	0.0285714285714286\\
