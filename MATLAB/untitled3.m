@@ -6,7 +6,7 @@ zetav = 0:0.01:1;
 y = 0:0.1:0.5;
 % epsilon = pi/(2*Ts):0.01:3/2*pi/Ts;
 
-hold on
+% hold on
 
 %% S
 % for sigma = -0.05:-0.1:-0.5
@@ -35,9 +35,10 @@ hold on
 % end
 
 zeta = 0.5;
-wnv = 0:0.005:pi/(Ts*sqrt(1-zeta^2));
+wnv = 0:1e-3:pi/(Ts*sqrt(1-zeta^2));
 a = pontoplanoz(zeta,wnv,Ts);
-p = plot(real(a),imag(a),'k')
+pgon = polyshape(real(a),imag(a));
+disp(pgon.area);
 
 % for zeta = 0.1:0.1:1
 %   wnv = 0:pi/(Ts*sqrt(1-zeta^2)*100):pi/(Ts*sqrt(1-zeta^2));

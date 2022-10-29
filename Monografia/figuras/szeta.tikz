@@ -18,8 +18,8 @@
   xtick=\empty,
   ytick=\empty,
   xticklabel style={anchor=south west, draw=none},
-  xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$},
+  xlabel={$X$},
+  ylabel={$\jmath Y$},
   x label style={anchor=north}
 ]
 \addplot [color=black, dashed, forget plot]

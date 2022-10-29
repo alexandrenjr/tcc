@@ -891,8 +891,9 @@
   0.54030230586814	0.841470984807897	\\  
 };
 
-\draw (0.54030230586814, 0.841470984807897) node [scale = 0.8, anchor=south] {$n_o$};
-\draw (0.367879441171442, 0) node [scale = 0.8, anchor=south east] {$n_i$};
+\draw (0.54030230586814, 0.841470984807897) node [scale = 0.8, anchor=south] {$S$};
+\draw (0.367879441171442, 0) node [scale = 0.8, anchor=south east] {$R$};
+\draw (0.54030230586814, -0.841470984807897) node [scale = 0.8, anchor=north] {$S$};
 
 \end{axis}
 \end{tikzpicture}%

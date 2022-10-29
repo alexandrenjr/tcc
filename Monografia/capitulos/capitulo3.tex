@@ -2,9 +2,7 @@
 
 O algoritmo apresentado neste trabalho é um compilado de algoritmos desenvolvidos anteriormente, utilizando-se das aproximações cônica, elíptica e poligonal das regiões de $\mathscr{D}$-estabilidade do plano $\z$. O objetivo deste trabalho é desenvolver em \emph{software} tais algoritmos e, ao informar parâmetros de projeto, determinar se é possível implementar um compensador que respeite os requisitos.
 
-Para tal, o algoritmo pode ser divido em três partes, uma para cada aproximação, sendo a aproximação desejada escolhida via chamada da função. O \emph{software} utilizado foi o MATLAB, juntamente com o interpretador de LMIs YALMIP em conjunto com o solucionador númerico MOSEK.
-
-Notação: $loc(v_1, v_2)$ determina o ponto que a reta que passa por $v_1$ e $v_2$. $ang(v_1, v_2)$ cruza o eixo real. $ang(v_1, v_2)$ refere-se ao ângulo entre aquela reta e o eixo real. 
+Para tal, o algoritmo pode ser divido em três partes, uma para cada aproximação, sendo a aproximação desejada escolhida via chamada da função. O \emph{software} utilizado foi o MATLAB, juntamente com o interpretador de LMIs YALMIP em conjunto com o solucionador númerico MOSEK. 
 
 \section{Aproximação cônica}
 Para o mapeamento cônico das curvas $\zeta$-constante e $\omega_n$-constante, são utilizados os setores cônicos determinados via \eqref{eq:LMIESetorConicoDireito} e \eqref{eq:LMIESetorConicoEsquerdo}, e retas verticais como apresentado em \ref{eq:LMIRightBounded}.
@@ -23,7 +21,7 @@ Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculado
       \caption{}
       \label{subfig:AproximacaoConicaWn}
   \end{subfigure}
-  \caption{Esboços das aproximações cônica da regiões $\zeta$ e $\omega_n$-constantes.}
+  \caption{Esboços da aproximação cônica das regiões $\zeta$ e $\omega_n$-constantes.}
   \label{fig:AproximacoesConica}
 \end{figure}
 
@@ -32,36 +30,36 @@ Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculado
   \begin{algorithmic}[1]
     \Require $\sigma$, $\zeta$, $T_s$
     \Ensure $K$
-    \State $V_o \gets $ $z(\zeta,\omega_{nmin})$
-    \State $V_i \gets $ $z\left(\zeta,\omega_{nmax}\right)$
-    \State $Z \gets z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
+    \State $V_o \gets $ $\z(\zeta,\omega_{nmin})$
+    \State $V_i \gets $ $\z\left(\zeta,\omega_{nmax}\right)$
+    \State $V \gets \z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
     \State $F \gets P \succ 0$
     \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$ com $\alpha = V_o$ e $\theta = ang(Z,V_i)$ \Comment{Setor cônico esquerdo}
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = V_i$ e $\theta = ang(Z,V_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$ com $\alpha = V_o$ e $\theta = \angulo(V,V_i)$ \Comment{Setor cônico esquerdo}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = V_i$ e $\theta = \angulo(V,V_o)$ \Comment{Setor cônico direito}
     \State $F \gets F \cap \eqref{eq:LMIRightBounded}$ com $\alpha = V_i$  \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \State $K \gets ZP^{-1}$
   \end{algorithmic}
 \end{algorithm}
 
-Uma que vez conhecidas tais informações, é possível aplicar o algoritmo \ref{alg:AproximacaoConicaZeta}. Um setor cônico voltado para a direita, com centro em $V_i$ e ângulo $\theta_1$, e outro voltado para a esquerda, com centro em $V_o$ e ângulo $\theta_2$, são aplicados para a aproximação. Além disso, para limitar a simetria do setor cônico com centro em $V_i$, uma reta que passa por este ponto é aplicada.
+Uma que vez conhecidas tais informações, é possível aplicar o algoritmo \ref{alg:AproximacaoConicaZeta}. Um setor cônico voltado para a direita, com centro em $V_i$ e ângulo $\theta_1$, e outro voltado para a esquerda, com centro em $V_o$ e ângulo $\theta_2$, são aplicados para a aproximação inicial. Além disso, para limitar a simetria do setor cônico com centro em $V_i$, uma reta que passa por este ponto é aplicada.
 
 A região de $\mathscr{D}$-estabilidade resultante é a intersecção das regiões descritas. Ao ser unida com a restrição da taxa de decaimento, o setor cônico com centro em $V_o$ é limitado por esta região. Após finalizado, o algoritmo determina a factibilidade da solução encontrada e retorna a matriz $K$ que estabiliza o sistema com os parâmetros de projeto informados.
 
-Em relação à região $\omega_n$-constante, a mesma ideia é aplicada \cite{CHIQUETO2021}. Contudo, neste caso, somente um setor cônico com centro em $N_i$, que é limitado pela direita por uma reta que passa neste ponto são usados. Os pontos $N_o$ e $N_i$ são determinados via \eqref{eq:PontoMinimoExtremoWnZ} e \eqref{eq:PontoMaximoExtremoWnZ}, respectivamente. Além disso, o ângulo $\theta$ é determinado através de $ang(N_o,N_i)$.  
+Em relação à região $\omega_n$-constante, a mesma ideia é aplicada \cite{CHIQUETO2021}. Contudo, neste caso, somente um setor cônico com centro em $N_i$, que é limitado pela direita por uma reta que passa neste ponto são usados. Os pontos $N_o$ e $N_i$ são determinados via \eqref{eq:FuncaoPontoZ}, com $\zeta = \zeta_{min}$ e $\zeta = \zeta_{max}$, respectivamente. Além disso, o ângulo $\theta$ é determinado através de $\angulo(N_o,N_i)$.  
 
-Após determinadas essas informações, é possível utilizar o algoritmo \ref{alg:AproximacaoConicaNy}. Um detalhe que é facilmente observado é a rápida perda de convexidade da curva $N_y$. Logo, caso a constante $N_y$ seja menor que $4.86$ \cite{CHIQUETO2021}, o algoritmo retorna um alerta devido informando a falta de convexidade. Assim, para fins práticos, a pouca e a falta convexidade de tais curvas não foram tratadas.
+Após determinadas essas informações, é possível utilizar o algoritmo \ref{alg:AproximacaoConicaNy}. Um detalhe que é facilmente observado é a rápida perda de convexidade da curva $N_y$. Logo, caso a constante $N_y$ seja menor que $4.86$ \cite{CHIQUETO2021}, o algoritmo retorna um alerta devido informando à falta de convexidade. Assim, para fins práticos, a pouca e a falta de convexidade de tais curvas não foram tratadas.
 \begin{algorithm}[hb!]
   \caption{Aproximação cônica da curva $N_y$}\label{alg:AproximacaoConicaNy}
   \begin{algorithmic}[1]
     \Require $\sigma$, $\omega_n$
     \Ensure $K$
-    \State $N_o \gets $ $z(\zeta_{min},\omega_n)$
-    \State $N_i \gets $ $z(\zeta_{max},\omega_n)$
+    \State $N_o \gets $ $\z(\zeta_{min},\omega_n)$
+    \State $N_i \gets $ $\z(\zeta_{max},\omega_n)$
     \State $F \gets P \succ 0$
     \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = N_i$ e $\theta = ang(N_i,N_o)$ \Comment{Setor cônico direito}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = N_i$ e $\theta = \angulo(N_i,N_o)$ \Comment{Setor cônico direito}
     \State $F \gets F \cap \eqref{eq:LMIRightBounded}$ com $\alpha = N_i$ \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \State $K \gets ZP^{-1}$
@@ -69,9 +67,7 @@ Após determinadas essas informações, é possível utilizar o algoritmo \ref{a
 \end{algorithm}
 
 \section{Aproximação elíptica}
-Para a aproximação elíptica, apenas a região $\omega_n$-constante foi aproximada. A ideia consiste em encontrar a maior elipse inscrita, a fim de aproveitar melhor a área. A figura \ref{fig:AproximacaoEliptica} mostra um esboço da ideia descrita.  Para tal, é preciso verificar se o valor escolhido para $\omega_n$ e $T_s$ resultem em uma área convexa \cite{CHIQUETO2021}. Caso os parâmetros informados atendam às restrições, o algoritmo \ref{alg:AproximacaoElipticaNy} pode ser aplicado.
-
-Uma desvantagem de tal aproximação é a determinação da equação da elipse. Contudo, mesmo com tal dificuldade, a aproximação é importante para projetos em controle digital.
+Para a aproximação elíptica, apenas a região $\omega_n$-constante foi aproximada. A ideia consiste em encontrar a maior elipse inscrita, a fim de aproveitar melhor a área. A figura \ref{fig:AproximacaoEliptica} mostra um esboço da ideia descrita. Para tal, é preciso verificar se o valor escolhido para $\omega_n$ e $T_s$ resultem em uma área convexa \cite{CHIQUETO2021}, através da constante $N_y$. Caso os parâmetros informados atendam às restrições, o algoritmo \ref{alg:AproximacaoElipticaNy} pode ser aplicado.
 \begin{figure}[!ht]
   \centering
   \input{figuras/aproximacao_eliptica_wn.tikz}
@@ -93,7 +89,7 @@ Uma desvantagem de tal aproximação é a determinação da equação da elipse.
 \end{algorithm}
 
 \section{Aproximação poligonal}
-A aproximação poligonal consiste na ideia de aproximar as regiões de interesse em um polígono com o maior número de lados possíveis. Para isto, o algoritmo irá partir de uma aproximação cônica simples. A partir daí, entre os dois pontos usados para definir o setor, um ponto intermediário é calculado e dois novos setores cônicos são definidos.
+A aproximação poligonal consiste na ideia de aproximar as regiões de interesse em um polígono com o maior número de lados possível. Para isto, o algoritmo irá partir de uma aproximação cônica simples. A partir daí, entre os dois pontos usados para definir o setor, um ponto intermediário é calculado e dois novos setores cônicos são definidos.
 Sob a ótica do número de lados, a cada iteração, um novo lado é acrescentado e, consequentemente, a área é incrementada. Em um número grande de iterações, a região aproximada tende a área total.
 \begin{algorithm}[ht!]
   \caption{Aproximação poligonal da região $\zeta$-constante}\label{alg:AproximacaoPoligonalZeta}
@@ -101,16 +97,16 @@ Sob a ótica do número de lados, a cada iteração, um novo lado é acrescentad
     \Require $\sigma$, $\zeta$, $T_s$
     \Ensure $K$
     \State $l \gets 0$
-    \State $V_o \gets z(\zeta,\omega_{nmin},T_s)$
-    \State $V_i \gets z(\zeta,\omega_{nmax},T_s)$
-    \State $V \gets z(\zeta,\omega_n,T_s)$, tal que $\real{(V)} = V_i$
+    \State $V_o \gets \z(\zeta,\omega_{nmin},T_s)$
+    \State $V_i \gets \z(\zeta,\omega_{nmax},T_s)$
+    \State $V \gets \z(\zeta,\omega_n,T_s)$ tal que $\real{(V)} = V_i$
     \State $pontos1 \gets$ [$0$ $\omega_{ne}$]
     \State $pontos2 \gets pontos1$
     \State $vec1 \gets$ [$V_o$ $V$]
     \State $vec2 \gets vec1$
     \State $F \gets P \succ 0$
     \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = V_o$ e $\theta = ang(V_o,V)$ \Comment{Voltado para a esquerda}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = V_o$ e $\theta = \angulo(V_o,V)$ \Comment{Voltado para a esquerda}
     \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = V_i$ \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \While{Problema for infactível}
@@ -125,18 +121,18 @@ Sob a ótica do número de lados, a cada iteração, um novo lado é acrescentad
         \State $F \gets P \succ 0$
         \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
         \State $ponto_{new1} \gets (pontos1(l)+pontos1(l+1))/2$
-        \State $V_{new1} \gets z(\zeta, ponto_{new1}, T_s)$
+        \State $V_{new1} \gets \z(\zeta, ponto_{new1}, T_s)$
         \State $pontos2 \gets$ [$pontos2$ $ponto_{new1}$]
         \State Orderna de forma decrescente $pontos2$
         \State $vec2 \gets$ [$vec2$ $V_{new1}$]
         \State Orderna de forma decrescente $vec2$
         \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = V_i$ \Comment{Reta vertical}
         \For{$m = 1$ até número de elementos de $vec1-1$}
-          \State $u \gets loc(vec2(m),vec2(m+1))$
-          \If{$u < 0$}
-            \State $F\gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = u$ e $\theta = ang(vec2(m+1),u)$ \Comment{Voltado para a direita}
+          \State $u_1 \gets \loc(vec2(m),vec2(m+1))$
+          \If{$u_1 < 0$}
+            \State $F\gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = u_1$ e $\theta = \angulo(vec2(m+1),u_1)$ \Comment{Voltado para a direita}
           \Else
-            \State $F\gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = u$ e $\theta = ang(vec2(m+1),u)$ \Comment{Voltado para a esquerda}
+            \State $F\gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = u_1$ e $\theta = \angulo(vec2(m+1),u_1)$ \Comment{Voltado para a esquerda}
           \EndIf
         \EndFor
         \State Verificar se o problema é factível 
@@ -145,14 +141,9 @@ Sob a ótica do número de lados, a cada iteração, um novo lado é acrescentad
   \end{algorithmic}
 \end{algorithm} 
 
-Para a região $\zeta$-constante, um setor cônico voltado para esquerda e centro em $V_o$ é usado como aproximação inicial \cite{WISNIEWSKI2019}. Contudo, devido à cúspide daquela, uma reta em $V_i$ é usada para eliminar tal convexidade. Dito isso, surge a necessidade de calcular o ponto $\bar{V}$, localizado entre os pontos máximo e mínimo, onde possui a mesma parte real que $V_i$, conforme a figura \ref{subfig:AproximacaoPoligonalZeta1}:
+Para a região $\zeta$-constante, um setor cônico voltado para esquerda e centro em $V_o$ é usado como aproximação inicial \cite{WISNIEWSKI2019}. Contudo, devido à cúspide daquela, uma reta em $V_i$ é usada para eliminar tal convexidade. Dito isso, surge a necessidade de calcular o ponto $\bar{V}$, localizado entre os pontos máximo e mínimo, onde possui a mesma parte real que $V_i$, conforme a figura \ref{subfig:AproximacaoPoligonalZeta1}.
 
-A ideia é determinar o módulo do ponto $V_i$, para então encontrar o número complexo que possui o mesmo módulo. Como aquele ponto já foi calculado em \eqref{eq:PontoExtremoZetaZ}, basta determinar a parte real desse número com tal módulo:
-% \begin{align*}
-%   \real{(\z)} = \exp{\left(-\zeta T_s\dfrac{\pi}{T_s\sqrt{1-\zeta^2}} + \jmath \pi\right)} = -\exp{\left(-\dfrac{\zeta}{\sqrt{1-\zeta^2}}\pi\right)}\label{eq:RealWN}
-% \end{align*}
-
-\begin{figure}[!hb]
+\begin{figure}[!ht]
   \centering
   \begin{subfigure}[t]{0.4\columnwidth}
       \input{figuras/aproximacao_poligonal_zeta_l1.tikz}
@@ -175,25 +166,27 @@ A ideia é determinar o módulo do ponto $V_i$, para então encontrar o número 
     \caption{}
     \label{subfig:AproximacaoPoligonalZeta4}
   \end{subfigure}
-  \caption{}
+  \caption{As primeiras quatro aproximações poligonais da curva $\zeta$-constante.}
   \label{fig:AproximacoesPoligonalZeta}
 \end{figure}
 
-\begin{algorithm}[ht!]
+Para tal, utiliza-se o cálculo numérico para encontrar uma solução aproximada. Com tal ponto calculado e a não convexidade da cúspide tratada, é possível utilizar o algoritmo \ref{alg:AproximacaoPoligonalZeta}. Os vértices iniciais $V_o$ e $V_i$ do ramo são guardados em um vetor de vértices. Em paralelo a isso, os valores de $\omega_n$ que geram tais pontos também são armazenados. A cada iteração, o algoritmo calcula o ponto médio entre dois vértices consecutivos em cada vetor, já que a realização do primeiro depende do segundo.
+
+\begin{algorithm}[!ht]
   \caption{Aproximação poligonal da região $\omega_n$-constante}\label{alg:AproximacaoPoligonalWn}
   \begin{algorithmic}[1]
     \Require $\sigma$, $\omega_n$, $T_s$
     \Ensure $K$
     \State $l \gets 0$
-    \State $N_o \gets z(\zeta_{min},\omega_n,T_s)$
-    \State $N_i \gets z(\zeta_{max},\omega_n,T_s)$
+    \State $N_o \gets \z(\zeta_{min},\omega_n,T_s)$
+    \State $N_i \gets \z(\zeta_{max},\omega_n,T_s)$
     \State $pontos3 \gets$ [$0$ $1$]
     \State $pontos4 \gets pontos3$
     \State $vec3 \gets$ [$N_i$ $N_o$]
     \State $vec4 \gets vec3$
     \State $F \gets P \succ 0$
     \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
-    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = N_i$ e $\theta = ang(N_o,N_i)$ \Comment{Voltado para a direita}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = N_i$ e $\theta = \angulo(N_o,N_i)$ \Comment{Voltado para a direita}
     \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = N_i$ \Comment{Reta vertical}
     \State Verificar se o problema é factível
     \While{Problema for infactível}
@@ -208,14 +201,14 @@ A ideia é determinar o módulo do ponto $V_i$, para então encontrar o número 
         \State $F \gets P \succ 0$
         \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
         \State $ponto_{new} \gets (pontos3(l)+pontos3(l+1))/2$
-        \State $V_{new2} \gets z(ponto_{new2}, \omega_n, T_s)$
+        \State $V_{new2} \gets \z(ponto_{new2}, \omega_n, T_s)$
         \State $pontos4 \gets$ [$pontos4$ $ponto_{new2}$]
         \State Orderna de forma decrescente $pontos4$
         \State $vec4 \gets$ [$vec4$ $V_{new2}$]
         \State Orderna de forma decrescente $vec4$
         \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = V_i$ \Comment{Reta vertical}
         \For{$m = 1$ até número de elementos de $vec3-1$}
-          \State $u_2 \gets loc(vec4(m),vec4(m+1))$
+          \State $u_2 \gets \loc(vec4(m),vec4(m+1))$
           \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = u_2$ e $\theta = ang(vec4(m),u_2)$
         \EndFor
         \State Verificar se o problema é factível
@@ -224,17 +217,11 @@ A ideia é determinar o módulo do ponto $V_i$, para então encontrar o número 
   \end{algorithmic}
 \end{algorithm}
 
-Para tal, utiliza-se o cálculo numérico para encontrar uma solução aproximada. Com tal ponto calculado e a não convexidade da cúspide tratada, é possível utilizar o algoritmo \ref{alg:AproximacaoPoligonalZeta}. Os vértices iniciais $V_o$ e $V_i$ do ramo são guardados em um vetor. Em paralelo a isso, os valores de $\omega_n$ que geram tais valores em $\eqref{eq:FuncaoPontoZ}$ também são armazenados. A ideia do algoritmo é, a cada iteração, calcular o ponto médio entre dois pontos consecutivos de cada vetor, pois o cálculo do primeiro depende da computação do segundo.
+Contudo, antes do algoritmo voltar para o início dos vetores, é preciso percorrer todos os pontos do vetor da iteração anterior\footnote{Como os vetores são atualizados com os novos elementos, o tamanho daqueles aumenta ($(n-1)$ pontos são adicionados a cada varredura, com $n$ a quantidade de pontos do vetor) durante a iteração. Assim, o execução termina antes de atingir o final do vetor.}. Para isso, cópias dos vetores de vértices e de pontos são inicializados, a fim de controlarem tal fluxo. Assim, quando o algoritmo terminar de percorrer o ``vetor anterior", tal conjunto é atualizado com os novos pontos e vértices calculados ao final deste processo.
 
-Contudo, antes do algoritmo voltar para o início dos vetores mencionados, é preciso que ele calcule o ponto médio entre todos os pontos do vetor atual. Para isso, cópias dos vetores de vértices e de pontos foram inicializados, a fim de controlarem tal fluxo. Assim, quando o algoritmo terminar de percorrer o "vetor anterior", tal conjunto é atualizado com os novos pontos e vértices calculados ao final deste processo.
+Em relação ao cálculo dos pontos intermediários, a inclinação da reta que passa pelos pontos extremos locais pode ser positiva ou negativa. O uso da função $\loc$ se torna enssencial, pois caso o ponto resultante for menor que zero, a reta que passa pelos pontos possui inclinação positiva, e negativa caso contrário \cite{WISNIEWSKI2019}. Assim, os setores cônicos gerados seguem a orientação desta, com centro naquele ponto calculado.
 
-Em relação ao cálculo dos pontos intermediários, a inclinação destes juntamente com o ponto anterior podem ser positiva ou negativa. O uso da função $loc$ se torna enssencial, pois caso o ponto resultante for menor que zero, a reta que passa pelos pontos possui inclinação positiva e negativa, caso contrário \cite{WISNIEWSKI2019}. Assim, os setores cônicos gerados seguem a orientação desta, com centro naquele ponto calculado.
-
-Para a região $\omega_n$-constante, a ideia é similar. A aproxmição inicial utiliza-se de apenas um setor cônico voltado para a direita com centro em $N_i = \z(\zeta_{max},\omega_n,T_s)$, com $\zeta_{max} = 1$. O ângulo $\theta$ em \eqref{eq:LMIESetorConicoDireito} é definido a partir do ângulo entre a reta $\overline{N_oN_i}$ e o eixo real, onde $N_o = \z(\zeta_{min},\omega_n,T_s)$, com $\zeta_{min} = 0$.
-
-Caso esta região não seja factível, basta calcular o ponto intermediário entre $N_o$ e $N_i$ e definir dois novos setores cônicos, a fim de aumentar a área. Novamente, para o novo ponto calculado e o anterior, é utilizado a função $loc$ para determinar o ponto que a reta que passsa por aqueles pontos cruza o eixo real. Este será o centro do novo setor cônico. Já o ângulo seguirá o mesmo critério, sendo o valor entre aquela reta e o eixo real.
-
-Assim, a cada iteração, o algoritmo adiciona dois novos setores cônicos e os intersecta com as regiões previamente definidas. Ao cópia inicial de pontos calculados, o algoritmo descarta tais regiões e aumenta a área de $\mathscr{D}$-estabilidade a partir de $N_i$ até $N_o$.
+A figura \ref{fig:AproximacoesPoligonalZeta} mostra as quatro primeira iterações do algoritmo \ref{alg:AproximacaoPoligonalZeta}. É possível observar o sentido horário do fluxo para o cálculo dos vértices intermediários. Também é notória a rápida abrangência da região $\zeta$-constante.
 
 \begin{figure}[!hb]
   \centering
@@ -259,6 +246,12 @@ Assim, a cada iteração, o algoritmo adiciona dois novos setores cônicos e os 
     \caption{}
     \label{subfig:AproximacaoPoligonalWn4}
   \end{subfigure}
-  \caption{}
+  \caption{As primeiras quatro aproximações poligonais da curva $\omega_n$-constante.}
   \label{fig:AproximacoesPoligonalWn}
 \end{figure}
+
+Para a região $\omega_n$-constante, a ideia é similar. A aproxmição inicial utiliza-se de apenas um setor cônico voltado para a direita com centro em $N_i = \z(\zeta_{max},\omega_n)$. O ângulo $\theta$ em \eqref{eq:LMIESetorConicoDireito} é definido a partir do ângulo entre a reta $\overline{N_oN_i}$ e o eixo real, onde $N_o = \z(\zeta_{min},\omega_n)$.
+
+Caso esta região não seja factível, basta calcular o ponto intermediário entre $N_o$ e $N_i$ e definir dois novos setores cônicos, a fim de aumentar a área. Novamente, para o novo ponto calculado, é utilizado a função $\loc$ para determinar o centro do setor cônico correspondente e, em seguida, usa-se $\angulo$ para determinar seu ângulo. Assim, a cada iteração, o algoritmo adiciona dois novos setores cônicos e os intersecta com as regiões previamente definidas. A figura \ref{fig:AproximacoesPoligonalWn} mostra as quatro primeiras iterações do algoritmo \ref{alg:AproximacaoPoligonalWn}.
+
+Assim como ocorre com a aproximação poligonal da região $\zeta$-constante, há uma rápida cobertura da região. Com poucas iterações, a área é quase totalmente coberta.

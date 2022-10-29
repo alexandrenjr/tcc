@@ -353,9 +353,9 @@ nan	0\\
 \draw (0.9,0) node [scale = 0.6, anchor=south east] {\small $\theta_2$};
 \end{axis}
 
-\draw (3.1,4.4) node[scale = 0.65, anchor=south] {\small $V_i$};
-\draw (8.45,4.4) node[scale = 0.65, anchor=south] {\small $V_o$};
-\draw (5.4,6.5) node[scale = 0.65, anchor=south] {\small $V$};
-\draw (5.4,2.3) node[scale = 0.65, anchor=north] {\small $\bar{V}$};
+\draw (3.1,4.4) node[scale = 0.65, anchor=south] {\small $N$};
+\draw (8.45,4.4) node[scale = 0.65, anchor=south] {\small $L$};
+\draw (5.4,6.5) node[scale = 0.65, anchor=south] {\small $M$};
+\draw (5.4,2.3) node[scale = 0.65, anchor=north] {\small $\bar{M}$};
 
 \end{tikzpicture}%

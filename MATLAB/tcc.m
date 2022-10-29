@@ -1,10 +1,10 @@
 clear;
 clc;
 
-C1 = 150;
-C2 = 150;
-R1 = 15;
-R2 = 150;
+C1 = 5;
+C2 = 5;
+R1 = 1;
+R2 = 1;
 
 Ceq = (C1*C2)/(C1+C2);
 
@@ -13,7 +13,7 @@ Bc = [inv(R1*C1); 0];
 Cc = [R1 0];
 Dc = zeros;
 
-ts = 75;
+ts = 50;
 SIGMA = -4/ts;
 ZETA = 0.5;
 TS = 10;
@@ -24,7 +24,12 @@ NY = WS/WN;
 SYSC = ss(Ac,Bc,Cc,Dc);
 SYS = c2d(SYSC,TS,'tustin');
 
-K = factibilidade(SYS,TS,SIGMA,ZETA,WN,'P',1);
-figure
+K = factibilidade(SYS,TS,SIGMA,ZETA,WN,'P');
+
+% T = [];
+% T(:,1) = fimp.XData';
+% T(:,2) = fimp.YData';
+% writematrix(T, 'data.txt','Delimiter',' ');
+
 SYSCOMP = ss(SYS.A+SYS.B*K,SYS.B,SYS.C+SYS.D*K,SYS.D,TS);
-step(SYSC,SYS,SYSCOMP)
+impulse(SYS,SYSCOMP)

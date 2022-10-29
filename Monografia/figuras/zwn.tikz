@@ -17,11 +17,10 @@
   ymax=1.2,
   xtick={1},
   ytick=\empty,
-  %xticklabels={},
-  xticklabel style={anchor=south west},
-  x label style={anchor=north},
-  xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$}
+  xticklabel style={anchor=south west, draw=none},
+  xlabel={$X$},
+  ylabel={$\jmath Y$},
+  x label style={anchor=north}
   ]
   \addplot [color=black, forget plot]
     table[row sep=crcr]{%

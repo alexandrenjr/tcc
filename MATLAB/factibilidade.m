@@ -6,17 +6,17 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
   % discreto representado via espaço de estados é factível dentro dos parâmetros
   % de projeto informados. São eles:
   %
-  %   - (A,B,C,D)   representação do modelo via espaço de estados;
-  %   - TS          período de amostragem;
-  %   - SIGMA       valor de estabilidade relativa;
-  %   - ZETA        taxa de amortecimento;
-  %   - WN          frequência natural-amortecida;
-  %   - METODO      (OPCIONAL) método de aproximação usada, onde:
-  %       - 'C'         aproximação cônica (VALOR-PADRÃO)
-  %       - 'E'         aproximação elíptica
-  %       - 'P'         aproximação poligonal
-  %   - PLOTAR      (OPCIONAL) opção booleana que plota as regiões
-  %                 aproximadas. Valor-padrão é FALSO.
+  %   - SYS       representação do modelo via espaço de estados;
+  %   - TS        período de amostragem;
+  %   - SIGMA     valor de estabilidade relativa;
+  %   - ZETA      taxa de amortecimento;
+  %   - WN        frequência natural-amortecida;
+  %   - METODO    (OPCIONAL) método de aproximação usada, onde:
+  %       - 'C'     aproximação cônica (VALOR-PADRÃO)
+  %       - 'E'     aproximação elíptica
+  %       - 'P'     aproximação poligonal
+  %   - PLOTAR    (OPCIONAL) opção booleana que plota as regiões
+  %               aproximadas. Valor-padrão é FALSO.
   arguments
     SYS
     TS
@@ -205,7 +205,6 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
     drc = taxadedecaimento(SIGMA,TS);
   
     hold on
-    axis equal
     plot(real(cdr),imag(cdr),':k', ...
       real(cdr),-imag(cdr),':k', ...
       real(nfc),imag(nfc),':k', ...
@@ -237,7 +236,11 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
           [exp(-2*pi/NY) real(pontoplanoz(0,WN,TS)) -imag(pontoplanoz(0,WN,TS)) imag(pontoplanoz(0,WN,TS))], ...
           'LineStyle','--', ...
           'Color','m')
-  
+%         T = [];
+%         T(:,1) = fimp.XData';
+%         T(:,2) = fimp.YData';
+%         writematrix(T, 'data.txt','Delimiter',' ');
+ 
       case 'P'
         plot(real([vec2 vec2(length(vec2))]),imag([vec2 0]),'--m', ...
           real([vec2 vec2(length(vec2))]),-imag([vec2 0]),'--m')

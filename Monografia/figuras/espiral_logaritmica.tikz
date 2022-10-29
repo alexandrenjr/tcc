@@ -17,12 +17,12 @@
   ymax=0.6,
   xtick={1},
   ytick=\empty,
-  xtick style={draw=none},
-  xlabel={$\pmb{X}$},
-  ylabel={$\pmb{jY}$},
+  xticklabel style={anchor=south west, draw=none},
+  xlabel={$X$},
+  ylabel={$\jmath Y$},
   x label style={anchor=north}
 ]
-\addplot [color=black, forget plot]
+\addplot [thin, color=black, forget plot]
   table[row sep=crcr]{%
 1	0\\
 0.97439570184454	0.0422189617067992\\

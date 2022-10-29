@@ -245,7 +245,7 @@ nan	0\\
 \draw (0.43, 0.03) node [scale = 0.6, anchor=south west] {\small $\theta$};
 \end{axis}
 
-\draw (6.5,7.9) node[scale = 0.65] {\small $N_o$};
-\draw (5.5,4.65) node[scale = 0.65] {\small $N_i$};
-\draw (6.5,1) node[scale = 0.65] {\small $\bar{N_o}$};
+\draw (6.5,7.9) node[scale = 0.65] {\small $S$};
+\draw (5.5,4.65) node[scale = 0.65] {\small $R$};
+\draw (6.5,1) node[scale = 0.65] {\small $\bar{S}$};
 \end{tikzpicture}%
