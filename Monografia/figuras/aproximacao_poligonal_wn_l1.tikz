@@ -234,8 +234,8 @@
   1 0\\
   };
   
-  \node [circle, draw, Black!80, fill=Black!80, fill=Black, minimum size=1pt, label=above left:$N_i$] at (0.367879441171442, 0) {};
-  \node [circle, draw, Black!80, fill=Black!80, fill=Black, minimum size=1pt, label=left:$N_o$] at (0.54030230586814, 0.841470984807897) {};
+  \node [circle, draw, Black!80, fill=Black!80, fill=Black, minimum size=1pt, label=above left:$R$] at (0.367879441171442, 0) {};
+  \node [circle, draw, Black!80, fill=Black!80, fill=Black, minimum size=1pt, label=left:$Q$] at (0.54030230586814, 0.841470984807897) {};
   
   \end{axis}
   \end{tikzpicture}%

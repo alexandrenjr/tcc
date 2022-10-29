@@ -40,45 +40,44 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
 
   P = sdpvar(n,n);
   Z = sdpvar(m,n,'f');
-  %   mu = sdpvar(1);
   options = sdpsettings('verbose',0);
 
   F = [];
-  F = [F, (P>=0):'Positividade']; %#ok<*BDSCA>
+  F = [F, (P>=0):'Positividade'];
 
   %% Estabilidade Relativa
   F = [F, (lmiestabilidade(SIGMA,SYS,TS,P,Z)<=0):'Taxa de amortecimento'];
   
-  %% Verifica o método escolhido para a aproximação da taxa de amortecimento
+  %% Verifica o método escolhido para a aproximação das regiões
   switch METODO
-    case 'C'   % Aproximação Cônica da Taxa de Amortecimento
-      Vo = pontoplanoz(ZETA,0,TS);
-      Vi = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
-      V = determinarmaiorarea(Vo,Vi,ZETA,TS);
-      theta1 = acos(abs(real(V)-Vo)/abs(V-Vo));
-      theta2 = acos(abs(real(V)-Vi)/abs(V-Vi));
+    case 'C'   % Aproximação Cônica
+      L = pontoplanoz(ZETA,0,TS);
+      N = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
+      M = determinarmaiorarea(L,N,ZETA,TS);
+      theta1 = acos(abs(real(M)-L)/abs(M-L));
+      theta2 = acos(abs(real(M)-N)/abs(M-N));
       
-      F = [F, (lmisetorconico(real(Vo),theta1,SYS,P,Z,'E')<=0):['Setor cônico esquerdo ZETA']];
-      F = [F, (lmisetorconico(real(Vi),theta2,SYS,P,Z,'D')<=0):['Setor cônico direito ZETA']];
-      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Vi)*P>=0):['Limitação à direita ZETA']];
+      F = [F, (lmisetorconico(real(L),theta1,SYS,P,Z,'E')<=0):['Setor cônico esquerdo ZETA']];
+      F = [F, (lmisetorconico(real(N),theta2,SYS,P,Z,'D')<=0):['Setor cônico direito ZETA']];
+      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(N)*P>=0):['Limitação à direita ZETA']];
 
-      No = pontoplanoz(0,WN,TS);
-      Ni = pontoplanoz(1,WN,TS);
-      theta = acos(abs(real(No)-Ni)/abs(No-Ni));
+      Q = pontoplanoz(0,WN,TS);
+      R = pontoplanoz(1,WN,TS);
+      theta = acos(abs(real(Q)-R)/abs(Q-R));
       
-      F = [F, (lmisetorconico(Ni,theta,SYS,P,Z,'D')<=0):['Setor cônico direito WN']];
-      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Ni)*P>=0):['Limitação à direita WN']];
+      F = [F, (lmisetorconico(R,theta,SYS,P,Z,'D')<=0):['Setor cônico direito WN']];
+      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(R)*P>=0):['Limitação à direita WN']];
     
     case 'E'  % Aproximação Elíptica
-      Vo = pontoplanoz(ZETA,0,TS);
-      Vi = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
-      V = determinarmaiorarea(Vo,Vi,ZETA,TS);
-      theta1 = acos(abs(real(V)-Vo)/abs(V-Vo));
-      theta2 = acos(abs(real(V)-Vi)/abs(V-Vi));
+      L = pontoplanoz(ZETA,0,TS);
+      N = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
+      M = determinarmaiorarea(L,N,ZETA,TS);
+      theta1 = acos(abs(real(M)-L)/abs(M-L));
+      theta2 = acos(abs(real(M)-N)/abs(M-N));
       
-      F = [F, (lmisetorconico(real(Vo),theta1,SYS,P,Z,'E')<=0):['Setor cônico esquerdo ZETA']];
-      F = [F, (lmisetorconico(real(Vi),theta2,SYS,P,Z,'D')<=0):['Setor cônico direito ZETA']];
-      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Vi)*P>=0):['Limitação à direita ZETA']];
+      F = [F, (lmisetorconico(real(L),theta1,SYS,P,Z,'E')<=0):['Setor cônico esquerdo ZETA']];
+      F = [F, (lmisetorconico(real(N),theta2,SYS,P,Z,'D')<=0):['Setor cônico direito ZETA']];
+      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(N)*P>=0):['Limitação à direita ZETA']];
 
       a = 1-exp((-2*pi)/NY);
       b = (a^2*sin((-2*pi)/NY))/(sqrt(a^2-(cos((-2*pi)/NY)-1)^2));
@@ -93,32 +92,31 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
 
     case 'P'  % Aproximação Poligonal
       l = 0;
-      Vo = pontoplanoz(ZETA,0,TS);
-      Vi = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
-      V = double(pontoplanoz(ZETA,realwn(ZETA,TS),TS));
-      No = pontoplanoz(0,WN,TS);
-      Ni = pontoplanoz(1,WN,TS);
+      L = pontoplanoz(ZETA,0,TS);
+      N = pontoplanoz(ZETA,pi/(sqrt(1-ZETA^2)*TS),TS);
+      M = double(pontoplanoz(ZETA,realwn(ZETA,TS),TS));
+      Q = pontoplanoz(0,WN,TS);
+      R = pontoplanoz(1,WN,TS);
       
-      pontos1 = [0 pi/(1.5*sqrt(1-ZETA^2)*TS)];
-      pontos2 = pontos1;
-      vec1 = [Vo V];
+      pts1 = [0 pi/(1.5*sqrt(1-ZETA^2)*TS)];
+      pts2 = pts1;
+      vec1 = [L M];
       vec2 = vec1;
-      pontos3 = [0 1];
-      pontos4 = pontos3;
-      vec3 = [Ni No];
+      pts3 = [0 1];
+      pts4 = pts3;
+      vec3 = [R Q];
       vec4 = vec3;
-      theta = acos(abs(real(vec4(m+1))-Ni)/abs(vec4(m+1)-Ni));
+      theta = acos(abs(real(vec4(m+1))-R)/abs(vec4(m+1)-R));
       
-      Satual = polyshape(real([vec2 Vi]),imag([vec2 Vi])).area;
+      Satual = polyshape(real([vec2 N]),imag([vec2 N])).area;
       
-      F = [];
-      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Vi)*P>=0):['Limitação à direita ZETA ' METODO]];
-      F = [F, (lmisetorconico(loc(Vo,V),acos(abs(Vo-real(V))/abs(Vo-V)), ...
+      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(N)*P>=0):['Limitação à direita ZETA ' METODO]];
+      F = [F, (lmisetorconico(loc(L,M),acos(abs(L-real(M))/abs(L-M)), ...
         SYS,P,Z,'E')<=0):['Setor cônico esquerdo ZETA' METODO]];
-      F = [F, (lmisetorconico(Ni,theta,SYS,P,Z,'D')<=0):['Setor cônico direito NY ' METODO]];
-      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Ni)*P>=0):['Limitação à direita NY ' METODO]];
+      F = [F, (lmisetorconico(R,theta,SYS,P,Z,'D')<=0):['Setor cônico direito NY ' METODO]];
+      F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(R)*P>=0):['Limitação à direita NY ' METODO]];
       
-      optimize(F,trace(P),options);
+      optimize(F,[],options);
       
       [primalres,dualres] = check(F);
       primalres = sort(primalres,'ascend');
@@ -130,41 +128,41 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
         else
           l = 1;
           vec1 = vec2;
-          pontos1 = pontos2;
+          pts1 = pts2;
           vec3 = vec4;
-          pontos3 = pontos4;
+          pts3 = pts4;
         end
         
         F = [];
         F = [F, (P>=0):'Positividade'];
         F = [F, (lmiestabilidade(SIGMA,SYS,TS,P,Z)<=0):['Taxa de amortecimento ' METODO]];
 
-        Vnew1 = pontoplanoz(ZETA,(pontos1(l)+pontos1(l+1))/2,TS);
-        pontos2 = sort([pontos2 (pontos1(l)+pontos1(l+1))/2],'descend');
+        Vnew1 = pontoplanoz(ZETA,(pts1(l)+pts1(l+1))/2,TS);
+        pts2 = sort([pts2 (pts1(l)+pts1(l+1))/2],'descend');
         vec2 = sort([vec2 Vnew1],'descend');
 
-        Vnew2 = pontoplanoz((pontos3(l)+pontos3(l+1))/2,WN,TS);
-        pontos4 = sort([pontos4 (pontos3(l)+pontos3(l+1))/2],'ascend');
+        Vnew2 = pontoplanoz((pts3(l)+pts3(l+1))/2,WN,TS);
+        pts4 = sort([pts4 (pts3(l)+pts3(l+1))/2],'ascend');
         vec4 = sort([vec4 Vnew2],'descend');
       
-        F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Vi)*P>=0):['Limitação à direita ZETA ' METODO]];
-        F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(Ni)*P>=0):['Limitação à direita NY ' METODO]];
+        F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(N)*P>=0):['Limitação à direita ZETA ' METODO]];
+        F = [F, (A*P+B*Z+Z'*B'+P*A'-2*real(R)*P>=0):['Limitação à direita NY ' METODO]];
         
         for m=1:length(vec1)-1
-          vLoc = loc(vec2(m),vec2(m+1));
-          if vLoc < 0
-            phi = acos(abs(real(vec2(m+1))-vLoc)/abs(vec2(m+1)-vLoc));
-            F = [F, (lmisetorconico(vLoc,phi,SYS,P,Z,'D')<=0):['Setor cônico direito ZETA ' METODO ' ' num2str(l)]];
+          u1 = loc(vec2(m),vec2(m+1));
+          if u1 < 0
+            phi = acos(abs(real(vec2(m+1))-u1)/abs(vec2(m+1)-u1));
+            F = [F, (lmisetorconico(u1,phi,SYS,P,Z,'D')<=0):['Setor cônico direito ZETA ' METODO ' ' num2str(l)]];
           else
-            phi = acos(abs(vLoc-real(vec2(m+1)))/abs(vLoc-vec2(m+1)));
-            F = [F, (lmisetorconico(vLoc,phi,SYS,P,Z,'E')<=0):['Setor cônico esquerdo ZETA ' METODO ' ' num2str(l)]];
+            phi = acos(abs(u1-real(vec2(m+1)))/abs(u1-vec2(m+1)));
+            F = [F, (lmisetorconico(u1,phi,SYS,P,Z,'E')<=0):['Setor cônico esquerdo ZETA ' METODO ' ' num2str(l)]];
           end
         end
 
         for m=1:length(vec3)-1
-          vLoc2 = loc(vec4(m),vec4(m+1));
-          theta = acos(abs(real(vec4(m))-vLoc2)/abs(vec4(m)-vLoc2));
-          F = [F, (lmisetorconico(vLoc2,theta,SYS,P,Z,'D')<=0):['Setor cônico direito NY ' METODO ' ' num2str(m)]];
+          u2 = loc(vec4(m),vec4(m+1));
+          theta = acos(abs(real(vec4(m))-u2)/abs(vec4(m)-u2));
+          F = [F, (lmisetorconico(u2,theta,SYS,P,Z,'D')<=0):['Setor cônico direito NY ' METODO ' ' num2str(m)]];
         end
       
         optimize(F,[],options);
@@ -180,8 +178,6 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
         end
       end
   end
-
-  %%
   
   optimize(F,[],options);
   [primalres,dualres] = check(F);
@@ -213,8 +209,8 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
   
     switch METODO
       case 'C'
-        pgon = polyshape([real(Vo) real(V) real(Vi) real(V)], ...
-          [imag(Vo) imag(V) imag(Vi) -imag(V)]);
+        pgon = polyshape([real(L) real(M) real(N) real(M)], ...
+          [imag(L) imag(M) imag(N) -imag(M)]);
         plot(pgon,'LineStyle','--', ...
           'FaceAlpha',0, ...
           'EdgeColor','m')
@@ -225,8 +221,8 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
           'Color','m')
   
       case 'E'
-        pgon = polyshape([real(Vo) real(V) real(Vi) real(V)], ...
-          [imag(Vo) imag(V) imag(Vi) -imag(V)]);
+        pgon = polyshape([real(L) real(M) real(N) real(M)], ...
+          [imag(L) imag(M) imag(N) -imag(M)]);
         plot(pgon,'LineStyle','--', ...
           'FaceAlpha',0, ...
           'EdgeColor','m')
@@ -236,10 +232,6 @@ function K = factibilidade(SYS,TS,SIGMA,ZETA,WN,METODO,PLOTAR)
           [exp(-2*pi/NY) real(pontoplanoz(0,WN,TS)) -imag(pontoplanoz(0,WN,TS)) imag(pontoplanoz(0,WN,TS))], ...
           'LineStyle','--', ...
           'Color','m')
-%         T = [];
-%         T(:,1) = fimp.XData';
-%         T(:,2) = fimp.YData';
-%         writematrix(T, 'data.txt','Delimiter',' ');
  
       case 'P'
         plot(real([vec2 vec2(length(vec2))]),imag([vec2 0]),'--m', ...

@@ -46,11 +46,15 @@ brazil
 	quotes
 }
 
+\renewcommand{\lstlistingname}{Código}
+\AtBeginDocument{
+    \renewcommand{\thelstlisting}{\Roman{lstlisting}}
+}
+
 \lstset{
   inputencoding = utf8/latin1,
 	backgroundcolor = \color{black!10!white},
 	columns = flexible,
-	%basicstyle = {\scriptsize\ttfamily\color{Black}},
   basicstyle = {\scriptsize\ttfamily},                   
 	breaklines = true,
 	breakatwhitespace = true,
@@ -77,14 +81,25 @@ brazil
   \renewcommand{\listalgorithmname}{List of \ALG@name s}
 \makeatother
 
-\title{\textsc{Alocação de Polos Em Regiões do Plano Complexo Para Sistemas Discretos via LMIs}}
-\author{Alexandre Nascimento, Jr.}
+\titulo{Alocação de Polos Em Regiões do Plano Complexo Para Sistemas Discretos via LMIs}
+\autor{Alexandre Nascimento, Jr.}
+\data{Novembro 2022}
+\local{Campo Grande, MS}
+\orientador{Prof. Dr. Victor Yoshimura}
 \instituicao{Universidade Federal de Mato Grosso do Sul}
 \local{Campo Grande, MS}
 
 \begin{document}
 
-\maketitle
+\imprimircapa
+\imprimirfolhaderosto
+
+\include{capitulos/folhadeaprovacao}
+
+\begin{resumo}
+	Este trabalho implementou em \emph{software} algoritmos desenvolvidos nos últimos anos na Teoria de Controle que aproximam em LMI regiões do plano $\z$ que não são convexas. A partir de parâmetros de projetos informados, o algoritmo verifica a factibilidade da solução e, caso possível, retorna um compensador que estabiliza o sistema discretizado. 
+\end{resumo}
+
 \tableofcontents
 
 \include{capitulos/capitulo1}
@@ -94,8 +109,7 @@ brazil
 \include{capitulos/capitulo5}
 \include{capitulos/referencias}
 
-% \appendix
-
-% \include{capitulos/apendice1.tex}
+\anexos
+\include{capitulos/anexo1.tex}
 
 \end{document}

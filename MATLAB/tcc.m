@@ -13,7 +13,7 @@ Bc = [inv(R1*C1); 0];
 Cc = [R1 0];
 Dc = zeros;
 
-ts = 50;
+ts = 30;
 SIGMA = -4/ts;
 ZETA = 0.5;
 TS = 10;
@@ -24,12 +24,12 @@ NY = WS/WN;
 SYSC = ss(Ac,Bc,Cc,Dc);
 SYS = c2d(SYSC,TS,'tustin');
 
-K = factibilidade(SYS,TS,SIGMA,ZETA,WN,'P');
+K = factibilidade(SYS,TS,SIGMA,ZETA,WN,'P',1);
 
 % T = [];
 % T(:,1) = fimp.XData';
 % T(:,2) = fimp.YData';
 % writematrix(T, 'data.txt','Delimiter',' ');
 
-SYSCOMP = ss(SYS.A+SYS.B*K,SYS.B,SYS.C+SYS.D*K,SYS.D,TS);
-impulse(SYS,SYSCOMP)
+% SYSCOMP = ss(SYS.A+SYS.B*K,SYS.B,SYS.C+SYS.D*K,SYS.D,TS);
+% impulse(SYS,SYSCOMP)
