@@ -24,12 +24,8 @@ NY = WS/WN;
 SYSC = ss(Ac,Bc,Cc,Dc);
 SYS = c2d(SYSC,TS,'tustin');
 
-K = factibilidade(SYS,TS,SIGMA,ZETA,WN,'P',1);
+K = factibilidade(SYS,TS,SIGMA,ZETA,WN,'P');
 
-% T = [];
-% T(:,1) = fimp.XData';
-% T(:,2) = fimp.YData';
-% writematrix(T, 'data.txt','Delimiter',' ');
-
-% SYSCOMP = ss(SYS.A+SYS.B*K,SYS.B,SYS.C+SYS.D*K,SYS.D,TS);
-% impulse(SYS,SYSCOMP)
+figure
+SYSCOMP = ss(SYS.A+SYS.B*K,SYS.B,SYS.C+SYS.D*K,SYS.D,TS);
+impulse(SYS,SYSCOMP)

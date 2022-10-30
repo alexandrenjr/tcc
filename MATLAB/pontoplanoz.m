@@ -21,3 +21,4 @@ function z = pontoplanoz(zeta,wn,Ts)
   % assim, (3) pode ser reescrito como:
   %     z = exp(-zeta*wn*Ts).*exp(j*wn*sqrt(1-zeta^2)*Ts)   (6)
   z = exp(-zeta.*wn.*Ts).*exp(1i.*wn.*sqrt(1-zeta.^2)*Ts);
+end

@@ -4,3 +4,4 @@ function LMI = lmiestabilidade(sigma,sys,Ts,P,Z)
   
   LMI = [a11 a21';
     a21 a11];
+end

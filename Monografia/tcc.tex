@@ -5,7 +5,7 @@ twoside,
 a4paper,
 brazil
 ]{abntex2}
-\usepackage[alf]{abntex2cite}
+\usepackage[num,overcite]{abntex2cite}
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
 \usepackage[dvipsnames,x11names]{xcolor}
@@ -18,7 +18,9 @@ brazil
 \usepackage{pgfplots}
 \usepackage{siunitx}
 \usepackage{algorithm,algorithmicx,algpseudocode}
-\usepackage{listings,listingsutf8}
+%\usepackage{listings,listingsutf8}
+\usepackage{listingsutf8}
+\usepackage[numbered,framed]{matlab-prettifier}
 
 \DeclareMathOperator{\real}{Re}
 \DeclareMathOperator{\imag}{Im}
@@ -31,6 +33,8 @@ brazil
 \DeclareMathOperator{\z}{\mathrm{z}}
 \DeclareMathOperator{\Herm}{\mathcal{V}}
 \DeclareMathOperator{\herm}{\mathcal{\bar{V}}}
+
+\citebrackets[]
 
 \pgfplotsset{
 	compat=newest,
@@ -52,9 +56,11 @@ brazil
 
 \lstset{
 	inputencoding = utf8/latin1,
-	backgroundcolor = \color{Gray!10},
+	style = Matlab-editor,
+	backgroundcolor = \color{Gray!7},
 	columns = flexible,
-	basicstyle = {\scriptsize\ttfamily},                   
+	basicstyle = {\scriptsize\ttfamily},
+	numberstyle=\footnotesize\color{black!80},                   
 	breaklines = true,
 	breakatwhitespace = true,
 	postbreak = \space,
@@ -108,8 +114,15 @@ brazil
 \include{capitulos/capitulo5}
 \include{capitulos/referencias}
 
-\anexos
-
-\include{capitulos/anexo1.tex}
+\begin{anexosenv}
+	\include{capitulos/anexo1.tex}
+	\include{capitulos/anexo2.tex}
+	\include{capitulos/anexo3.tex}
+	\include{capitulos/anexo4.tex}
+	\include{capitulos/anexo5.tex}
+	\include{capitulos/anexo6.tex}
+	\include{capitulos/anexo7.tex}
+	\include{capitulos/anexo8.tex}
+\end{anexosenv}
 
 \end{document}

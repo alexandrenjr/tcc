@@ -6,15 +6,11 @@ function wn = realwn(zeta,Ts)
   e = pontoplanoz(zeta,wnmax,Ts);
   f = pontoplanoz(zeta,wn,Ts);
   
-  while real(e) ~= real(f)
+  while abs(real(e) - real(f)) > epsilon
     if real(e) < real(f)
       wn = wn + epsilon;
     else
       wn = wn - epsilon;
-    end
-  
-    if abs(real(e) - real(f)) < epsilon
-      break;
     end
   
     f = pontoplanoz(zeta,wn,Ts);

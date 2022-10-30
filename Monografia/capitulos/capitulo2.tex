@@ -1,10 +1,12 @@
 \chapter{Região de Desempenho Garantido}
 
-A alocação de polos é uma das principais ferramentas da teoria de controle, pois a partir desta, é possível projetar um sistema que seja estável e que tenha um bom desempenho \citeonline{ROSINOVA2014}. A operação de alocar polos de um sistema linear dentro de uma região específica é chamada $\mathscr{D}$-estabilidade \citeonline{CHILALI1996}.
+A alocação de polos é uma das principais ferramentas da teoria de controle, pois a partir desta, é possível projetar um sistema que seja estável e que tenha um bom desempenho\cite{ROSINOVA2014}. A operação de alocar polos de um sistema linear dentro de uma região específica é chamada $\mathscr{D}$-estabilidade\cite{CHILALI1996}.
 
-Entende-se por estável o sistema que, em termos de resposta a estímulos, possui uma convergência ao zero da resposta natural, restando apenas a reposta forçada \cite{NISE2011}. Assim, para um intervalo de tempo determinado, espera-se que o sistema apenas tenha dinâmica referente à entrada aplicada. Neste contexto, a estabilidade é o ponto de partida para projetos de compensadores.
+Entende-se por estável o sistema que, em termos de resposta a estímulos, possui uma convergência ao zero da resposta natural, restando apenas a reposta forçada\cite{NISE2011}. Assim, para um intervalo de tempo determinado, espera-se que o sistema apenas tenha dinâmica referente à entrada aplicada. Neste contexto, a estabilidade é o ponto de partida para projetos de compensadores.
 
-A resposta ao impulso no domínio do tempo de um sistema linear e invariante no tempo tem as características da figura \ref{fig:ImpulseResponse}. O máximo da curva é o máximo sobressinal (\emph{overshoot} em inglês), onde é o pico da saída, dado em porcetagem. O parâmetro $t_s$ representa o tempo de acomodação, onde é o instante de tempo que o sinal entra em um intervalo definido e não sai (normalmente 2\%).
+\section{Resposta ao impulso de um sistema linear e invariante no tempo}
+
+A resposta ao impulso no domínio do tempo de um sistema linear e invariante no tempo tem as características da figura \ref{fig:ImpulseResponse}. O máximo da curva é o máximo sobressinal (\emph{overshoot} em inglês), onde é o pico da saída, dado normalmente em porcetagem. O parâmetro $t_s$ representa o tempo de acomodação, onde é o instante de tempo que o sinal entra em uma região da saída definido e não sai (normalmente 2\%).
 
 \begin{figure}[!ht]
   \centering
@@ -12,6 +14,8 @@ A resposta ao impulso no domínio do tempo de um sistema linear e invariante no 
   \caption{Reposta ao impulso de um sistema de segunda ordem.}
   \label{fig:ImpulseResponse}
 \end{figure}
+
+Neste contexto, a estabilidade é o número de oscilações do sistema após cessado o estímulo externo. É notável a relação com o tempo de acomodação, de de fato ocorre. Ademais, a $\mathscr{D}$-estabilidade pode garantir esses e outros parâmetros possuem um valor mínimo ou máximo, dependendo da especifidade do probblema. Resta apenas estudar a região de polos para cada parâmetro considerado neste trabalho.
 
 \section{Regiões de polos para sistemas contínuos}\label{sec:DEstabilidadeS}
 
@@ -27,12 +31,18 @@ este estará na região estável somente se a parte real de tal ponto estiver à
 Assim, um sistema com $n$ polos é dito estável se todos os seus polos estão localizados à esquerda do eixo imaginário. A partir deste conceito, é possível definir estabilidade relativa: se um sistema é estável para um valor $\sigma < 0$, então aquele é dito estável relativo (ao valor de $\sigma$).
 
 A figura \ref{subfig:EstabilidadeRelativaS} mostra um esboço da região comentada. À medida que o valor de $\sigma$ aumenta em valor absoluto, mais a esquerda a reta limitante se encontra e menor o plano estável relativo se torna. Além disso, as equações de tais retas podem ser generalizadas via:
-
 \begin{equation}
   x = -|\sigma|\label{eq:Sigma}
 \end{equation}
 
-Outros parâmetros de desempenho importantes para projetos de compensadores são o fator de amortecimento $\zeta$ e a frequência natural não-amortecida $\omega_n$. São caracterizados pela resposta de sistemas de segunda ordem à função degrau \cite{NISE2011}\cite{OGATA2011} e representam as oscilações não-amortecidas do modelo físico. Dado um par de polos conjugados via \eqref{eq:PontoGenericoPlanoS}, é possível reescrevê-los em termos daqueles parâmetros:
+Ainda, a relação entre a estabilidade com o tempo de acomodação é dado por:
+\begin{equation}
+	\sigma t_s = 4 \,\,\,\,\ \text{(critério 2\%)}\label{eq:TempoAcomodacao}
+\end{equation}
+
+Logo, projetar um compensador a partir da taxa de amortecimento ou do tempo de acomodação se torna intercambiável via \eqref{eq:TempoAcomodacao}, uma vez conhecido o outro parâmetro. Em adição à isso, como a relação é inversamente proporcional, ao exigir um tempo de acomodação relativamente pequeno, pode resultar em um número grande oscilações.
+
+Outros parâmetros de desempenho importantes para projetos de compensadores são o fator de amortecimento $\zeta$ e a frequência natural não-amortecida $\omega_n$. São facilmente caracterizados a partir da resposta de sistemas de segunda ordem à função degrau\cite{NISE2011,OGATA2011} e representam as oscilações não-amortecidas do modelo físico. Dado um par de polos conjugados via \eqref{eq:PontoGenericoPlanoS}, é possível reescrevê-los em termos daqueles parâmetros:
 \begin{equation}
   s = -\zeta\omega_n \pm \jmath\omega_n \sqrt {1-\zeta^2} \label{eq:PontoPlanoS}
 \end{equation}
@@ -43,7 +53,7 @@ com $\sigma = -\zeta\omega_n$. As regiões de $\mathscr{D}$-estabilidade referen
 
 Com isso, é possível analisar as regiões geradas a partir de tais parâmentros. A região $\zeta$-constante é obtida fixando-se um valor para $\zeta$ e variando-se o valor de $\omega_n$. As características obtidas são representadas na figura \ref{subfig:TaxaDeAmortecimentoS}. Os ângulos formados entre as retas e o eixo imaginário têm valores absolutos $\beta = -\cotg{\left(\arccos{\left(\zeta\right)}\right)}$ e diminuem à medida que o valor de $\zeta$ aumenta, tornando a região estreita.
 
-Já as regiões $\omega_n$-constante possuem as características esboçadas na figura \ref{subfig:OscilacaoNaoAmortecidaS}. Os raios das semi-circunferências formadas possuem valores iguais à $\omega_n$ e aumentam ou diminuem à medida que se varia tal parâmetro. Conforme abordado em \cite{CHILALI1996}, a intersecção das regiões comentadas formam a Região $\Omega$ de Desempenho garantido. Todos os polos dentro de tal região possuem um mínimo valor de $\sigma$, $\zeta$ e $\omega_n$.
+Já as regiões $\omega_n$-constante possuem as características esboçadas na figura \ref{subfig:OscilacaoNaoAmortecidaS}. Os raios das semi-circunferências formadas possuem valores iguais à $\omega_n$ e aumentam ou diminuem à medida que se varia tal parâmetro. Conforme abordado em \citeonline{CHILALI1996}, a intersecção das regiões comentadas formam a Região $\Omega$ de Desempenho garantido. Todos os polos dentro de tal região possuem um mínimo valor de $\sigma$, $\zeta$ e $\omega_n$.
 
 \begin{figure}[!hb]
   \centering
@@ -127,18 +137,18 @@ O valor de $\omega_n$ no qual os ramos cruzam o eixo imaginário a cada $n$ meia
 
 Assim, ambos os ramos cruzam o eixo imaginário pela primeira vez quando $\omega_n = \omega_{nmax}$, para o respectivo valor fixado de $\zeta$. Ainda, outra característica que pode ser citada é a influência do $\zeta$ na região: quanto maior seu valor, menor a área da região $\zeta$-constante equivalente, assim como ocorre com seu dual nos contínuos.
 
-Em relação às regiões $\omega_n$-constante, como o estudo de alocação de polos se restringe a sistemas se segunda ordem subamortecidos \cite{NISE2011} \cite{OGATA2011}, os valores possíveis para a taxa de amortercimento está no intervalo $0 < \zeta < 1$. Dito isso, os ramos esboçados na figura \ref{subfig:OscilacaoNaoAmortecidaZ} começam a ser desenhadas a partir da circunferência unitária, onde o ponto é dado por $\z(\zeta_{min},\omega_n)$ (com $\zeta = 0 = \zeta_{min}$) e vão em direção ao ponto $\z(\zeta_{max},\omega_n)$, com $\zeta_{max} = 1$.
+Em relação às regiões $\omega_n$-constante, como o estudo de alocação de polos se restringe a sistemas se segunda ordem subamortecidos\cite{NISE2011,OGATA2011}, os valores possíveis para a taxa de amortercimento está no intervalo $0 < \zeta < 1$. Dito isso, os ramos esboçados na figura \ref{subfig:OscilacaoNaoAmortecidaZ} começam a ser desenhadas a partir da circunferência unitária, onde o ponto é dado por $\z(\zeta_{min},\omega_n)$ (com $\zeta = 0 = \zeta_{min}$) e vão em direção ao ponto $\z(\zeta_{max},\omega_n)$, com $\zeta_{max} = 1$.
 
 Com tais pontos extremos, é possível aproximar as regiões do plano $\z$ utilizando Desigualdes Matriciais Lineares (LMIs, em inglês). Esse estudo será abordado na subseção a seguir.
 
 \section{Aproximação das regiões do plano z via LMIs}
 Em estudos anteriores, foram abordadas técnicas utilizando LMIs para mapear as regiões de $\mathscr{D}$-estabilidade no plano $s$. Tal feito foi realizado devido à convexidade de tais regiões, requisito para o uso de LMIs. Conforme visto na subseção \ref{sec:DEstabilidadeZ}, as regiões $\zeta$-constante e $\omega_n$-constante no plano $\z$ podem possuir características não-convexas, o que impossibilita o mapeamento exato via LMIs.
 
-Estudos foram desenvolvidos para contornar a não-convexidade de algumas regiões do plano $\z$, aproximando-os em regiões convexas. Em 2014, no artigo \cite{ROSINOVA2014}, a autora mapeou a região $\zeta$-constante utilizando a maior elipse ou circunferência inscrita possível. Mas foi em \cite{ROSINOVA2019} que foi desenvolvido um algoritmo que traz várias aproximações utilizando elipses, para aproveitar da melhor forma a área daquela região.
+Estudos foram desenvolvidos para contornar a não-convexidade de algumas regiões do plano $\z$, aproximando-os em regiões convexas. Em 2014, no artigo \citeonline{ROSINOVA2014}, \citeauthoronline{ROSINOVA2014} mapeou a região $\zeta$-constante utilizando a maior elipse ou circunferência inscrita possível. Mas foi em \cite{ROSINOVA2019} que foi desenvolvido um algoritmo que traz várias aproximações utilizando elipses, para aproveitar da melhor forma a área daquela região.
 
-Já em \cite{WISNIEWSKI2017} foi abordada uma aproximação cônica, utilzando-se apenas de quatro pontos e, consequentemente, dois setores cônicos. Apesar de simples, a ideia poderia facilmente ser estendida para $n$ pontos, o que foi feito em \cite{WISNIEWSKI2019}. Ao aumentar a área a cada iteração, o algoritmo verifica a solução proposta.
+Já em \citeonline{WISNIEWSKI2017} foi abordada uma aproximação cônica, utilzando-se apenas de quatro pontos e, consequentemente, dois setores cônicos. Apesar de simples, a ideia poderia facilmente ser estendida para $n$ pontos, o que foi feito em \cite{WISNIEWSKI2019}. Ao aumentar a área a cada iteração, o algoritmo verifica a solução proposta.
 
-E finalmente, utilizando-se das ideias anteriores, \cite{CHIQUETO2021} trouxe aproximações cônica, elíptica e poligonal da região $\omega_n$-constante.
+E finalmente, utilizando-se das ideias anteriores, \citeauthoronline{CHIQUETO2021} em \citeonline{CHIQUETO2021} trouxe aproximações cônica, elíptica e poligonal da região $\omega_n$-constante.
 
 \section{Modelagem via espaço de estados}
 O espaço de estados é uma representação matemática desenvolvida na Teoria de Controle para estudar sistemas físicos, relacionando saídas, entradas e variáveis de estado internas, através do uso de Equações Diferenciais Ordinárias (EDOs).
@@ -176,7 +186,7 @@ Em ambos os domínios, os polos do sistema são os autovalores da matriz de esta
 \section{Condição de Liapunov}
 Seja $\mathcal{D}$ um subconjunto do plano contínuo, localizado no semi-plano esquerdo e um sistema representado como em \eqref{eq:SSC} ou \eqref{eq:SSD}. Este conjunto é dito $\mathcal{D}$-estável se todos os autovalores da matriz de estado correspondente estiverem contidos em $\mathcal{D}$.
 
-Caso $\mathcal{D}$ for uma região convexa, é possível mapeá-la utilizando Desigualdes Matriciais Lineares (LMIs em ingîes) \cite{CHILALI1996}, através da condição de Liapunov. A partir disso, uma matriz $A$ é estável se, e somente se, existir uma matriz simétrica $P$, tal que:
+Caso $\mathcal{D}$ for uma região convexa, é possível mapeá-la utilizando Desigualdes Matriciais Lineares (LMIs em ingîes)\cite{CHILALI1996}, através da condição de Liapunov. A partir disso, uma matriz $A$ é estável se, e somente se, existir uma matriz simétrica $P$, tal que:
 \begin{equation}
   AP + PA' \prec 0, \qquad P \succ 0\label{eq:LiapunovCondition}
 \end{equation}
@@ -220,7 +230,7 @@ Para impedir a simetria do setor cônico direito, é definido uma reta limitante
   AP + BZ + Z'B' + PA' -2\alpha P\label{eq:LMIRightBounded} \succ 0
 \end{equation}
 
-\noindent onde considera a área a direita de tal reta. Isso é necessário apenas para o setor cônico direito, pois o voltado para a  esquerda é limitado por \eqref{eq:LMIEstabilidadeRelativa}, como pode ser observado na figura \ref{fig:RegioesPlanoZ}. Uma última região LMI é apresentada: uma elipse, que possui a seguinte equação \cite{CHIQUETO2021}:
+\noindent onde considera a área a direita de tal reta. Isso é necessário apenas para o setor cônico direito, pois o voltado para a  esquerda é limitado por \eqref{eq:LMIEstabilidadeRelativa}, como pode ser observado na figura \ref{fig:RegioesPlanoZ}. Uma última região LMI é apresentada: uma elipse, que possui a seguinte equação\cite{CHIQUETO2021}:
 
 \begin{equation}
   \mathbb{E}: \dfrac{(x-1)^2}{\left(1-\exp{\left(-\frac{2\pi}{N_y}\right)}\right)^2} + \dfrac{\left(\left(1-\exp{\left(-\frac{2\pi}{N_y}\right)}\right)^2 - \left(\cos{\left(\frac{2\pi}{N_y}\right)} - 1\right)^2\right)y^2}{\left(1-\exp{\left(-\frac{2\pi}{N_y}\right)}\right)^2\sen{\left(\frac{2\pi}{N_y}\right)}} = 1\label{eq:Elipse}

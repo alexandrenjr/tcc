@@ -34,7 +34,7 @@ onde $C_{eq} = C_1C_2/(C_1 + C_2)$. Para discretizar o sistema, é preciso de um
 onde o semi-plano esquerdo dos contínuos é mapeado no círculo unitário dos discretos.
 
 \section{Parâmetros de projeto}
-Com posse do espaço de estados, é possível sintetizar uma matriz de ganho $K$ que possa estabilizar o sistema. Antes, é necessário atribuir valores para a planta. Em um primeiro projeto, serão escolhidas arbitrariamente tais valores, como segue:
+Com posse do espaço de estados, é possível sintetizar uma matriz de ganho $K$ que possa estabilizar o sistema. Antes, é necessário atribuir valores para a planta. Sem a parde de generalidade, serão escolhidas arbitrariamente tais valores, como segue:
 \begin{itemize}
   \item $C_1 = C_2 = 5$;
   \item $R_1 = R_2 = 1$;
@@ -57,7 +57,7 @@ Assim, a representação via espaço de estados da planta nos contínuos é:
   \end{align}
 \end{subequations}
 
-Através do função \texttt{c2d} disponibilizada no MATLAB, a transformação bilinear é realizada, resultando em:
+Através do função \texttt{c2d} disponibilizada no MATLAB$\copyright$\cite{MATLAB}, a transformação bilinear é realizada, resultando em:
 \begin{subequations}
   \begin{align}
     \pmb{\mathrm{x^{+}}} &= \begin{bmatrix*}[c]
@@ -112,7 +112,7 @@ O valor da matriz $K$ que estabiliza o sistema é:
   K = \left[2.5358 \enspace -0.1842\right]\label{res:GanhoC}
 \end{equation}
 
-A resposta ao impulso para o sistema em malha fechada está representada na figura \ref{fig:ImpulseC}. O máximo sobressinal é de aproximadamente $5,21\%$, bem abaixo do requisito de projeto.  Como os parâmentros de projeto foram escolhidas arbitrariamente, o tempo de acomodação exigido é maior do que o sistema em malha aberta. Mesmo assim, o algoritmo conseguiu respeitar o requisito.
+A resposta ao impulso para o sistema em malha fechada está representada na figura \ref{fig:ImpulseC}. O máximo sobressinal é de aproximadamente $5.21\%$, bem abaixo do requisito de projeto.  Como os parâmentros de projeto foram escolhidas arbitrariamente, o tempo de acomodação exigido é maior do que o sistema em malha aberta. Mesmo assim, o algoritmo conseguiu respeitar o requisito.
 
 \begin{figure}[!ht]
   \centering
@@ -127,6 +127,8 @@ Para a aproximação elíptica, o algoritmo retornou uma solução factível. É
   K = \left[2.5076 \enspace -0.1807\right]\label{res:GanhoE}
 \end{equation}
 
+O máximo sobressinal é de $5.17\%$, também abaixo do especificado. O tempo de acomododação também foi respeitado, conforme visto na figura \ref{fig:ImpulseE}.
+
 \begin{figure}[!ht]
   \centering
   \input{figuras/tc_impulse_E.tikz}
@@ -140,9 +142,18 @@ Já para a aproximação polígonal, o algoritmo retornou uma solução factíve
   K = \left[2.4159 \enspace -0.1554\right]\label{res:GanhoP}
 \end{equation}
 
+O máximo sobressinal é de $5.21\%$, também abaixo do especificado. O tempo de acomododação foi dentro do projetado.
+
 \begin{figure}[!ht]
   \centering
   \input{figuras/tc_impulse_P.tikz}
   \caption{Resposta ao impulso do sistema compensado a partir da aproximação poligonal.}
   \label{fig:ImpulseP}
 \end{figure}
+
+\section{Conclusão parcial}
+Com este pequeno projeto, foi possível observar o funcionamento do algoritmo e da aplicação da programação semidefinida para resolver LMIs. Em adição a isso, para a aproximaçao cônica, o solucionador número retornou uma solução infactível, mesmo sendo estável a solução. Vale ressaltar que nem sempre isso ocorre. Como a aproximação cônica tem uma menor área de cobertura, a região de interesse é menor, o que resulta em uma limitação para possíveis erros.
+
+Em relação à aproximação elíptica, como a área de interesse é maior, a solução retornada é totalmente factível, o que resultou em um menor máximo sobressinal e também no tempo de acomodação.
+
+Para a aproximação poligonal, a solução é factível, porém tem o mesmo valor para o máximo sobressinal, pois foi resolvido em duas iterações. A região aproximada tem o formato da figura \ref{fig:ImpulseP}. Como comentado para a aproximação cônica, a área coberta é menor que a da elíptica, porém maior que a da cônica, resultando em uma resposta semelhante à cônica.

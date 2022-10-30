@@ -22,3 +22,4 @@ function LMI = lmisetorconico(a,phi,sys,P,Z,direcao)
       LMI = [a11 a21';
         a21 a11];
   end
+end
