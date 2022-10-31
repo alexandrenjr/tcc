@@ -4,6 +4,9 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
+\definecolor{matlabb}{HTML}{0072BD}
+\definecolor{matlabo}{HTML}{D95319}
+%
 \begin{tikzpicture}
 
 \begin{axis}[
@@ -20,7 +23,7 @@
 	grid=major,
 	grid style={dashed, gray!40, ultra thin}
 ]
-\addplot [color=blue, ultra thick, forget plot]
+\addplot [color=matlabb, ultra thick, forget plot]
   table[row sep=crcr]{%
 	0	0.0285714285714286\\
 	10	0.0285714285714286\\
@@ -49,7 +52,7 @@
 	120	-6.89760373434176e-07\\
 };
 
-\addplot [color=red, ultra thick, forget plot]
+\addplot [color=matlabo, ultra thick, forget plot]
   table[row sep=crcr]{%
 	0	0.0285714285714286\\
 	10	0.0285714285714286\\
