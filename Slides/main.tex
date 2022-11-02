@@ -7,6 +7,18 @@
 \usepackage{bibentry}
 \usepackage{opensans}
 \usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[subrefformat=parens]{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage{algorithm,algorithmicx,algpseudocode}
+%\usepackage{listings,listingsutf8}
+\usepackage{listingsutf8}
+\usepackage[numbered,framed]{matlab-prettifier}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -115,6 +127,57 @@
 	\beamer@firstlineitemizeunskip%
 }
 \makeatother
+
+\pgfplotsset{
+	compat=newest,
+	every axis/.append style={
+		line width=1pt},
+	filter discard warning=false
+}
+
+\usetikzlibrary{
+	angles,
+	calc,
+	quotes
+}
+
+\renewcommand{\lstlistingname}{Código}
+\AtBeginDocument{
+	\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+}
+
+\lstset{
+	inputencoding = utf8/latin1,
+	style = Matlab-editor,
+	backgroundcolor = \color{Gray!7},
+	columns = flexible,
+	basicstyle = {\scriptsize\ttfamily},
+	numberstyle=\footnotesize\color{black!80},                   
+	breaklines = true,
+	breakatwhitespace = true,
+	postbreak = \space,
+	columns = flexible,
+	keepspaces = true,
+	upquote = true,
+	showstringspaces = false,
+	escapeinside = {<@}{@>}
+}
+
+\makeatletter
+  \renewcommand{\ALG@name}{\footnotesize Algoritmo}
+	\renewcommand{\ALG@beginalgorithmic}{\footnotesize}
+  \renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+  \renewcommand{\algorithmicensure}{\textbf{Saída:}}
+	\renewcommand{\algorithmicend}{\textbf{fim}}
+	\renewcommand{\algorithmicif}{\textbf{se}}
+	\renewcommand{\algorithmicthen}{\textbf{então}}
+	\renewcommand{\algorithmicelse}{\textbf{senão}}
+	\renewcommand{\algorithmicwhile}{\textbf{enquanto}}
+	\renewcommand{\algorithmicdo}{\textbf{faça}}
+	\renewcommand{\algorithmicfor}{\textbf{para}}
+  \renewcommand{\listalgorithmname}{List of \ALG@name s}
+\makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -140,18 +203,24 @@
 	\section{Introdução}
 	\subsection{Definições}
 	\begin{frame}{Definições I}
-		\begin{itemize}
-			\item Bolsa de Valores ou Mercado de Ações: é um mercado que há compra e venda de ações;\\~\\
-			\item Ações (ou papeis) são a menores partes de uma uma empresa:\\~\\
-			\begin{itemize}
-				\item Quem possui uma ação de uma empresa, é sócio-proprietária dessa;\\~\\
-				\item Ativos;\\~\\
-				\item Ganhos;\\~\\
-				\item Dividindo.\\~\\
-			\end{itemize}
-			\item Capital aberto;\\~\\
-			\item Capital privado.
-		\end{itemize}
+		\begin{figure}[!ht]
+			\centering
+			\begin{subfigure}[t]{0.3\columnwidth}
+					\input{figuras/zsigma.tikz}
+					\caption{}
+					\label{subfig:EstabilidadeRelativaZ}
+			\end{subfigure}
+			\begin{subfigure}[t]{0.3\columnwidth}
+					\input{figuras/zzeta.tikz}
+					\caption{}
+					\label{subfig:TaxaDeAmortecimentoZ}
+			\end{subfigure}
+			\begin{subfigure}[t]{0.3\columnwidth}
+				\input{figuras/zwn.tikz}
+				\caption{}
+				\label{subfig:OscilacaoNaoAmortecidaZ}
+			\end{subfigure}
+		\end{figure}
 	\end{frame}
 
 	\section{Referências Bibliográficas e Bibliografia}
