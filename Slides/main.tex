@@ -28,9 +28,8 @@
 \usecolortheme{beaver}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\definecolor{MyGreen}{HTML}{009B3A}
-\definecolor{MyYellow}{HTML}{FEDF00}
-\definecolor{MyBlue}{HTML}{002776}
+\definecolor{matlabb}{HTML}{0072BD}
+\definecolor{matlabo}{HTML}{D95319}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Opções do tema, como cor dos textos e do plano de fundo
@@ -52,49 +51,49 @@
 	}
 
 %% Cor dos itens do tema
-\setbeamercolor{palette primary}{fg=MyYellow, bg=MyBlue}
-\setbeamercolor{palette secondary}{fg=MyYellow, bg=MyBlue}
-\setbeamercolor{palette tertiary}{fg=MyYellow, bg=MyBlue}
-\setbeamercolor{page number in head/foot}{fg=MyGreen}
+\setbeamercolor{palette primary}{fg=MyYellow, bg=RoyalBlue}
+\setbeamercolor{palette secondary}{fg=Goldenrod, bg=RoyalBlue}
+\setbeamercolor{palette tertiary}{fg=Goldenrod, bg=RoyalBlue}
+\setbeamercolor{page number in head/foot}{fg=RoyalBlue}
 %\setbeamercolor{background canvas}{bg=black}
 %\setbeamercolor{normal text}{fg=white}
 
 %% Cor do título do slide de apresentação
-\setbeamercolor{title}{fg=MyGreen, bg=white}
+\setbeamercolor{title}{fg=RoyalBlue, bg=white}
 
 %% Cor do título dos slides
-\setbeamercolor{frametitle}{fg=MyGreen, bg=white}
+\setbeamercolor{frametitle}{fg=Red, bg=white}
 
 %% Cor dos itens do sumário
-\setbeamercolor{section in toc}{fg=MyGreen}
-\setbeamercolor{section number projected}{fg=white, bg=MyBlue}
+\setbeamercolor{section in toc}{fg=Red}
+\setbeamercolor{section number projected}{fg=white, bg=RoyalBlue}
 
 %% Cores dos itens do itemize
-\setbeamercolor{itemize item}{fg=MyBlue}
-\setbeamercolor{itemize subitem}{fg=MyBlue}
-\setbeamercolor{itemize subsubitem}{fg=MyBlue}
+\setbeamercolor{itemize item}{fg=RoyalBlue}
+\setbeamercolor{itemize subitem}{fg=RoyalBlue}
+\setbeamercolor{itemize subsubitem}{fg=RoyalBlue}
 
 %% Cores dos itens do enumerate
-\setbeamercolor{enumerate item}{fg=MyBlue}
-\setbeamercolor{enumerate subitem}{fg=MyBlue}
-\setbeamercolor{enumerate subsubitem}{fg=MyBlue}
+\setbeamercolor{enumerate item}{fg=RoyalBlue}
+\setbeamercolor{enumerate subitem}{fg=RoyalBlue}
+\setbeamercolor{enumerate subsubitem}{fg=RoyalBlue}
 
 %% Cores dos textos em alerta
-\setbeamercolor{alerted text}{fg=MyGreen}
+\setbeamercolor{alerted text}{fg=Red}
 %\setbeamercolor{block title}{fg=red}
 %\setbeamercolor{block body}{bg=black}
 %\setbeamercolor{block title alerted}{fg=red}
 %\setbeamercolor{block title example}{fg=green}
 
 %% Cores das legendas
-\setbeamercolor{caption name}{fg=MyBlue}
+\setbeamercolor{caption name}{fg=RoyalBlue}
 
 %% Opções de cores da bibliografia
-\setbeamercolor{bibliography entry author}{fg=MyGreen}
+\setbeamercolor{bibliography entry author}{fg=Red}
 \setbeamercolor{bibliography entry title}{fg=black}
-\setbeamercolor{bibliography entry location}{fg=MyBlue}
+\setbeamercolor{bibliography entry location}{fg=RoyalBlue}
 \setbeamercolor{bibliography entry note}{fg=black}
-\setbeamercolor{bibliography item}{fg=MyBlue}
+\setbeamercolor{bibliography item}{fg=RoyalBlue}
 
 %% Comando para remover os botões de navegação
 \beamertemplatenavigationsymbolsempty
@@ -193,41 +192,71 @@
 	Universidade Federal de Mato Grosso do Sul
 }
 \date[]{22 de novembro de 2022}
-%\logo{\includegraphics[height=1cm]{imagens/ufms-logo}}
+% \logo{\includegraphics[height=1cm]{imagens/ufms-logo}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	\frame{\maketitle}
-	\frame{\tableofcontents}
+\frame{\maketitle}
+\frame{\tableofcontents}
 
-	\section{Introdução}
-	\subsection{Definições}
-	\begin{frame}{Definições I}
-		\begin{figure}[!ht]
-			\centering
-			\begin{subfigure}[t]{0.3\columnwidth}
-					\input{figuras/zsigma.tikz}
-					\caption{}
-					\label{subfig:EstabilidadeRelativaZ}
-			\end{subfigure}
-			\begin{subfigure}[t]{0.3\columnwidth}
-					\input{figuras/zzeta.tikz}
-					\caption{}
-					\label{subfig:TaxaDeAmortecimentoZ}
-			\end{subfigure}
-			\begin{subfigure}[t]{0.3\columnwidth}
-				\input{figuras/zwn.tikz}
+\section{Introdução}
+
+\begin{frame}{Resposta ao impulso de um sistema de segunda ordem}
+	\begin{figure}[!ht]
+		\centering
+		\input{figuras/ImpulseResponse.tikz}
+		\caption{Reposta ao impulso de um sistema de segunda ordem.}
+		\label{fig:ImpulseResponse}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[c]{Regiões de polos do plano contínuo}
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.3\columnwidth}
+				\input{figuras/ssigma.tikz}
 				\caption{}
-				\label{subfig:OscilacaoNaoAmortecidaZ}
-			\end{subfigure}
-		\end{figure}
-	\end{frame}
+				\label{subfig:EstabilidadeRelativaS}
+		\end{subfigure}\quad
+		\begin{subfigure}[t]{0.3\columnwidth}
+				\input{figuras/szeta.tikz}
+				\caption{}
+				\label{subfig:TaxaDeAmortecimentoS}
+		\end{subfigure}\quad
+		\begin{subfigure}[t]{0.3\columnwidth}
+			\input{figuras/swn.tikz}
+			\caption{}
+			\label{subfig:OscilacaoNaoAmortecidaS}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
 
-	\section{Referências Bibliográficas e Bibliografia}
-	\begin{frame}[allowframebreaks]{Referências Bibliográficas e Bibliografia}
-		\small
-		\bibliographystyle{unsrt}
-		\bibliography{referencias/ref.bib}
-		\nocite{*}
-	\end{frame}
+\begin{frame}[c]{Regiões de polos do plano discreto}
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.3\columnwidth}
+				\input{figuras/zsigma.tikz}
+				\caption{}
+				\label{subfig:EstabilidadeRelativaZ}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.3\columnwidth}
+				\input{figuras/zzeta.tikz}
+				\caption{}
+				\label{subfig:TaxaDeAmortecimentoZ}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.3\columnwidth}
+			\input{figuras/zwn.tikz}
+			\caption{}
+			\label{subfig:OscilacaoNaoAmortecidaZ}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+\section{Referências Bibliográficas e Bibliografia}
+\begin{frame}[allowframebreaks]{Referências Bibliográficas e Bibliografia}
+	\small
+	\bibliographystyle{unsrt}
+	\bibliography{referencias/ref.bib}
+	\nocite{*}
+\end{frame}
 \end{document}
