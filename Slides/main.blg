@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+Database file #1: referencias/ref.bib
+Warning--empty journal in CHIQUETO2021
+You've used 13 entries,
+            1791 wiz_defined-function locations,
+            527 strings with 5518 characters,
+and the built_in function-call counts, 2525 in all, are:
+= -- 217
+> -- 85
+< -- 2
++ -- 35
+- -- 22
+* -- 113
+:= -- 392
+add.period$ -- 39
+call.type$ -- 13
+change.case$ -- 7
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 145
+empty$ -- 285
+format.name$ -- 22
+if$ -- 596
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 17
+newline$ -- 67
+num.names$ -- 13
+pop$ -- 63
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 62
+stack$ -- 0
+substring$ -- 95
+swap$ -- 33
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 19
+width$ -- 15
+write$ -- 137
+(There was 1 warning)

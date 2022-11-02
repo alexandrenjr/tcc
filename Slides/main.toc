@@ -1,0 +1,4 @@
+\babel@toc {brazil}{}\relax 
+\beamer@sectionintoc {1}{Introdução}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definições}{3}{0}{1}
+\beamer@sectionintoc {2}{Referências Bibliográficas e Bibliografia}{4}{0}{2}

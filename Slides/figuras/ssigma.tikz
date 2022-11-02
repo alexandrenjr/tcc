@@ -1,0 +1,80 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}[scale = 0.505]
+
+\begin{axis}[%
+  axis lines=center,
+  width=3.5in,
+  height=3.5in,
+  scale only axis,
+  xmin=-0.55,
+  xmax=0.07,
+  ymin=-0.5,
+  ymax=0.5,
+  xtick=\empty,
+  ytick=\empty,
+  xticklabel style={anchor=south west, draw=none},
+  xlabel={$X$},
+  ylabel={$\jmath Y$},
+  x label style={anchor=north}
+]
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.05	-0.5\\
+-0.05	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.1	-0.5\\
+-0.1	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.15	-0.5\\
+-0.15	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.2	-0.5\\
+-0.2	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.25	-0.5\\
+-0.25	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.3	-0.5\\
+-0.3	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.35	-0.5\\
+-0.35	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.4	-0.5\\
+-0.4	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.45	-0.5\\
+-0.45	0.5\\
+};
+\addplot [color=black, dashed, forget plot]
+  table[row sep=crcr]{%
+-0.5	-0.5\\
+-0.5	0.5\\
+};
+\end{axis}
+
+\draw (6.8,3.9) node[scale = 0.505, anchor=south] {\small $\sigma_1$};
+\draw (0.4,3.9) node[scale = 0.505, anchor=south] {\small $\sigma_2$};
+
+\end{tikzpicture}%
