@@ -1,11 +1,11 @@
-\chapter{Algoritmo}
+\chapter{Algoritmo}\label{sec:Algoritmo}
 
 O algoritmo apresentado neste trabalho é um compilado de algoritmos desenvolvidos anteriormente, utilizando-se das aproximações cônica, elíptica e poligonal das regiões de $\mathscr{D}$-estabilidade do plano $\z$. O objetivo deste trabalho é desenvolver em \emph{software} tais algoritmos e, ao informar parâmetros de projeto, determinar se é possível implementar um compensador que respeite os requisitos.
 
 Para tal, o algoritmo pode ser divido em três partes, uma para cada aproximação, sendo a aproximação desejada escolhida via chamada da função. O \emph{software} utilizado foi o MATLAB$\copyright$\cite{MATLAB}, juntamente com o interpretador de LMIs YALMIP\cite{LOFBERG2004} em conjunto com o solucionador númerico MOSEK\cite{MOSEK}. 
 
 \section{Aproximação cônica}
-Para o mapeamento cônico das curvas $\zeta$-constante e $\omega_n$-constante, são utilizados os setores cônicos determinados via \eqref{eq:LMIESetorConicoDireito} e \eqref{eq:LMIESetorConicoEsquerdo}, e retas verticais como apresentado em \ref{eq:LMIRightBounded}.
+Para o mapeamento cônico das curvas $\zeta$-constante e $\omega_n$-constante, são utilizados os setores cônicos determinados via \eqref{eq:LMIESetorConicoDireito} e \eqref{eq:LMIESetorConicoEsquerdo}, e retas verticais como apresentado em \eqref{eq:LMIRightBounded}.
 
 Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculados na seção \ref{sec:DEstabilidadeZ}, onde serão os centros dos setores cônicos. Os ângulos, medidos no sentido anti-horário, são determinados a partir de um terceiro ponto, conforme a figura \ref{subfig:AproximacaoConicaZeta}. A escolha do ponto $M$ é feita de maneira que a área do triângulo $\widehat{LMN}$ seja a maior possível. Um algoritmo linear foi usado para encontrar este ponto.
 
@@ -43,7 +43,7 @@ Para a primeira curva, a ideia consiste em utilizar os pontos extremos calculado
   \end{algorithmic}
 \end{algorithm}
 
-Uma que vez conhecidas tais informações, é possível aplicar o algoritmo \ref{alg:AproximacaoConicaZeta}. Um setor cônico voltado para a direita, com centro em $N$ e ângulo $\theta_1$, e outro voltado para a esquerda, com centro em $L$ e ângulo $\theta_2$, são aplicados para a aproximação inicial. Além disso, para limitar a simetria do setor cônico com centro em $N$, uma reta que passa por este ponto é aplicada.
+Uma que vez conhecidas tais informações, é possível aplicar o algoritmo \ref{alg:AproximacaoConicaZeta}. Um setor cônico voltado para a direita, com centro em $N$ e ângulo $\theta_1$, e outro voltado para a esquerda, com centro em $L$ e ângulo $\theta_2$, são usados para a aproximação inicial. Além disso, para limitar a simetria do setor cônico com centro em $N$, uma reta que passa por este ponto é definida vii \eqref{eq:LMIRightBounded}.
 
 A região de $\mathscr{D}$-estabilidade resultante é a intersecção das regiões descritas. Ao ser unida com a restrição da taxa de decaimento, o setor cônico com centro em $L$ é limitado por esta região. Após finalizado, o algoritmo determina a factibilidade da solução encontrada e retorna a matriz $K$ que estabiliza o sistema com os parâmetros de projeto informados.
 
@@ -170,7 +170,44 @@ Para a região $\zeta$-constante, um setor cônico voltado para esquerda e centr
   \label{fig:AproximacoesPoligonalZeta}
 \end{figure}
 
-Para tal, utiliza-se a função criada em MATLAB$\copyright$\cite{MATLAB} (código \ref{lst:RealWn} presente no anexo) para encontrar uma solução aproximada. Com tal ponto calculado e a não convexidade da cúspide tratada, é possível utilizar o algoritmo \ref{alg:AproximacaoPoligonalZeta}. Os vértices iniciais $L$ e $N$ do ramo são guardados em um vetor de vértices. Em paralelo a isso, os valores de $\omega_n$ que geram tais pontos também são armazenados. A cada iteração, o algoritmo calcula o ponto médio entre dois vértices consecutivos em cada vetor, já que a realização do primeiro depende do segundo.
+Para tal, utiliza-se a função $\realwn$ criada em MATLAB$\copyright$\cite{MATLAB} (código \ref{lst:RealWn} presente no anexo) para encontrar uma solução aproximada. Com tal ponto calculado e a não convexidade da cúspide tratada, é possível utilizar o algoritmo \ref{alg:AproximacaoPoligonalZeta}. Os vértices iniciais $L$ e $N$ do ramo são guardados em um vetor de vértices. Em paralelo a isso, os valores de $\omega_n$ que geram tais pontos também são armazenados. A cada iteração, o algoritmo calcula o ponto médio entre dois vértices consecutivos em cada vetor, já que a realização do primeiro depende do segundo.
+
+Contudo, antes do algoritmo voltar para o início dos vetores, é preciso percorrer todos os pontos do vetor da iteração anterior\footnote{Como os vetores são atualizados com os novos elementos, o tamanho daqueles aumenta ($(n-1)$ pontos são adicionados a cada varredura, sendo $n$ a quantidade de pontos do vetor) durante a iteração. Assim, a execução da iteração atual termina antes de atingir o final do vetor.}. Para isso, cópias dos vetores de vértices e de pontos são inicializados, a fim de controlarem tal fluxo. Assim, quando o algoritmo terminar de percorrer o ``vetor anterior", tal conjunto é atualizado com os novos pontos e vértices calculados ao final deste processo.
+
+Em relação ao cálculo dos pontos intermediários, a inclinação da reta que passa pelos pontos extremos locais pode ser positiva ou negativa. O uso da função $\loc$ se torna enssencial, pois caso o ponto resultante for menor que zero, a reta que passa pelos pontos possui inclinação positiva, e negativa caso contrário\cite{WISNIEWSKI2019}. Assim, os setores cônicos gerados seguem a orientação desta, com centro naquele ponto calculado. A figura \ref{fig:AproximacoesPoligonalZeta} mostra as quatro primeira iterações do algoritmo \ref{alg:AproximacaoPoligonalZeta}. É possível observar o sentido horário do fluxo para o cálculo dos vértices intermediários. Também é notável a rápida abrangência da região $\zeta$-constante.
+
+\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}[t]{0.4\columnwidth}
+      \input{figuras/aproximacao_poligonal_wn_l1.tikz}
+      \caption{}
+      \label{subfig:AproximacaoPoligonalWn1}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.4\columnwidth}
+      \input{figuras/aproximacao_poligonal_wn_l2.tikz}
+      \caption{}
+      \label{subfig:AproximacaoPoligonalWn2}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[t]{0.4\columnwidth}
+    \input{figuras/aproximacao_poligonal_wn_l3.tikz}
+    \caption{}
+    \label{subfig:AproximacaoPoligonalWn3}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.4\columnwidth}
+    \input{figuras/aproximacao_poligonal_wn_l4.tikz}
+    \caption{}
+    \label{subfig:AproximacaoPoligonalWn4}
+  \end{subfigure}
+  \caption{As primeiras quatro aproximações poligonais da curva $\omega_n$-constante.}
+  \label{fig:AproximacoesPoligonalWn}
+\end{figure}
+
+Para a região $\omega_n$-constante, a ideia é similar. A aproxmição inicial utiliza-se de apenas um setor cônico voltado para a direita com centro em $R = \z(\zeta_{max},\omega_n)$. O ângulo $\theta$ em \eqref{eq:LMIESetorConicoDireito} é definido a partir do ângulo entre a reta $\overline{QR}$ e o eixo real, onde $Q = \z(\zeta_{min},\omega_n)$.
+
+Caso esta região não seja factível, basta calcular o ponto intermediário entre $Q$ e $R$ e definir dois novos setores cônicos, a fim de aumentar a área. Novamente, para o novo ponto calculado, é utilizado a função $\loc$ para determinar o centro do setor cônico correspondente e, em seguida, usa-se $\angulo$ para determinar seu ângulo. Assim, a cada iteração, o algoritmo \ref{alg:AproximacaoPoligonalWn} adiciona dois novos setores cônicos e os intersecta com as regiões previamente definidas. Ao final da varredura, o algoritmo descarta tais regiões e começa a descrever outras restrições à partir daquelas, com novos pontos calculados. A figura \ref{fig:AproximacoesPoligonalWn} mostra as quatro primeiras iterações do algoritmo \ref{alg:AproximacaoPoligonalWn}.
+
+Assim como ocorre com a aproximação poligonal da região $\zeta$-constante, há uma rápida cobertura da região. Com poucas iterações, a área é quase totalmente coberta. Por esse motivo, a condição de parada escolhida para ambos os algoritmos \ref{alg:AproximacaoPoligonalZeta} e \ref{alg:AproximacaoPoligonalWn} foi em relação ao incremento da área de uma iteração para outra: caso o aumento de área seja menor que $1\%$ em relação à anterior, interrompa o fluxo. Apesar de simples, a média de tempo de execução para projetos que não são possíveis foi de \SI{10.3}{\second}.
 
 \begin{algorithm}[!ht]
   \caption{Aproximação poligonal da região $\omega_n$-constante}\label{alg:AproximacaoPoligonalWn}
@@ -216,42 +253,3 @@ Para tal, utiliza-se a função criada em MATLAB$\copyright$\cite{MATLAB} (códi
     \State $K \gets ZP^{-1}$
   \end{algorithmic}
 \end{algorithm}
-
-Contudo, antes do algoritmo voltar para o início dos vetores, é preciso percorrer todos os pontos do vetor da iteração anterior\footnote{Como os vetores são atualizados com os novos elementos, o tamanho daqueles aumenta ($(n-1)$ pontos são adicionados a cada varredura, com $n$ a quantidade de pontos do vetor) durante a iteração. Assim, o execução termina antes de atingir o final do vetor.}. Para isso, cópias dos vetores de vértices e de pontos são inicializados, a fim de controlarem tal fluxo. Assim, quando o algoritmo terminar de percorrer o ``vetor anterior", tal conjunto é atualizado com os novos pontos e vértices calculados ao final deste processo.
-
-Em relação ao cálculo dos pontos intermediários, a inclinação da reta que passa pelos pontos extremos locais pode ser positiva ou negativa. O uso da função $\loc$ se torna enssencial, pois caso o ponto resultante for menor que zero, a reta que passa pelos pontos possui inclinação positiva, e negativa caso contrário\cite{WISNIEWSKI2019}. Assim, os setores cônicos gerados seguem a orientação desta, com centro naquele ponto calculado.
-
-A figura \ref{fig:AproximacoesPoligonalZeta} mostra as quatro primeira iterações do algoritmo \ref{alg:AproximacaoPoligonalZeta}. É possível observar o sentido horário do fluxo para o cálculo dos vértices intermediários. Também é notória a rápida abrangência da região $\zeta$-constante.
-
-\begin{figure}[!hb]
-  \centering
-  \begin{subfigure}[t]{0.4\columnwidth}
-      \input{figuras/aproximacao_poligonal_wn_l1.tikz}
-      \caption{}
-      \label{subfig:AproximacaoPoligonalWn1}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.4\columnwidth}
-      \input{figuras/aproximacao_poligonal_wn_l2.tikz}
-      \caption{}
-      \label{subfig:AproximacaoPoligonalWn2}
-  \end{subfigure}
-  \\
-  \begin{subfigure}[t]{0.4\columnwidth}
-    \input{figuras/aproximacao_poligonal_wn_l3.tikz}
-    \caption{}
-    \label{subfig:AproximacaoPoligonalWn3}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.4\columnwidth}
-    \input{figuras/aproximacao_poligonal_wn_l4.tikz}
-    \caption{}
-    \label{subfig:AproximacaoPoligonalWn4}
-  \end{subfigure}
-  \caption{As primeiras quatro aproximações poligonais da curva $\omega_n$-constante.}
-  \label{fig:AproximacoesPoligonalWn}
-\end{figure}
-
-Para a região $\omega_n$-constante, a ideia é similar. A aproxmição inicial utiliza-se de apenas um setor cônico voltado para a direita com centro em $R = \z(\zeta_{max},\omega_n)$. O ângulo $\theta$ em \eqref{eq:LMIESetorConicoDireito} é definido a partir do ângulo entre a reta $\overline{QR}$ e o eixo real, onde $Q = \z(\zeta_{min},\omega_n)$.
-
-Caso esta região não seja factível, basta calcular o ponto intermediário entre $Q$ e $R$ e definir dois novos setores cônicos, a fim de aumentar a área. Novamente, para o novo ponto calculado, é utilizado a função $\loc$ para determinar o centro do setor cônico correspondente e, em seguida, usa-se $\angulo$ para determinar seu ângulo. Assim, a cada iteração, o algoritmo adiciona dois novos setores cônicos e os intersecta com as regiões previamente definidas. A figura \ref{fig:AproximacoesPoligonalWn} mostra as quatro primeiras iterações do algoritmo \ref{alg:AproximacaoPoligonalWn}.
-
-Assim como ocorre com a aproximação poligonal da região $\zeta$-constante, há uma rápida cobertura da região. Com poucas iterações, a área é quase totalmente coberta.

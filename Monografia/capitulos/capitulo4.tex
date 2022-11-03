@@ -34,14 +34,14 @@ onde $C_{eq} = C_1C_2/(C_1 + C_2)$. Para discretizar o sistema, é preciso de um
 onde o semi-plano esquerdo dos contínuos é mapeado no círculo unitário dos discretos.
 
 \section{Parâmetros de projeto}
-Com posse do espaço de estados, é possível sintetizar uma matriz de ganho $K$ que possa estabilizar o sistema. Antes, é necessário atribuir valores para a planta. Sem a parde de generalidade, serão escolhidas arbitrariamente tais valores, como segue:
+Com posse do espaço de estados, é possível sintetizar uma matriz de ganho $K$ que possa estabilizar o sistema. Antes, é necessário atribuir valores para a planta. Sem perda de generalidade, serão escolhidas arbitrariamente tais valores, como segue:
 \begin{itemize}
   \item $C_1 = C_2 = 5$;
   \item $R_1 = R_2 = 1$;
   \item $T_s = \SI{10}{\second}$.
 \end{itemize}
 
-Assim, a representação via espaço de estados da planta nos contínuos é:
+Assim, a representação via espaço de estados da planta nos contínuos é dada por:
 \begin{subequations}
   \begin{align}
     \dot{\pmb{\mathrm{x}}} &= \begin{bmatrix*}[c]
@@ -75,7 +75,7 @@ Através do função \texttt{c2d} disponibilizada no MATLAB$\copyright$\cite{MAT
   \end{align}
 \end{subequations}
 
-A característica notória obtida é a presença da matriz $D$ no sistema discretizado. É um consequência da transformação bilinear: surgimento de transmissão direta. Com posse das matrizes obtidas na representação via espaço de estados, é possível escolher os parâmetros de projeto:
+Após a transformação, a característica mais notável é a presença da matriz $D$: o surgimento de transmissão direta é uma consequência da transformação bilinear\cite{CHIQUETO2021}. Com posse das matrizes obtidas na representação via espaço de estados, é possível escolher os parâmetros de projeto:
 \begin{itemize}
   \item $t_s = \SI{50}{\second}$;
   \item $\zeta = 0.5 \implies M_p \leq 0.16$;
@@ -103,7 +103,7 @@ Ao executar o algoritmo utilizando a aproximação cônica, a solução proposta
     \caption{}
     \label{subfig:TesteP}
   \end{subfigure}
-  \caption{Diagrama de polos do sistema compensado com a matriz de ganho $K$ obtidos na \subref{subfig:TesteC}aproximação cônica, \subref{subfig:TesteE} elíptica e \subref{subfig:TesteP} poligonal.}
+  \caption{Diagrama de polos do sistema compensado com a matriz de ganho $K$ obtido na \subref{subfig:TesteC} aproximação cônica, \subref{subfig:TesteE} elíptica e \subref{subfig:TesteP} poligonal.}
   \label{fig:PrimeiroTeste}
 \end{figure}
 
@@ -136,7 +136,14 @@ O máximo sobressinal é de $5.17\%$, também abaixo do especificado. O tempo de
   \label{fig:ImpulseE}
 \end{figure}
 
-Já para a aproximação polígonal, o algoritmo retornou uma solução factível com duas iterações. As regiões aproximadas foram representadas na figura \ref{fig:ImpulseP} e a matriz de ganho $K$ é dado por:
+\begin{figure}[!hb]
+  \centering
+  \input{figuras/tc_impulse_P.tikz}
+  \caption{Resposta ao impulso do sistema compensado a partir da aproximação poligonal. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
+  \label{fig:ImpulseP}
+\end{figure}
+
+Já para a aproximação poligonal, o algoritmo retornou uma solução factível com duas iterações. As regiões aproximadas foram representadas na figura \ref{fig:ImpulseP} e a matriz de ganho $K$ é dado por:
 
 \begin{equation}
   K = \left[2.4159 \enspace -0.1554\right]\label{res:GanhoP}
@@ -144,15 +151,8 @@ Já para a aproximação polígonal, o algoritmo retornou uma solução factíve
 
 O máximo sobressinal é de $5.21\%$, também abaixo do especificado. O tempo de acomododação foi dentro do projetado.
 
-\begin{figure}[!ht]
-  \centering
-  \input{figuras/tc_impulse_P.tikz}
-  \caption{Resposta ao impulso do sistema compensado a partir da aproximação poligonal. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
-  \label{fig:ImpulseP}
-\end{figure}
-
 \section{Conclusão parcial}
-Com este pequeno projeto, foi possível observar o funcionamento do algoritmo e da aplicação da programação semidefinida para resolver LMIs. Em adição a isso, para a aproximaçao cônica, o solucionador número retornou uma solução infactível, mesmo sendo estável a solução. Vale ressaltar que nem sempre isso ocorre. Como a aproximação cônica tem uma menor área de cobertura, a região de interesse é menor, o que resulta em uma limitação para possíveis erros.
+Com este pequeno projeto, foi possível observar o funcionamento do algoritmo e da aplicação da programação semidefinida para resolver problemas de otimização que envolvem LMIs. Em adição a isso, para a aproximaçao cônica, o solucionador número retornou uma solução infactível, mesmo sendo estável a solução. Vale ressaltar que nem sempre isso ocorre. Como a aproximação cônica tem uma menor área de cobertura, a região de interesse é menor, o que resulta em uma limitação para possíveis erros.
 
 Em relação à aproximação elíptica, como a área de interesse é maior, a solução retornada é totalmente factível, o que resultou em um menor máximo sobressinal e também no tempo de acomodação.
 

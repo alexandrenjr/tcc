@@ -4,11 +4,15 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
+%width=4.913in,
+%height=5.527in,
+%
+%
 \begin{tikzpicture}[scale=0.4]
 
   \begin{axis}[%
-  width=4.913in,
-  height=5.527in,
+  width=4in,
+  height=5.33in,
   scale only axis,
   axis on top=true,
   xmin=0.3,
@@ -127,7 +131,7 @@
   0.367885630051037	0.0522436648106183\\
   0.367879441171442	0\\
   };
-  \addplot [color=Black!80, fill=Black!30, forget plot]
+  \addplot [color=matlabo, fill=matlabo!50, forget plot]
     table[row sep=crcr]{%
   1	0\\
   0.999950000416665	0.00999983333416666\\

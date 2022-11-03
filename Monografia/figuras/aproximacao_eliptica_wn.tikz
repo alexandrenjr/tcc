@@ -894,6 +894,7 @@
 \draw (0.54030230586814, 0.841470984807897) node [scale = 0.8, anchor=south] {$S$};
 \draw (0.367879441171442, 0) node [scale = 0.8, anchor=south east] {$R$};
 \draw (0.54030230586814, -0.841470984807897) node [scale = 0.8, anchor=north] {$S$};
+\draw (0.393168127993625, 0.343242464471555) node [scale = 0.7, anchor=west] {$\mathbb{E}$};
 
 \end{axis}
 \end{tikzpicture}%

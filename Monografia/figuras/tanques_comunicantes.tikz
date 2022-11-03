@@ -1,13 +1,13 @@
 \usetikzlibrary{calc}
 \begin{tikzpicture}
-    \draw [ultra thin,color=Gray!20,fill] (0,-.5) rectangle (2.5,-3);
-    \draw [ultra thin,color=Gray!20,fill] (2.5,-3) rectangle ++(1.5,.3);
-    \draw [ultra thin,color=Gray!20,fill] (6,-1.5) rectangle (8.5,-3);
-    \draw [ultra thin,color=Gray!20,fill] (10.5,-3) rectangle ++(1.2,.3);
+    \draw [ultra thin,color=matlabb!20,fill] (0,-.5) rectangle (2.5,-3);
+    \draw [ultra thin,color=matlabb!20,fill] (2.5,-3) rectangle ++(1.5,.3);
+    \draw [ultra thin,color=matlabb!20,fill] (6,-1.5) rectangle (8.5,-3);
+    \draw [ultra thin,color=matlabb!20,fill] (10.5,-3) rectangle ++(1.2,.3);
     \draw [thick] (0,0) -- (0,-3) -- ++(4,0) coordinate(FimDoCano);
     \draw [thick] ($(FimDoCano)+(0,.3)$) -- ++(-1.5,0) -- ++(0,2.7);
     
-    \draw [ultra thin,color=Gray!20,fill] ($(FimDoCano)+(1,0)$) rectangle ++(4.5,.3);
+    \draw [ultra thin, color=matlabb!20,fill] ($(FimDoCano)+(1,0)$) rectangle ++(4.5,.3);
     \draw [thick] ($(FimDoCano)+(0,-.3)$) -- ++(0,.9);
     \draw [thick] ($(FimDoCano)+(0,-.3)$) -- ++(1,.9);
     \draw [thick] ($(FimDoCano)+(1,.6)$) -- ++(0,-.9);
@@ -32,7 +32,7 @@
     \node (NomedoTanque) at ($(FimDoCano)+(-1.2,2.5)$) {$C_1$};
     \node (NomedoRegistro2) at ($(Registro2)+(0,.3)$) {$R_2$};
     \node (NomedoTanque2) at ($(FimDoCano)+(4.8,2.5)$) {$C_2$};
-    \draw [ultra thin,color=Gray!20,fill] (-1,.5) rectangle ++(1.2,.3);
+    \draw [ultra thin, color=matlabb!20,fill] (-1,.5) rectangle ++(1.2,.3);
     \draw [thick] (-1,.5) -- ++(1.2,0) ++(0,.3) -- ++(-1.2,0);
     \draw [-latex] (-.75,.65) -- ++(1,0) node [yshift=.5cm] {$q$};
     \draw [thick] (10.5,-3) -- ++(1.2,0) ++(0,.3) -- ++(-1.2,0);

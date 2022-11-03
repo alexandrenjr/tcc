@@ -18,7 +18,6 @@ brazil
 \usepackage{pgfplots}
 \usepackage{siunitx}
 \usepackage{algorithm,algorithmicx,algpseudocode}
-%\usepackage{listings,listingsutf8}
 \usepackage{listingsutf8}
 \usepackage[numbered,framed]{matlab-prettifier}
 
@@ -29,6 +28,7 @@ brazil
 \DeclareMathOperator{\cotg}{cotg}
 \DeclareMathOperator{\angulo}{ang}
 \DeclareMathOperator{\loc}{loc}
+\DeclareMathOperator{\realwn}{RealWn}
 \DeclareMathOperator{\s}{\mathrm{s}}
 \DeclareMathOperator{\z}{\mathrm{z}}
 \DeclareMathOperator{\Herm}{\mathcal{V}}
@@ -41,6 +41,16 @@ brazil
 	every axis/.append style={
 		line width=1pt},
 	filter discard warning=false
+}
+
+\definecolor{matlabb}{HTML}{0072BD}
+\definecolor{matlabo}{HTML}{D95319}
+
+\hypersetup{
+	colorlinks = true,
+	linkcolor=matlabb,
+	citecolor=matlabb,
+	urlcolor=matlabb
 }
 
 \usetikzlibrary{
