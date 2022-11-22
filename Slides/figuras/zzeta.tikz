@@ -19,7 +19,7 @@
   ytick=\empty,
   xticklabel style={anchor=south west, draw=none},
   xlabel={$X$},
-  ylabel={$\jmath Y$},
+  ylabel={$jY$},
   x label style={anchor=north}
 ]
 \addplot [color=black, forget plot]

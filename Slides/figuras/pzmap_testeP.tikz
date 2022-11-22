@@ -4,7 +4,7 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\begin{tikzpicture}[scale=0.53]
+\begin{tikzpicture}[scale=0.48]
 
 \begin{axis}[%
   axis lines=center,
@@ -2879,7 +2879,7 @@ nan	0\\
 nan	0\\
 };
 
-\addplot [color=red, only marks, mark size=5pt, mark=x, mark options={solid, black, ultra thick}, forget plot]
+\addplot [only marks, mark size=5pt, mark=x, mark options={solid, BrickRed!80!black, ultra thick}, forget plot]
   table[row sep=crcr]{%
   0.3823 0.2027\\
   0.3823 -0.2027\\

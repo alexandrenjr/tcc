@@ -24,7 +24,7 @@
   x label style={anchor=west},
   y label style={anchor=south}
 ]
-\addplot [color=matlabb, forget plot]
+\addplot [ultra thick, color=BrickRed!80!black, forget plot]
   table[row sep=crcr]{%
 0	0\\
 0.0460517018598707	0.175357055563846\\

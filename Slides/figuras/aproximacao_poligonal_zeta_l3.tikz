@@ -4,24 +4,27 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\begin{tikzpicture}[scale=0.4]
+\begin{tikzpicture}
 
 \begin{axis}[%
-width=6in,
-height=3in,
-scale only axis,
-axis on top=true,
-xmin=-0.25,
-xmax=1.1,
-ymin=0,
-ymax=0.6,
-axis x line*=bottom,
-axis y line*=left,
-xlabel={$X$},
-ylabel={$jY$},
-xtick={-0.2,0,0.2,0.4,0.6,0.8,1},
-ylabel style={rotate=-90},
-ytick distance = 0.1
+	font=\tiny,
+	width=0.8\textwidth,
+	height=0.4\textwidth,
+	scale only axis,
+	axis on top=true,
+	xmin=-0.25,
+	xmax=1.1,
+	ymin=0,
+	ymax=0.6,
+	axis x line*=bottom,
+	axis y line*=left,
+	xlabel={$X$},
+	ylabel={$jY$},
+	xtick={-0.2,0,0.2,0.4,0.6,0.8,1},
+	xtick style={draw=black},
+	ytick style={draw=black},
+	ylabel style={rotate=-90},
+	ytick distance = 0.1
 ]
 \addplot [color=black, forget plot]
   table[row sep=crcr]{%
@@ -100,14 +103,18 @@ ytick distance = 0.1
 -0.16	0.0\\
 };
 
-\draw [color=Black!80, fill=Black!30, very thick] (-0.16, 0) -- (-0.166329423997092, 0.224535495443257) -- (0.0102, 0.4095) --(0.3218, 0.4713) -- (1,0) -- (-0.16, 0);
+%\draw [color=Black!80, fill=Black!30, very thick] (-0.16, 0) -- (-0.166329423997092, 0.224535495443257) -- (0.0102, 0.4095) --(0.3218, 0.4713) -- (1,0) -- (-0.16, 0);
 
-\draw [color=Black, fill=Gray!20, very thick] (-0.16, 0) -- (-0.166329423997092, 0.224535495443257) -- (0.3218, 0.4713) -- (1,0) -- (-0.16, 0);
+%\draw [color=Black, fill=Gray!20, very thick] (-0.16, 0) -- (-0.166329423997092, 0.224535495443257) -- (0.3218, 0.4713) -- (1,0) -- (-0.16, 0);
 
-\node [circle, draw, Black!20, fill=Black!80, fill=Black, minimum size=1pt] at (-0.165251675539513, 0.00395046562776303) {};
-\node [circle, draw, Black!20, fill=Black!80, fill=Black, minimum size=1pt] at (-0.166329423997092, 0.224535495443257) {};
-\node [circle, draw, Black!20, fill=Black!80, fill=Black, minimum size=1pt] at (1,0) {};
-\node [circle, draw, Black!20, fill=Black!80, fill=Black, minimum size=1pt] at (0.3218, 0.4713) {};
-\node [circle, draw, Black!20, fill=Black!80, fill=Black, minimum size=1pt, label=above:$V_{new}$] at (0.0102, 0.4095) {};
+\draw [color=black!70, fill=Gray!40, very thick] (-0.16, 0) -- (-0.166329423997092, 0.224535495443257) -- (0.0102, 0.4095) --(0.3218, 0.4713) -- (1,0) -- (-0.16, 0);
+
+\draw [color=blue, fill=matlabb!70, very thick] (-0.16, 0) -- (-0.166329423997092, 0.224535495443257) -- (0.3218, 0.4713) -- (1,0) -- (-0.16, 0);
+
+\node [circle, draw, Magenta, fill=black, minimum size=1pt, scale=0.5] at (-0.165251675539513, 0.00395046562776303) {};
+\node [circle, draw, Magenta, fill=black, minimum size=1pt, scale=0.5] at (-0.166329423997092, 0.224535495443257) {};
+\node [circle, draw, Magenta, fill=black, minimum size=1pt, scale=0.5] at (1,0) {};
+\node [circle, draw, Magenta, fill=black, minimum size=1pt, scale=0.5] at (0.3218, 0.4713) {};
+\node [circle, draw, Magenta, fill=black, minimum size=1pt, label=above:$V_{new}$, scale=0.5] at (0.0102, 0.4095) {};
 \end{axis}
 \end{tikzpicture}%

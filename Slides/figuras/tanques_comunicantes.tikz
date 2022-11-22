@@ -1,5 +1,5 @@
 \usetikzlibrary{calc}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
     \draw [ultra thin,color=Gray!20,fill] (0,-.5) rectangle (2.5,-3);
     \draw [ultra thin,color=Gray!20,fill] (2.5,-3) rectangle ++(1.5,.3);
     \draw [ultra thin,color=Gray!20,fill] (6,-1.5) rectangle (8.5,-3);

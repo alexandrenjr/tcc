@@ -4,7 +4,7 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale = 0.48]
 
 \begin{axis}[%
   axis lines=center,
@@ -19,7 +19,7 @@
   ytick=\empty,
   xticklabel style={anchor=south west, draw=none},
   xlabel={$X$},
-  ylabel={$\jmath Y$},
+  ylabel={$jY$},
   x label style={anchor=north}
 ]
 \addplot [color=black, dashed, forget plot]

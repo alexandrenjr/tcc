@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,10pt,t,xcolor={usenames,dvipsnames,x11names}]{beamer}
+\documentclass[aspectratio=169,11pt,t,xcolor={usenames,dvipsnames,x11names}]{beamer}
 \usepackage[default,oldstyle]{opensans}
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
@@ -16,11 +16,8 @@
 \usepackage{pgfplots}
 \usepackage{siunitx}
 \usepackage{algorithm,algorithmicx,algpseudocode}
-%\usepackage{listings,listingsutf8}
 \usepackage{listingsutf8}
 \usepackage[numbered,framed]{matlab-prettifier}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tema usado
@@ -30,6 +27,8 @@
 
 \definecolor{matlabb}{HTML}{0072BD}
 \definecolor{matlabo}{HTML}{D95319}
+\definecolor{RoyalBlue60Black}{HTML}{48648c}
+\definecolor{BrickRed80Black}{HTML}{a03424}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Opções do tema, como cor dos textos e do plano de fundo
@@ -51,49 +50,50 @@
 	}
 
 %% Cor dos itens do tema
-\setbeamercolor{palette primary}{fg=MyYellow, bg=RoyalBlue}
-\setbeamercolor{palette secondary}{fg=Goldenrod, bg=RoyalBlue}
-\setbeamercolor{palette tertiary}{fg=Goldenrod, bg=RoyalBlue}
-\setbeamercolor{page number in head/foot}{fg=RoyalBlue}
+%\setbeamercolor{palette primary}{fg=MyYellow, bg=RoyalBlue}
+%\setbeamercolor{palette secondary}{fg=Goldenrod, bg=RoyalBlue}
+%\setbeamercolor{palette tertiary}{fg=Goldenrod, bg=RoyalBlue}
+\setbeamercolor{page number in head/foot}{fg=Black}
 %\setbeamercolor{background canvas}{bg=black}
 %\setbeamercolor{normal text}{fg=white}
 
 %% Cor do título do slide de apresentação
-\setbeamercolor{title}{fg=RoyalBlue, bg=white}
+\setbeamercolor{title}{fg=RoyalBlue!60!black, bg=white}
 
 %% Cor do título dos slides
-\setbeamercolor{frametitle}{fg=Red, bg=white}
+\setbeamercolor{frametitle}{fg=RoyalBlue!60!black, bg=white}
 
 %% Cor dos itens do sumário
-\setbeamercolor{section in toc}{fg=Red}
-\setbeamercolor{section number projected}{fg=white, bg=RoyalBlue}
+\setbeamercolor{section in toc}{fg=RoyalBlue!60!black}
+\setbeamercolor{section number projected}{fg=white, bg=RoyalBlue!60!black}
 
 %% Cores dos itens do itemize
-\setbeamercolor{itemize item}{fg=RoyalBlue}
-\setbeamercolor{itemize subitem}{fg=RoyalBlue}
-\setbeamercolor{itemize subsubitem}{fg=RoyalBlue}
+\setbeamercolor{itemize item}{fg=BrickRed!80!black}
+\setbeamercolor{itemize subitem}{fg=BrickRed!80!black}
+\setbeamercolor{itemize subsubitem}{fg=BrickRed!80!black}
 
 %% Cores dos itens do enumerate
-\setbeamercolor{enumerate item}{fg=RoyalBlue}
-\setbeamercolor{enumerate subitem}{fg=RoyalBlue}
-\setbeamercolor{enumerate subsubitem}{fg=RoyalBlue}
+\setbeamercolor{enumerate item}{fg=BrickRed!80!black}
+\setbeamercolor{enumerate subitem}{fg=BrickRed!80!black}
+\setbeamercolor{enumerate subsubitem}{fg=BrickRed!80!black}
 
 %% Cores dos textos em alerta
-\setbeamercolor{alerted text}{fg=Red}
-%\setbeamercolor{block title}{fg=red}
-%\setbeamercolor{block body}{bg=black}
-%\setbeamercolor{block title alerted}{fg=red}
+\setbeamercolor{alerted text}{fg=BrickRed!80!black}
+\setbeamercolor{block title}{bg=RoyalBlue!80!black, fg=white}
+\setbeamercolor{block body}{bg=RoyalBlue60Black!10!white, fg=black}
+\setbeamercolor{block title alerted}{bg=BrickRed!80!black, fg=white}
+\setbeamercolor{block body alerted}{bg=BrickRed80Black!10!white, fg=black}
 %\setbeamercolor{block title example}{fg=green}
 
 %% Cores das legendas
 \setbeamercolor{caption name}{fg=RoyalBlue}
 
 %% Opções de cores da bibliografia
-\setbeamercolor{bibliography entry author}{fg=Red}
+\setbeamercolor{bibliography entry author}{fg=RoyalBlue!60!black}
 \setbeamercolor{bibliography entry title}{fg=black}
-\setbeamercolor{bibliography entry location}{fg=RoyalBlue}
+\setbeamercolor{bibliography entry location}{fg=Gray!50!black}
 \setbeamercolor{bibliography entry note}{fg=black}
-\setbeamercolor{bibliography item}{fg=RoyalBlue}
+\setbeamercolor{bibliography item}{fg=BrickRed!80!black}
 
 %% Comando para remover os botões de navegação
 \beamertemplatenavigationsymbolsempty
@@ -140,6 +140,19 @@
 	quotes
 }
 
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\cotg}{cotg}
+\DeclareMathOperator{\angulo}{ang}
+\DeclareMathOperator{\loc}{loc}
+\DeclareMathOperator{\realwn}{RealWn}
+\DeclareMathOperator{\s}{\textbf{s}}
+\DeclareMathOperator{\z}{\textbf{z}}
+\DeclareMathOperator{\Herm}{\mathcal{V}}
+\DeclareMathOperator{\herm}{\mathcal{\bar{V}}}
+
 \renewcommand{\lstlistingname}{Código}
 \AtBeginDocument{
 	\renewcommand{\thelstlisting}{\arabic{lstlisting}}
@@ -174,7 +187,6 @@
 	\renewcommand{\algorithmicwhile}{\textbf{enquanto}}
 	\renewcommand{\algorithmicdo}{\textbf{faça}}
 	\renewcommand{\algorithmicfor}{\textbf{para}}
-  \renewcommand{\listalgorithmname}{List of \ALG@name s}
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -200,14 +212,47 @@
 \frame{\tableofcontents}
 
 \section{Introdução}
+\begin{frame}{Introdução}
+	\begin{block}{Resumo}
+		Este trabalho implementou em software algoritmos desenvolvidos nos últimos anos na Teoria de Controle que aproximam em LMI regiões do plano $\z$ que não são convexas. A partir de parâmetros de projetos informados, o algoritmo verifica a factibilidade da solução e, caso possível, retorna um compensador que estabiliza o sistema discretizado.
+	\end{block}\pause
+	\begin{alertblock}{Problema}
+		\begin{itemize}
+			\item Algumas regiões do plano $\z$ não convexas;
+			\item Logo, não podem ser representadas via LMIs;
+			\item Alguns estudos apresentaram soluções para regiões específicas;
+			\item Contudo, ainda não havia um algoritmo que engloba todas as soluções.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
 
+\section{Base teórica}
 \begin{frame}{Resposta ao impulso de um sistema de segunda ordem}
 	\begin{figure}[!ht]
 		\centering
 		\input{figuras/ImpulseResponse.tikz}
-		\caption{Reposta ao impulso de um sistema de segunda ordem.}
-		\label{fig:ImpulseResponse}
 	\end{figure}
+\end{frame}
+
+\subsection{Regiões de polos do plano contínuo}
+\begin{frame}{Representação de polos no plano $\s$}
+	\begin{itemize}
+		\item Dado um par de polos conjugados, dado por:\\~\\
+		
+		\begin{equation}
+			\s = -\zeta\omega_n \pm j\omega_n\sqrt{1-\zeta^2}\label{eq:PontoPlanoS}
+		\end{equation}\pause
+		
+		\begin{block}{Definição}
+			A regiões de polos de interesse são obtidas a partir da localização dos polos. Assim, \eqref{eq:PontoPlanoS} pode ser reescrita como:
+			
+			\begin{equation}
+				\s(\zeta,\omega_n) = -\zeta\omega_n \pm j\omega_n\sqrt{1-\zeta^2}
+			\end{equation}
+			\\~\\
+			Fixando-se um valor para um parâmetro e variando o outro, as regiões de polos dos contínuos são definidas.
+		\end{block}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[c]{Regiões de polos do plano contínuo}
@@ -215,40 +260,438 @@
 		\centering
 		\begin{subfigure}[t]{0.3\columnwidth}
 				\input{figuras/ssigma.tikz}
-				\caption{}
-				\label{subfig:EstabilidadeRelativaS}
-		\end{subfigure}\quad
+		\end{subfigure}\pause\quad
 		\begin{subfigure}[t]{0.3\columnwidth}
 				\input{figuras/szeta.tikz}
-				\caption{}
-				\label{subfig:TaxaDeAmortecimentoS}
-		\end{subfigure}\quad
+		\end{subfigure}\pause\quad
 		\begin{subfigure}[t]{0.3\columnwidth}
 			\input{figuras/swn.tikz}
-			\caption{}
-			\label{subfig:OscilacaoNaoAmortecidaS}
 		\end{subfigure}
 	\end{figure}
 \end{frame}
 
-\begin{frame}[c]{Regiões de polos do plano discreto}
+\subsection{Regiões de polos do plano discreto}
+\begin{frame}{Relação entre os planos $\s$ e $\z$}
+	\begin{itemize}
+		\item A transformada que leva um ponto do plano $\s$ para o plano $\z$ é:\\~\\
+		\begin{itemize}
+			\item $\z = \exp{\left(\s{}T_s\right)}$, onde:\\~\\
+			\item $\s$ é polo no plano $\s$ e;\\~\\
+			\item $T_s$ o período de amostragem.\\~\\
+		\end{itemize}\pause
+		\item A região de estabilidade nos discretos é o interior de uma circunferência unitária, pois:\\~\\
+		\begin{itemize}
+			\item $\real{\left(\s\right)} <= 0 \implies \z = \exp{\left(-|\sigma|T_s\right)}$.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Regiões de polos do plano discreto -- $\sigma$-constante}
 	\begin{figure}[!ht]
 		\centering
-		\begin{subfigure}[t]{0.3\columnwidth}
+		\begin{subfigure}[t]{0.4\columnwidth}
+				\input{figuras/ssigma.tikz}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\columnwidth}
 				\input{figuras/zsigma.tikz}
-				\caption{}
-				\label{subfig:EstabilidadeRelativaZ}
 		\end{subfigure}
-		\begin{subfigure}[t]{0.3\columnwidth}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[c]{Regiões de polos do plano discreto -- $\zeta$-constante I}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\small
+			\begin{itemize}
+				\item $z(\zeta,\omega_n) = \exp{\left(-\zeta\omega_nT_s \pm j\omega_nT_s\sqrt{1-\zeta^2}\right)}$;\\~\\
+				\item O ponto máximo extremo possui ângulo igual à $\pi$;\\~\\
+				\item Assim, os valores dos pontos extremos são:
+				\begin{subequations}
+					\begin{align}
+						\omega_{nmin} &= 0\\
+						\omega_{nmax} &= \dfrac{\pi}{Ts\omega_n\sqrt{1-\zeta^2}}
+					\end{align}
+				\end{subequations}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}[!ht]
+				\centering
+					\input{figuras/espiral_logaritmica.tikz}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[c]{Regiões de polos do plano discreto -- $\zeta$-constante II}
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.4\columnwidth}
+				\input{figuras/szeta.tikz}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\columnwidth}
 				\input{figuras/zzeta.tikz}
-				\caption{}
-				\label{subfig:TaxaDeAmortecimentoZ}
 		\end{subfigure}
-		\begin{subfigure}[t]{0.3\columnwidth}
-			\input{figuras/zwn.tikz}
-			\caption{}
-			\label{subfig:OscilacaoNaoAmortecidaZ}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[c]{Regiões de polos do plano discreto -- $\omega_n$-constante}
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\columnwidth}
+				\input{figuras/swn.tikz}
 		\end{subfigure}
+		\begin{subfigure}[t]{0.45\columnwidth}
+				\input{figuras/zwn.tikz}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+\subsection{Regiões LMI de interesse}
+\begin{frame}{Regiões LMI de interesse}
+		\begin{equation}
+		  \begin{bmatrix*}[c]
+		    -rP       & * \\
+		    PA + Z'B  & -rP
+		  \end{bmatrix*}
+		  \prec 0\label{eq:LMIEstabilidadeRelativa}
+		\end{equation}
+		\\~\\\pause	
+		\begin{equation}
+			\begin{bmatrix*}[c]
+		    \sen{(\theta)(\Herm{(AP)} + \Herm{(BZ)} -2\alpha P)} &  * \\
+		    \cos{(\theta)(\herm{(PA')} + \herm{(Z'B')})}      &  \sen{(\theta)(\Herm{(AP)} + \Herm{(BZ)} -2\alpha P)}
+		  \end{bmatrix*}
+		  \prec 0\label{eq:LMIESetorConicoEsquerdo}
+		\end{equation}
+		\\~\\\pause
+		\begin{equation}
+		  \begin{bmatrix*}[c]
+		    \sen{(\theta)(2\alpha P - \Herm{(AP)} - \Herm{BZ})} & * \\
+		    \cos{(\theta)(\herm{(PA')} + \herm{Z'B'})}       & \sen{(\theta)(2\alpha P - \Herm{(AP)} - \Herm{(BZ)})}
+		  \end{bmatrix*}
+		  \prec 0\label{eq:LMIESetorConicoDireito}
+		\end{equation}
+		\\~\\\pause
+		\begin{equation}
+	  		AP + BZ + Z'B' + PA' -2\alpha P\label{eq:LMIRightBounded} \succ 0
+		\end{equation}
+\end{frame}
+
+\section{Algoritmo proposto}
+\subsection{Aproximação cônica}
+\begin{frame}[c]{Aproximação cônica I}
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\columnwidth}
+				\input{figuras/aproximacao_conica_zeta.tikz}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\columnwidth}
+				\input{figuras/aproximacao_conica_wn.tikz}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[c]{Aproximação cônica II}
+	  \begin{algorithmic}[1]
+	    \Require $\sigma$, $\zeta$, $T_s$
+	    \Ensure $K$
+	    \State $L \gets $ $\z(\zeta,\omega_{nmin})$
+	    \State $N \gets $ $\z\left(\zeta,\omega_{nmax}\right)$
+	    \State $M \gets \z(\zeta,\omega_n)$, onde a área do triângulo formado é a maior possível
+	    \State $F \gets P \succ 0$
+	    \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+	    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$ com $\alpha = L$ e $\theta = \angulo(M,N)$ \Comment{Setor cônico esquerdo}
+	    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = N$ e $\theta = \angulo(L,M)$ \Comment{Setor cônico direito}
+	    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$ com $\alpha = N$  \Comment{Reta vertical}
+	    \State Verificar se o problema é factível
+	    \State $K \gets ZP^{-1}$
+	  \end{algorithmic}
+\end{frame}
+
+\begin{frame}[c]{Aproximação cônica III}
+	  \begin{algorithmic}[1]
+	    \Require $\sigma$, $\omega_n$
+	    \Ensure $K$
+	    \State $Q \gets $ $\z(\zeta_{min},\omega_n)$
+	    \State $R \gets $ $\z(\zeta_{max},\omega_n)$
+	    \State $F \gets P \succ 0$
+	    \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+	    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$ com $\alpha = R$ e $\theta = \angulo(Q,R)$ \Comment{Setor cônico direito}
+	    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$ com $\alpha = R$ \Comment{Reta vertical}
+	    \State Verificar se o problema é factível
+	    \State $K \gets ZP^{-1}$
+	  \end{algorithmic}
+\end{frame}
+
+\subsection{Aproximação elíptica}
+\begin{frame}[c]{Aproximação elíptica I}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}[!ht]
+				\centering
+				\input{figuras/aproximacao_eliptica_wn.tikz}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.7\textwidth}
+		\small
+			\begin{align*}
+				\mathbb{E}: &\dfrac{(x-1)^2}{\left(1-\exp{\left(-\frac{2\pi}{N_y}\right)}\right)^2} +\dots\\
+				&\dots+\dfrac{\left(\left(1-\exp{\left(-\frac{2\pi}{N_y}\right)}\right)^2 - \left(\cos{\left(\frac{2\pi}{N_y}\right)} - 1\right)^2\right)y^2}{\left(1-\exp{\left(-\frac{2\pi}{N_y}\right)}\right)^2\sen{\left(\frac{2\pi}{N_y}\right)}} = 1\label{eq:Elipse}
+\end{align*}
+			\\~\\\pause
+			\begin{equation}
+  				N_y = \dfrac{\omega_s}{\omega_n} = \dfrac{2\pi}{\omega_nT_s}\label{eq:ConstanteNy}
+			\end{equation}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[c]{Aproximação elíptica II}
+	\begin{equation}
+	  \begin{bmatrix*}[c]
+	    -P & *\\
+	    -\dfrac{1}{a}P + \dfrac{1}{2}\left(\dfrac{1}{a}+\dfrac{1}{b}\right)AP + \dfrac{1}{2}\left(\dfrac{1}{a}-\dfrac{1}{b}\right)PA' & -P
+	  \end{bmatrix*}
+	  \prec 0\label{eq:LMIElipse}
+	\end{equation}
+	
+	\noindent onde:
+	\begin{subequations}
+	  \label{eq:PontosElipse}
+	  \begin{align}
+	    a &= \left(1-\exp{\left(\frac{-2\pi}{N_y}\right)}\right)\label{eq:PontoAElipse}\\
+	    b &= a\sen{\left(\frac{2\pi}{Ny}\right)}\label{eq:PontoBElipse}
+	  \end{align}
+	\end{subequations}
+\end{frame}
+
+\begin{frame}[c]{Aproximação elíptica III}
+	  \begin{algorithmic}[1]
+	    \Require $\sigma$, $T_s$, $N_y$
+	    \Ensure $K$
+	    \State $F \gets P \succ 0$
+	    \State $F \gets F \cap \eqref{eq:LMIEstabilidadeRelativa}$, com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+	    \State $F \gets \eqref{eq:LMIElipse}$, com $a = \eqref{eq:PontoAElipse}$ e $b = \eqref{eq:PontoBElipse}$ \Comment{Elipse}
+	    \State Verificar se o problema é factível
+	    \State $K \gets ZP^{-1}$
+	  \end{algorithmic}
+\end{frame}
+
+\subsection{Aproximação polígonal}
+\begin{frame}[c, allowframebreaks]{Aproximação polígonal da região $\zeta$-constante}
+	  \begin{algorithmic}[1]
+	    \Require $\sigma$, $\zeta$, $T_s$
+	    \Ensure $K$
+	    \State $l \gets 0$
+	    \State $L \gets \z(\zeta,\omega_{nmin})$
+	    \State $N \gets \z(\zeta,\omega_{nmax})$
+	    \State $M \gets \z(\zeta,\omega_n)$ tal que $\real{(M)} = N$
+	    \State $pts1 \gets$ [$0$ $\omega_{ne}$]
+	    \State $pts2 \gets pts1$
+	    \State $vec1 \gets$ [$L$ $M$]
+	    \State $vec2 \gets vec1$
+	    \State $F \gets P \succ 0$
+	    \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+	    \State $F \gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = L$ e $\theta = \angulo(L,M)$ \Comment{Voltado para a esquerda}
+	    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = N$ \Comment{Reta vertical}
+	    \State Verificar se o problema é factível
+	    \While{Problema for infactível}
+	      \If{$l < $ número de elementos em $vec1 - 1$}
+	        \State $l \gets l + 1$
+	      \Else
+	        \State $l \gets 1$
+	        \State $vec1 \gets vec2$
+	        \State $pts1 \gets pts2$
+	      \EndIf
+	        \State $F \gets$ \O \Comment{Descarta as restrições anteriores}
+	        \State $F \gets P \succ 0$
+	        \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+	        \State $pt_{new1} \gets (pts1(l)+pts1(l+1))/2$
+	        \State $V_{new1} \gets \z(\zeta, pt_{new1})$
+	        \State $pts2 \gets$ [$pts2$ $pt_{new1}$]
+	        \State Orderna de forma decrescente $pts2$
+	        \State $vec2 \gets$ [$vec2$ $V_{new1}$]
+	        \State Orderna de forma decrescente $vec2$
+	        \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = N$ \Comment{Reta vertical}
+	        \For{$m = 1$ até número de elementos de $vec1-1$}
+	          \State $u_1 \gets \loc(vec2(m),vec2(m+1))$
+	          \If{$u_1 < 0$}
+	            \State $F\gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = u_1$ e $\theta = \angulo(vec2(m+1),u_1)$ \Comment{Voltado para a direita}
+	          \Else
+	            \State $F\gets F \cap \eqref{eq:LMIESetorConicoEsquerdo}$, com $\alpha = u_1$ e $\theta = \angulo(vec2(m+1),u_1)$ \Comment{Voltado para a esquerda}
+	          \EndIf
+	        \EndFor
+	        \State Verificar se o problema é factível 
+	    \EndWhile
+	    \State $K \gets ZP^{-1}$
+	  \end{algorithmic}
+\end{frame}
+
+\begin{frame}[b]
+	\begin{figure}
+		\centering
+		\input{figuras/aproximacao_poligonal_zeta_l1.tikz}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[b]
+	\begin{figure}
+		\centering
+		\input{figuras/aproximacao_poligonal_zeta_l2.tikz}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[b]
+	\begin{figure}
+		\centering
+		\input{figuras/aproximacao_poligonal_zeta_l3.tikz}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[b]
+	\begin{figure}
+		\centering
+		\input{figuras/aproximacao_poligonal_zeta_l4.tikz}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[c, allowframebreaks]{Aproximação polígonal da região $\omega_n$-constante}
+	  \begin{algorithmic}[1]
+    \Require $\sigma$, $\omega_n$, $T_s$
+    \Ensure $K$
+    \State $l \gets 0$
+    \State $Q \gets \z(\zeta_{min},\omega_n)$
+    \State $R \gets \z(\zeta_{max},\omega_n)$
+    \State $pts3 \gets$ [$\zeta_{min}$ $\zeta_{max}$]
+    \State $pts4 \gets pts3$
+    \State $vec3 \gets$ [$R$ $Q$]
+    \State $vec4 \gets vec3$
+    \State $F \gets P \succ 0$
+    \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+    \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = R$ e $\theta = \angulo(Q,R)$ \Comment{Voltado para a direita}
+    \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = R$ \Comment{Reta vertical}
+    \State Verificar se o problema é factível
+    \While{Problema for infactível}
+      \If{$l < $ número de elementos em $vec3 - 1$}
+        \State $l \gets l + 1$
+      \Else
+        \State $l \gets 1$
+        \State $vec3 \gets vec4$
+        \State $pts1 \gets pts2$
+      \EndIf
+        \State $F \gets$ \O \Comment{Descarta as restrições anteriores}
+        \State $F \gets P \succ 0$
+        \State $F \gets \eqref{eq:LMIEstabilidadeRelativa}$ com $r = \exp{\left(-|\sigma|T_s\right)}$ \Comment{Taxa de amortecimento}
+        \State $pt_{new2} \gets (pts3(l)+pts3(l+1))/2$
+        \State $V_{new2} \gets \z(pt_{new2}, \omega_n)$
+        \State $pts4 \gets$ [$pts4$ $pt_{new2}$]
+        \State Orderna de forma decrescente $pts4$
+        \State $vec4 \gets$ [$vec4$ $V_{new2}$]
+        \State Orderna de forma decrescente $vec4$
+        \State $F \gets F \cap \eqref{eq:LMIRightBounded}$, com $\alpha = N$ \Comment{Reta vertical}
+        \For{$m = 1$ até número de elementos de $vec3-1$}
+          \State $u_2 \gets \loc(vec4(m),vec4(m+1))$
+          \State $F \gets F \cap \eqref{eq:LMIESetorConicoDireito}$, com $\alpha = u_2$ e $\theta = \angulo(vec4(m),u_2)$
+        \EndFor
+        \State Verificar se o problema é factível
+    \EndWhile
+    \State $K \gets ZP^{-1}$
+  \end{algorithmic}
+\end{frame}
+
+\begin{frame}[b]
+	\begin{figure}
+		\centering
+		\input{figuras/aproximacao_poligonal_wn_l1.tikz}
+		\input{figuras/aproximacao_poligonal_wn_l2.tikz}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[b]
+	\begin{figure}
+		\centering
+		\input{figuras/aproximacao_poligonal_wn_l3.tikz}
+		\input{figuras/aproximacao_poligonal_wn_l4.tikz}
+	\end{figure}
+\end{frame}
+
+\section{Problema-exemplo}
+\begin{frame}[c]{Problema-exemplo I}
+	\begin{figure}
+		\centering
+		\input{figuras/tanques_comunicantes.tikz}
+	\end{figure}
+	\pause
+	\begin{subequations}
+  \begin{align}
+    \dot{\pmb{\mathrm{x}}} &= \begin{bmatrix*}[c]
+      -(R_1C_{eq})^{-1} & (R_1C_2)^{-1}\\
+      (R_2C_2)^{-1} & -(R_2C_2)^{-1}
+    \end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
+      (R_1C_1)^{-1}\\
+      0
+    \end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSTCEntrada}\\
+    \pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
+      R_1 & 0
+    \end{bmatrix*}\pmb{\mathrm{x}}\label{eq:SSTCSaida}
+  \end{align}
+\end{subequations}
+onde $C_{eq} = C_1C_2/(C_1 + C_2)$.
+\end{frame}
+
+\begin{frame}{Problema-exemplo II}
+	\begin{itemize}
+		\item $C_1 = C_2 = 5$;\\~\\
+		\item $R_1 = R_2 = 1$;\\~\\
+		\item $T_s = \SI{10}{\second}$.
+	\end{itemize}\pause
+	\begin{subequations}
+  \begin{align}
+    \pmb{\mathrm{x^{+}}} &= \begin{bmatrix*}[c]
+      -0.4286 & -0.2857\\
+      0.2857 & -0.1429
+    \end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
+      0.5714\\
+      0.2857
+    \end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSDTCEntrada}\\
+    \pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
+      0.2857 & -0.1426
+    \end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
+      0.2857
+    \end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSDTCSaida}
+  \end{align}
+\end{subequations}
+	\pause
+	\begin{itemize}
+		\item $t_s = \SI{50}{\second}$;\\~\\
+		\item $\zeta = 0.5 \implies M_P \leq 0.16$\\~\\
+		\item $\omega_n = \SI{0.1}{\radian/\second}$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Problema-examplo III}
+	\begin{figure}[!ht]
+  \centering
+  \begin{subfigure}[t]{0.3\columnwidth}
+    \input{figuras/pzmap_testeC.tikz}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.3\columnwidth}
+    \input{figuras/pzmap_testeE.tikz}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.3\columnwidth}
+    \input{figuras/pzmap_testeP.tikz}
+  \end{subfigure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Problema-exemplo IV}
+	\begin{itemize}
+			\item $\left[K_cK_eK_p\right] = \left[2.4159 \enspace -0.1554\right] \left[2.5358 \enspace -0.1842\right] \left[2.4159 \enspace -0.1554\right]$\\~\\
+		\end{itemize}
+	\begin{figure}[!ht]
+		\centering
+	  \input{figuras/tc_impulse_ALL.tikz}
 	\end{figure}
 \end{frame}
 
