@@ -23,7 +23,7 @@
   ylabel style={rotate=-90},
   ytick distance = 0.1
   ]
-  \addplot [color=black, dashed, forget plot]
+  \addplot [color=black, forget plot]
     table[row sep=crcr]{%
   0.54030230586814	0.841470984807897\\
   0.534967863382191	0.833071460593297\\
@@ -128,9 +128,9 @@
   0.367879441171442	0\\
   };
 
-  \draw [color=matlabo, fill=matlabo!50, very thick] (0.367879441171442, 0) -- (0.3929, 0.4620) -- (0.54030230586814, 0.841470984807897) -- (0.367879441171442, 0);
+  \draw [color=black!70, fill=Gray!40, very thick] (0.367879441171442, 0) -- (0.3929, 0.4620) -- (0.54030230586814, 0.841470984807897) -- (0.367879441171442, 0);
 
-  \addplot [color=matlabb, fill=matlabb!50, forget plot]
+  \addplot [color=blue, fill=matlabb!70, very thick]
     table[row sep=crcr]{%
   1	0\\
   0.999950000416665	0.00999983333416666\\

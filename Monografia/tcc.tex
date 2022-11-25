@@ -106,22 +106,24 @@ brazil
 
 \begin{document}
 
+\pretextual
 \imprimircapa
 \imprimirfolhaderosto
 
 \include{capitulos/folhadeaprovacao}
 
 \begin{resumo}
-	Este trabalho implementou em \emph{software} algoritmos desenvolvidos nos últimos anos na Teoria de Controle que aproximam em LMI regiões do plano $\z$ que não são convexas. A partir de parâmetros de projetos informados, o algoritmo verifica a factibilidade da solução e, caso possível, retorna um compensador que estabiliza o sistema discretizado. 
+	Este trabalho implementou em \emph{software} algoritmos desenvolvidos nos últimos anos na Teoria de Controle que aproximam em Desigualdades Matriciais Lineares (LMI) regiões do plano $\z$ que não são convexas, tais como as regiões $\zeta$-constante, referente ao máximo sobressinal, e $\omega_n$-constante, caracterizada pela largura de banda passante. Os métodos utilizados para tal tarefa consiste em restrições cônicas e elípticas para a localização de pólos que são facilmente descritas em LMIs, onde o conjunto destas se torna um problema de otimização. Através da programação semi-definida, a solução é encontrada numericamente e, caso seja possível alocar os pólos respeitando os parâmetros de projeto informados, o algoritmo retorna um ganho que estabiliza o sistema. Um problema-exemplo foi tratado ao final para demostrar o funcionamento do algoritmo proposto. 
 \end{resumo}
 
 \tableofcontents
-
+\textual
 \include{capitulos/capitulo1}
 \include{capitulos/capitulo2}
 \include{capitulos/capitulo3}
 \include{capitulos/capitulo4}
 \include{capitulos/capitulo5}
+\postextual
 \include{capitulos/referencias}
 
 \begin{anexosenv}

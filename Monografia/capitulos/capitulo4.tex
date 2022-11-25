@@ -1,159 +1,159 @@
 \chapter{Testes e Simulações}
 
-Para ilustrar o funcionamento dos algoritmos, foi proposta uma planta hidráulica composta por um sistema de tanques comunicantes. A figura \ref{fig:TanquesComunicantes} mostra um esboço de tal sistema. O tanque com capactância $C_1$ é interligado com um de capacitância $C_2$. Aquele é alimentado por uma vazão $q$ e é drenado por uma vazão $q_1$. Tal grandeza é controlada por um registro, que pode ser enxergado como um resistor de resistência $R_1$.
+Para ilustrar o funcionamento dos algoritmos, foi proposta uma planta hidráulica composta por um sistema de tanques comunicantes. A figura \ref{fig:TanquesComunicantes} mostra um esboço de tal sistema. O tanque com capacitância $C_1$ é interligado com um de capacitância $C_2$. Aquele é alimentado por uma vazão $q$ e é drenado por uma vazão $q_1$. Tal grandeza é controlada por um registro, que pode ser enxergado como um resistor de resistência $R_1$.
 
 Ainda, devido à ligação, a vazão de saída do primeiro tanque é a entrada do segundo. Este é drenado por uma vazão $q_2$, onde é controlado por um registro $R_2$. A variável controlada é a diferença $h_1 - h_2$.
 
 \begin{figure}[!ht]
-  \centering
-  \input{figuras/tanques_comunicantes.tikz}
-  \caption{Tanques comunicantes.}
-  \label{fig:TanquesComunicantes}
+\centering
+\input{figuras/tanques_comunicantes.tikz}
+\caption{Tanques comunicantes.}
+\label{fig:TanquesComunicantes}
 \end{figure}
 
 \section{Modelagem via espaço de estados}
 Para a representação via espaço de estados, define-se as variáveis de estado $x_1 = q_1$ e $x_2 = q_2$. A partir das relações entre capacitância e vazão, chega-se a seguinte representação no espaço de estados:
 \begin{subequations}
-  \begin{align}
-    \dot{\pmb{\mathrm{x}}} &= \begin{bmatrix*}[c]
-      -(R_1C_{eq})^{-1} & (R_1C_2)^{-1}\\
-      (R_2C_2)^{-1} & -(R_2C_2)^{-1}
-    \end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
-      (R_1C_1)^{-1}\\
-      0
-    \end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSTCEntrada}\\
-    \pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
-      R_1 & 0
-    \end{bmatrix*}\pmb{\mathrm{x}}\label{eq:SSTCSaida}
-  \end{align}
+\begin{align}
+\dot{\pmb{\mathrm{x}}} &= \begin{bmatrix*}[c]
+-(R_1C_{eq})^{-1} & (R_1C_2)^{-1}\\
+(R_2C_2)^{-1} & -(R_2C_2)^{-1}
+\end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
+(R_1C_1)^{-1}\\
+0
+\end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSTCEntrada}\\
+\pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
+R_1 & 0
+\end{bmatrix*}\pmb{\mathrm{x}}\label{eq:SSTCSaida}
+\end{align}
 \end{subequations}
 onde $C_{eq} = C_1C_2/(C_1 + C_2)$. Para discretizar o sistema, é preciso de um valor para o período de amostragem $T_s$. A transformada usada será a bilinear de Tustin, dada por:
 \begin{equation}
-  \s = \dfrac{2}{T_s}\dfrac{\z-1}{\z+1}\label{eq:BilinearTransform}
+\s = \dfrac{2}{T_s}\dfrac{\z-1}{\z+1}\label{eq:BilinearTransform}
 \end{equation}
 onde o semi-plano esquerdo dos contínuos é mapeado no círculo unitário dos discretos.
 
 \section{Parâmetros de projeto}
 Com posse do espaço de estados, é possível sintetizar uma matriz de ganho $K$ que possa estabilizar o sistema. Antes, é necessário atribuir valores para a planta. Sem perda de generalidade, serão escolhidas arbitrariamente tais valores, como segue:
 \begin{itemize}
-  \item $C_1 = C_2 = 5$;
-  \item $R_1 = R_2 = 1$;
-  \item $T_s = \SI{10}{\second}$.
+\item $C_1 = C_2 = 5$;
+\item $R_1 = R_2 = 1$;
+\item $T_s = \SI{10}{\second}$.
 \end{itemize}
 
-Assim, a representação via espaço de estados da planta nos contínuos é dada por:
+A período de amostragem escolhido possui valor elevado devido à dinâmica do sistema, que é na ordem de segundos ou até minutos. Assim, a representação via espaço de estados da planta nos contínuos é dada por:
 \begin{subequations}
-  \begin{align}
-    \dot{\pmb{\mathrm{x}}} &= \begin{bmatrix*}[c]
-      -0.4 & -0.2\\
-      0.2 & -0.2
-    \end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
-      0.2\\
-      0
-    \end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSCTCEntrada}\\
-    \pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
-      1 & 0
-    \end{bmatrix*}\pmb{\mathrm{x}}\label{eq:SSCTCSaida}
-  \end{align}
+\begin{align}
+\dot{\pmb{\mathrm{x}}} &= \begin{bmatrix*}[c]
+-0,4 & -0,2\\
+0,2 & -0,2
+\end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
+0,2\\
+0
+\end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSCTCEntrada}\\
+\pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
+1 & 0
+\end{bmatrix*}\pmb{\mathrm{x}}\label{eq:SSCTCSaida}
+\end{align}
 \end{subequations}
 
 Através do função \texttt{c2d} disponibilizada no MATLAB$\copyright$\cite{MATLAB}, a transformação bilinear é realizada, resultando em:
 \begin{subequations}
-  \begin{align}
-    \pmb{\mathrm{x^{+}}} &= \begin{bmatrix*}[c]
-      -0.4286 & -0.2857\\
-      0.2857 & -0.1429
-    \end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
-      0.5714\\
-      0.2857
-    \end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSDTCEntrada}\\
-    \pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
-      0.2857 & -0.1426
-    \end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
-      0.2857
-    \end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSDTCSaida}
-  \end{align}
+\begin{align}
+\pmb{\mathrm{x^{+}}} &= \begin{bmatrix*}[c]
+-0,4286 & -0,2857\\
+0,2857 & -0,1429
+\end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
+0,5714\\
+0,2857
+\end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSDTCEntrada}\\
+\pmb{\mathrm{y}} &= \begin{bmatrix*}[c]
+0,2857 & -0,1426
+\end{bmatrix*}\pmb{\mathrm{x}} + \begin{bmatrix*}[c]
+0,2857
+\end{bmatrix*}\pmb{\mathrm{u}}\label{eq:SSDTCSaida}
+\end{align}
 \end{subequations}
 
 Após a transformação, a característica mais notável é a presença da matriz $D$: o surgimento de transmissão direta é uma consequência da transformação bilinear\cite{CHIQUETO2021}. Com posse das matrizes obtidas na representação via espaço de estados, é possível escolher os parâmetros de projeto:
 \begin{itemize}
-  \item $t_s = \SI{50}{\second}$;
-  \item $\zeta = 0.5 \implies M_p \leq 0.16$;
-  \item $\omega_n = \SI{0.1}{\radian/\second}$.
+\item $t_s = \SI{50}{\second}$;
+\item $\zeta = 0,5 \implies M_p \leq 0,16$;
+\item $\omega_n = \SI{0,1}{\radian/\second}$.
 \end{itemize}
 
-Neste caso, o raio da circunferência relativo à estabilidade possui valor igual à $0.4493$. Ainda, a constante $N_y$ possui o valor de $6.2832$, acima do recomendado. Além disso, a maior frequencia natural não-amortecida de malha aberta do sistema discretizado possui o valor igual a $\SI{0.3780}{\radian/\second}$.
+Neste caso, o raio da circunferência relativo à estabilidade possui valor igual à $0,4493$. Ainda, a constante $N_y$ possui o valor de $6,2832$, acima do recomendado. Além disso, a maior frequência natural não-amortecida de malha aberta do sistema discretizado possui o valor igual a $0,3780\,\si{\radian/\second}$.
 
-Ao executar o algoritmo utilizando a aproximação cônica, a solução proposta é infactível. Ao checar a solução, apenas houve uma infactibilidade em relação à taxa de amortecimento. Tal fenômeno é comum em solucionadores numéricos, uma vez que podem admitir uma certa infactibilidade. A figura \ref{subfig:TesteC} mostra o diagrama de polos do sistema compensado. É possível notar que o sistema é estável, mesmo com a negativa do algoritmo.
+Ao executar o algoritmo utilizando a aproximação cônica, a solução proposta é infactível. Ao checar a os resíduos da solução, apenas houve uma infactibilidade em relação à taxa de amortecimento (o resíduo associado é negativo). Tal fenômeno é comum em solucionadores numéricos, uma vez que podem admitir uma certa infactibilidade. A figura \ref{subfig:TesteC} mostra o diagrama de pólos do sistema compensado. É possível notar que o sistema é estável, mesmo com a negativa do algoritmo.
 
 \begin{figure}[!ht]
-  \centering
-  \begin{subfigure}[t]{0.3\columnwidth}
-    \input{figuras/pzmap_testeC.tikz}
-      \caption{}
-      \label{subfig:TesteC}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.3\columnwidth}
-    \input{figuras/pzmap_testeE.tikz}
-      \caption{}
-      \label{subfig:TesteE}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.3\columnwidth}
-    \input{figuras/pzmap_testeP.tikz}
-    \caption{}
-    \label{subfig:TesteP}
-  \end{subfigure}
-  \caption{Diagrama de polos do sistema compensado com a matriz de ganho $K$ obtido na \subref{subfig:TesteC} aproximação cônica, \subref{subfig:TesteE} elíptica e \subref{subfig:TesteP} poligonal.}
-  \label{fig:PrimeiroTeste}
+\centering
+\begin{subfigure}[t]{0.3\columnwidth}
+\input{figuras/pzmap_testeC.tikz}
+\caption{}
+\label{subfig:TesteC}
+\end{subfigure}
+\begin{subfigure}[t]{0.3\columnwidth}
+\input{figuras/pzmap_testeE.tikz}
+\caption{}
+\label{subfig:TesteE}
+\end{subfigure}
+\begin{subfigure}[t]{0.3\columnwidth}
+\input{figuras/pzmap_testeP.tikz}
+\caption{}
+\label{subfig:TesteP}
+\end{subfigure}
+\caption{Diagrama de pólos do sistema compensado com a matriz de ganho $K$ obtido na \subref{subfig:TesteC} aproximação cônica, \subref{subfig:TesteE} elíptica e \subref{subfig:TesteP} poligonal.}
+\label{fig:PrimeiroTeste}
 \end{figure}
 
 O valor da matriz $K$ que estabiliza o sistema é:
 \begin{equation}
-  K = \left[2.5358 \enspace -0.1842\right]\label{res:GanhoC}
+K = \left[2,5358 \enspace -0,1842\right]\label{res:GanhoC}
 \end{equation}
 
-A resposta ao impulso para o sistema em malha fechada está representada na figura \ref{fig:ImpulseC}. O máximo sobressinal é de aproximadamente $5.21\%$, bem abaixo do requisito de projeto.  Como os parâmentros de projeto foram escolhidas arbitrariamente, o tempo de acomodação exigido é maior do que o sistema em malha aberta. Mesmo assim, o algoritmo conseguiu respeitar o requisito.
+A resposta ao impulso para o sistema em malha fechada está representada na figura \ref{fig:ImpulseC}. O máximo sobressinal é de aproximadamente $5,21\%$, bem abaixo do requisito de projeto. Como os parâmentros de projeto foram escolhidos arbitrariamente, o tempo de acomodação exigido é maior do que o sistema em malha aberta. Mesmo assim, o algoritmo conseguiu respeitar o requisito.
 
 \begin{figure}[!ht]
-  \centering
-  \input{figuras/tc_impulse_C.tikz}
-  \caption{Resposta ao impulso do sistema compensado a partir da aproximação cônica. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
-  \label{fig:ImpulseC}
+\centering
+\input{figuras/tc_impulse_C.tikz}
+\caption{Resposta ao impulso do sistema compensado a partir da aproximação cônica. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
+\label{fig:ImpulseC}
 \end{figure}
-
-Para a aproximação elíptica, o algoritmo retornou uma solução factível. É esperado devido o melhor aproveitamento da região $\omega_n$-constante. A figura \ref{fig:ImpulseE} mostra o diagrama de polos do sistema compensando. A matriz de ganho $K$ possui o seguinte valor:
-
-\begin{equation}
-  K = \left[2.5076 \enspace -0.1807\right]\label{res:GanhoE}
-\end{equation}
-
-O máximo sobressinal é de $5.17\%$, também abaixo do especificado. O tempo de acomododação também foi respeitado, conforme visto na figura \ref{fig:ImpulseE}.
 
 \begin{figure}[!ht]
-  \centering
-  \input{figuras/tc_impulse_E.tikz}
-  \caption{Resposta ao impulso do sistema compensado a partir da aproximação elíptica. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
-  \label{fig:ImpulseE}
+\centering
+\input{figuras/tc_impulse_E.tikz}
+\caption{Resposta ao impulso do sistema compensado a partir da aproximação elíptica. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
+\label{fig:ImpulseE}
 \end{figure}
 
-\begin{figure}[!hb]
-  \centering
-  \input{figuras/tc_impulse_P.tikz}
-  \caption{Resposta ao impulso do sistema compensado a partir da aproximação poligonal. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
-  \label{fig:ImpulseP}
-\end{figure}
-
-Já para a aproximação poligonal, o algoritmo retornou uma solução factível com duas iterações. As regiões aproximadas foram representadas na figura \ref{fig:ImpulseP} e a matriz de ganho $K$ é dado por:
+Para a aproximação elíptica, o algoritmo retorna uma solução factível (todos os resíduos referentes às restrições são positivos). É esperado devido o melhor aproveitamento da região $\omega_n$-constante. A figura \ref{fig:ImpulseE} mostra o diagrama de pólos do sistema compensado. A matriz de ganho $K$ possui o seguinte valor:
 
 \begin{equation}
-  K = \left[2.4159 \enspace -0.1554\right]\label{res:GanhoP}
+K = \left[2,5076 \enspace -0,1807\right]\label{res:GanhoE}
 \end{equation}
 
-O máximo sobressinal é de $5.21\%$, também abaixo do especificado. O tempo de acomododação foi dentro do projetado.
+O máximo sobressinal é de $5,17\%$, também abaixo do especificado. O tempo de acomodação também foi respeitado, conforme visto na figura \ref{fig:ImpulseE}.
+
+\begin{figure}[!htb]
+\centering
+\input{figuras/tc_impulse_P.tikz}
+\caption{Resposta ao impulso do sistema compensado a partir da aproximação poligonal. Em azul, encontra-se a saída do sistema não-compensado e em laranja, a saída compensada.}
+\label{fig:ImpulseP}
+\end{figure}
+
+Já para a aproximação poligonal, o algoritmo retorna uma solução factível (os resíduos associados são positivos)com duas iterações. As regiões aproximadas foram representadas na figura \ref{fig:ImpulseP} e a matriz de ganho $K$ é dado por:
+
+\begin{equation}
+K = \left[2,4159 \enspace -0,1554\right]\label{res:GanhoP}
+\end{equation}
+
+O máximo sobressinal é de $5,21\%$, também abaixo do especificado. O tempo de acomodação foi dentro do projetado.
 
 \section{Conclusão parcial}
-Com este pequeno projeto, foi possível observar o funcionamento do algoritmo e da aplicação da programação semidefinida para resolver problemas de otimização que envolvem LMIs. Em adição a isso, para a aproximaçao cônica, o solucionador número retornou uma solução infactível, mesmo sendo estável a solução. Vale ressaltar que nem sempre isso ocorre. Como a aproximação cônica tem uma menor área de cobertura, a região de interesse é menor, o que resulta em uma limitação para possíveis erros.
+Com este pequeno projeto, foi possível observar o funcionamento do algoritmo e da aplicação da programação semidefinida para resolver problemas de otimização que envolvem LMIs. Em adição a isso, para a aproximaçao cônica, o solucionador numérico retorna uma solução infactível, mesmo sendo estável a solução. Vale ressaltar que nem sempre isso ocorre. Como a aproximação cônica tem uma menor área de cobertura, a região de interesse é menor, o que resulta em uma limitação para possíveis erros.
 
 Em relação à aproximação elíptica, como a área de interesse é maior, a solução retornada é totalmente factível, o que resultou em um menor máximo sobressinal e também no tempo de acomodação.
 
-Para a aproximação poligonal, a solução é factível, porém tem o mesmo valor para o máximo sobressinal, pois foi resolvido em duas iterações. A região aproximada tem o formato da figura \ref{fig:ImpulseP}. Como comentado para a aproximação cônica, a área coberta é menor que a da elíptica, porém maior que a da cônica, resultando em uma resposta semelhante à cônica.
+Para a aproximação poligonal, a solução é factível, porém tem o mesmo valor para o máximo sobressinal, pois foi resolvido em duas iterações. A região aproximada tem o formato da figura \ref{fig:ImpulseP}. Como comentado para a aproximação cônica, a área coberta é menor que a da elíptica, porém maior que a da cônica, resultando em uma resposta semelhante à esta.
